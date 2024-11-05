@@ -11,10 +11,16 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
+    "@sanity/icons": "^3.4.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.62.3",
     "clsx": "^2.1.1",
     "next": "15.0.2",
+    "next-sanity": "^9.8.8",
     "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028"
+    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "sanity": "^3.62.3",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@types/node": "^20",
