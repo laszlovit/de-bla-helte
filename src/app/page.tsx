@@ -3,6 +3,7 @@ import { Button } from '@/components/button';
 import { Container } from '@/components/container';
 import NavBar from '@/components/navbar';
 import { Heading } from '@/components/text';
+import { getAllServices } from '@/sanity/lib/services/getAllServices';
 
 function Hero() {
   return (
@@ -159,7 +160,7 @@ function AboutUs() {
 
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
+      <Container>
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
           <div className="px-6 lg:px-0 lg:pr-4 lg:pt-4">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
@@ -238,8 +239,22 @@ function AboutUs() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
+  );
+}
+
+async function Services() {
+  const services = await getAllServices();
+
+  return (
+    <Container>
+      {services.map((service) => (
+        <div key={service._id}>
+          <h2>{service.title}</h2>
+        </div>
+      ))}
+    </Container>
   );
 }
 
@@ -251,6 +266,7 @@ export default function Home() {
       {/* <Header /> */}
       <LogoClouds />
       <AboutUs />
+      <Services />
     </>
   );
 }

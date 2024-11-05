@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
+import { SanityLive } from '@/sanity/lib/live';
 
 const inter = Inter({
   subsets: ['latin-ext'],
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${outfit.variable} antialiased`}>
         {children}
+        <SanityLive />
       </body>
     </html>
   );
