@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Button } from '@/components/button';
 import { Container } from '@/components/container';
 import NavBar from '@/components/navbar';
@@ -163,38 +164,50 @@ function Hero() {
           </Button>
         </div>
         <div className="hidden 2xl:block 2xl:absolute 2xl:left-10 2xl:top-0">
-          <div className="aspect-[1.1891891891891893/1] overflow-hidden rounded-xl shadow-2xl ring-1 ring-black/10 h-48">
-            <img
+          <div className="aspect-[1.1891891891891893/1] overflow-hidden relative h-48">
+            <Image
               alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
               src="/home/hero-1.jpg"
-              className="block size-full object-cover"
+              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
         <div className="hidden 2xl:block 2xl:absolute 2xl:left-5 2xl:bottom-0">
-          <div className="aspect-[1.5808383233532934/1] overflow-hidden rounded-xl shadow-2xl ring-1 ring-black/10 h-32">
-            <img
+          <div className="aspect-[1.5808383233532934/1] overflow-hidden h-32 relative">
+            <Image
               alt=""
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src="/home/hero-2.jpg"
-              className="block size-full object-cover"
+              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
         <div className="hidden 2xl:block 2xl:absolute 2xl:right-5 2xl:top-0">
-          <div className="aspect-[1.5808383233532934/1] overflow-hidden rounded-xl shadow-2xl ring-1 ring-black/10 h-32">
-            <img
+          <div className="aspect-[1.5808383233532934/1] overflow-hidden h-32 relative">
+            <Image
               alt=""
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src="/home/hero-4.jpg"
-              className="block size-full object-cover"
+              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
         <div className="hidden 2xl:block 2xl:absolute 2xl:right-10 2xl:bottom-0">
-          <div className="aspect-[1.1891891891891893/1] overflow-hidden rounded-xl shadow-2xl ring-1 ring-black/10 h-48">
-            <img
+          <div className="aspect-[1.1891891891891893/1] overflow-hidden h-48 relative">
+            <Image
               alt=""
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src="/home/hero-3.jpg"
-              className="block size-full object-cover"
+              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
@@ -211,14 +224,14 @@ function LogoClouds() {
           Trusted by the world’s most innovative teams
         </h2>
         <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          <img
+          <Image
             alt="Transistor"
             src="/home/place-to-logo.png"
             width={158}
             height={48}
             className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
           />
-          <img
+          <Image
             alt="Reform"
             src="/home/rustik-logo.webp"
             width={158}
@@ -237,14 +250,14 @@ function LogoClouds() {
               fill="#E8001D"
             ></path>
           </svg>
-          <img
+          <Image
             alt="SavvyCal"
             src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
             width={158}
             height={48}
             className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
           />
-          <img
+          <Image
             alt="Statamic"
             src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
             width={158}
@@ -260,24 +273,16 @@ function LogoClouds() {
 function AboutUs() {
   const features = [
     {
-      name: 'Push to deploy.',
-      description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      name: 'Flexible scheduling to suit your needs',
     },
     {
-      name: 'SSL certificates.',
-      description:
-        'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+      name: 'Eco-friendly and sustainable cleaning product',
     },
     {
-      name: 'Database backups.',
-      description:
-        'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+      name: 'Skilled and trusted cleaning professionals',
     },
     {
-      name: 'Dummy data.',
-      description:
-        'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+      name: 'Comprehensive cleaning for homes, offices, and more',
     },
   ];
 
@@ -300,25 +305,34 @@ function AboutUs() {
                   >
                     <path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z" />
                   </svg>
-                  <span className="relative"> Provide powerful</span>
+                  <span className="relative">Delivering Exceptional</span>
                 </span>{' '}
-                solutions at all times.
+                Cleaning Solutions
               </p>
               <p className="mt-6 text-lg/8 text-gray-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores impedit perferendis suscipit eaque, iste dolor
-                cupiditate blanditiis ratione.
+                At De Blå Helte, we are committed to providing top-tier cleaning
+                services tailored to meet your unique needs. Our expert team
+                brings professionalism, reliability, and thorough attention to
+                detail to every job, ensuring your spaces are spotless, safe,
+                and inviting.
               </p>
-              <dl className="mt-10 max-w-xl gap-y-8 grid grid-cols-2 text-base/7 text-gray-600 ">
+              <dl className="mt-10 max-w-xl gap-y-8 gap-x-4 grid grid-cols-2 text-base/7 text-gray-600 ">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative">
-                    <div className="flex gap-x-2 items-center font-semibold text-gray-900">
-                      <img className="size-5" src="/check-mark.svg" alt="" />
+                    <div className="flex gap-x-2 items-start font-medium text-gray-900">
+                      <img
+                        className="size-5 mt-1"
+                        src="/check-mark.svg"
+                        alt=""
+                      />
                       {feature.name}
                     </div>
                   </div>
                 ))}
               </dl>
+              <div className="mt-10 ">
+                <Button href="#">Learn more</Button>
+              </div>
             </div>
           </div>
           <div className="sm:px-6 lg:px-0">
@@ -328,11 +342,11 @@ function AboutUs() {
                 className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white"
               />
               <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                <img
-                  alt="Product screenshot"
+                <Image
+                  alt="Photo of our team member"
                   src="/home/about-us.jpg"
-                  width={2432}
-                  height={1442}
+                  width={1824}
+                  height={1082}
                   className="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10"
                 />
               </div>
