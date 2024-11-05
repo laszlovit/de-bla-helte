@@ -54,7 +54,7 @@ export default function NavBar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Button href="#">Get started</Button>
+            <Button href="#">Get a free quote</Button>
           </div>
         </nav>
         <Dialog

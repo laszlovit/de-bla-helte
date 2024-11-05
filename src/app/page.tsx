@@ -32,9 +32,9 @@ function Hero() {
           standard of cleanliness that gives them confidence and peace of mind.
         </p>
         <div className="mt-10 flex flex-col gap-x-6 gap-y-4 sm:flex-row justify-center">
-          <Button href="#">Get started</Button>
+          <Button href="#">Get a free quote</Button>
           <Button variant="secondary" href="/pricing">
-            See pricing
+            Learn more
           </Button>
         </div>
         <div className="hidden 2xl:block 2xl:absolute 2xl:left-10 2xl:top-0">
@@ -183,14 +183,14 @@ function AboutUs() {
                 </span>{' '}
                 Cleaning Solutions
               </p>
-              <p className="mt-6 text-lg/8 text-gray-600">
+              <p className="mt-6 text-lg text-slate-700">
                 At De Blå Helte, we are committed to providing top-tier cleaning
                 services tailored to meet your unique needs. Our expert team
                 brings professionalism, reliability, and thorough attention to
                 detail to every job, ensuring your spaces are spotless, safe,
                 and inviting.
               </p>
-              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 ">
+              <dl className="mt-10 max-w-xl space-y-6 text-base/7 text-gray-600 ">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative pl-9">
                     <div className="flex gap-x-2 items-start font-medium text-gray-900">
@@ -214,8 +214,11 @@ function AboutUs() {
                   </div>
                 ))}
               </dl>
-              <div className="mt-10 ">
+              <div className="mt-10 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
                 <Button href="#">Learn more</Button>
+                <Button variant="secondary" href="">
+                  View services
+                </Button>
               </div>
             </div>
           </div>
@@ -306,17 +309,39 @@ async function Services() {
   );
 }
 
+function CallToAction() {
+  return (
+    <section className="relative overflow-hidden bg-primary/10 bg-[url(/dot-texture.svg)] py-32">
+      <Container>
+        <div className="mx-auto max-w-lg text-center">
+          <Heading>Get started today</Heading>
+          <p className="mt-4 text-lg tracking-tight">
+            It’s time to take control of your books. Buy our software so you can
+            feel like you’re doing something productive.
+          </p>
+          <div className="mt-10 flex flex-col gap-x-6 gap-y-4 sm:flex-row justify-center">
+            <Button href="#">Get a free quote</Button>
+            <Button variant="secondary" href="/pricing">
+              Call us now
+            </Button>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
       <NavBar />
       <Hero />
-      {/* <Header /> */}
       <LogoClouds />
       <div className="py-32">
         <AboutUs />
         <Services />
       </div>
+      <CallToAction />
     </>
   );
 }
