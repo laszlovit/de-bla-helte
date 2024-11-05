@@ -96,6 +96,7 @@ export type Service = {
     [internalGroqTypeReferenceTo]?: "category";
   }>;
   publishedAt?: string;
+  excerpt?: string;
   body?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -326,6 +327,7 @@ export type ALL_SERVICES_QUERYResult = Array<{
     [internalGroqTypeReferenceTo]?: "category";
   }>;
   publishedAt?: string;
+  excerpt?: string;
   body?: Array<{
     children?: Array<{
       marks?: Array<string>;
