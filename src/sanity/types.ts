@@ -521,11 +521,51 @@ export type ALL_SERVICES_QUERYResult = Array<{
   }>;
 }>;
 
+// Source: ./src/sanity/lib/testimonials/get-all-testimonials.ts
+// Variable: ALL_TESTIMONIALS_QUERY
+// Query: *[_type == "testimonial"] | order(publishedAt asc)
+export type ALL_TESTIMONIALS_QUERYResult = Array<{
+  _id: string;
+  _type: "testimonial";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  logo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  avatar?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  publishedAt?: string;
+  content?: string;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"caseStudy\"] | order(title asc) ": ALL_CASE_STUDIES_QUERYResult;
     "*[_type == \"service\"] | order(title asc) ": ALL_SERVICES_QUERYResult;
+    "*[_type == \"testimonial\"] | order(publishedAt asc)": ALL_TESTIMONIALS_QUERYResult;
   }
 }

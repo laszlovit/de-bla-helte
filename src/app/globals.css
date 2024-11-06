@@ -11,22 +11,8 @@ h2 {
   font-family: var(--font-outfit);
 }
 
-.hero-shape-divider {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.hero-shape-divider svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 180px;
-}
-
-.hero-shape-divider .shape-fill {
-  fill: #f5f5f5;
+@layer utilities {
+  .animation-pause {
+    animation-play-state: paused;
+  }
 }
