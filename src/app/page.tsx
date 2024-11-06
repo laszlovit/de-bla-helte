@@ -107,13 +107,6 @@ function LogoClouds() {
             height={48}
             className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
           />
-          <Image
-            alt="Reform"
-            src="/home/henne-molle-hotel-logo.png"
-            width={158}
-            height={48}
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          />
           <svg
             className="kb-header__logo__large"
             viewBox="0 0 316 60"
@@ -132,6 +125,13 @@ function LogoClouds() {
             width={158}
             height={48}
             className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+          />
+          <Image
+            alt="Reform"
+            src="/home/henne-molle-hotel-logo.png"
+            width={158}
+            height={48}
+            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
           />
           <Image
             alt="Statamic"
@@ -216,7 +216,7 @@ function AboutUs() {
                   </div>
                 ))}
               </dl>
-              <div className="mt-10 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
+              <div className="mt-10 flex gap-x-6 gap-y-4 flex-row">
                 <Button href="#">Learn more</Button>
                 <Button variant="secondary" href="">
                   View services
@@ -374,7 +374,7 @@ async function CaseStudies() {
                   <img
                     alt={caseStudy.mainImage.alt || ''}
                     src={image(caseStudy.mainImage).format('webp').url()}
-                    className="aspect-[0.839286/1] w-full rounded-2xl bg-gray-100 object-cover"
+                    className="aspect-[0.839286/1] w-full rounded-2xl shadow-md shadow-black/5 ring-1 ring-black/5 bg-gray-100 object-cover "
                   />
                 </div>
               )}
