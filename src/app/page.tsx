@@ -169,7 +169,7 @@ function AboutUs() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
           <div className="px-6 lg:px-0 lg:pr-4 lg:pt-4">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
-              <h2 className="text-base/7 font-semibold text-gray-900 font-[family-name:var(--font-inter)]">
+              <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
                 About Us
               </h2>
               <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
@@ -186,26 +186,26 @@ function AboutUs() {
                 </span>{' '}
                 Cleaning Solutions
               </p>
-              <p className="mt-6 text-lg text-slate-700">
+              <p className="mt-6 text-slate-700">
                 At De Blå Helte, we are committed to providing top-tier cleaning
                 services tailored to meet your unique needs. Our expert team
                 brings professionalism, reliability, and thorough attention to
                 detail to every job, ensuring your spaces are spotless, safe,
                 and inviting.
               </p>
-              <dl className="mt-10 max-w-xl space-y-6 text-base/7 text-gray-600 ">
+              <dl className="mt-8 max-w-xl space-y-6 text-base/7 text-gray-600 ">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative pl-9">
-                    <div className="flex gap-x-2 items-start font-medium text-gray-900">
+                    <div className="flex gap-x-2 items-start font-medium text-sm text-gray-900">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         fill="none"
-                        className="size-5 absolute left-1 top-0.5 h-5 w-5 text-primary"
+                        className="absolute left-0 top-0 text-primary"
                       >
                         <path
-                          stroke="#002E25"
+                          stroke="#005efa"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth="1.5"
@@ -258,7 +258,7 @@ async function Services() {
   return (
     <Container>
       <div className="mx-auto max-w-2xl md:text-center">
-        <h2 className="text-base/7 font-semibold text-gray-900 font-[family-name:var(--font-inter)]">
+        <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
           Our Services
         </h2>
         <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
@@ -297,14 +297,16 @@ async function Services() {
                 )}
                 <a href="">
                   <span className="absolute inset-0" />
-                  <h3 className="ml-3">{service.title}</h3>
+                  <h3 className="ml-3 font-medium">{service.title}</h3>
                 </a>
               </div>
               <div className="bg-gray-200 rounded-full p-1 group-hover:bg-primary group-hover:text-white transition duration-300">
                 <ArrowLongRightIcon className="size-5" />
               </div>
             </div>
-            <p className="mt-4 line-clamp-2">{service.excerpt}</p>
+            <p className="mt-4 text-sm line-clamp-2 text-slate-600">
+              {service.excerpt}
+            </p>
           </div>
         ))}
       </div>
@@ -341,7 +343,7 @@ async function CaseStudies() {
       <Container>
         <div className="lg:flex lg:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-base/7 font-semibold text-gray-900 font-[family-name:var(--font-inter)]">
+            <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
               Case Studies
             </h2>
             <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
@@ -382,7 +384,7 @@ async function CaseStudies() {
               <div className="max-w-xl">
                 <div className="mt-6">
                   <h3 className="font-semibold text-xl">{caseStudy.title}</h3>
-                  <p className="mt-2 line-clamp-3 text-sm">
+                  <p className="mt-2 line-clamp-3 text-sm text-slate-600">
                     {caseStudy.excerpt}
                   </p>
                 </div>
@@ -404,7 +406,7 @@ async function Testimonials() {
     <div className="pb-24">
       <Container className="relative">
         <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="text-base/7 font-semibold text-gray-900 font-[family-name:var(--font-inter)]">
+          <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
             Testimonials
           </h2>
           <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
