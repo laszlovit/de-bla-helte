@@ -1,5 +1,5 @@
-import { sanityFetch } from '@/sanity/lib/live';
-import { defineQuery } from 'next-sanity';
+import { sanityFetch } from '@/sanity/lib/live'
+import { defineQuery } from 'next-sanity'
 
 const SERVICE_QUERY = defineQuery(/* groq */ `*[
   _type == "service"
@@ -11,16 +11,16 @@ const SERVICE_QUERY = defineQuery(/* groq */ `*[
   excerpt,
   body,
 }
-`);
+`)
 
 export const getService = async (slug: string) => {
   try {
     const service = await sanityFetch({
       query: SERVICE_QUERY,
       params: { slug },
-    });
-    return service.data;
+    })
+    return service.data
   } catch (error) {
-    console.error('Error fetching service', error);
+    console.error('Error fetching service', error)
   }
-};
+}

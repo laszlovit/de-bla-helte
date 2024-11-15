@@ -1,11 +1,11 @@
-import { sanityFetch } from '@/sanity/lib/live';
-import { defineQuery } from 'next-sanity';
+import { sanityFetch } from '@/sanity/lib/live'
+import { defineQuery } from 'next-sanity'
 
 const SERVICE_SLUGS_QUERY = defineQuery(/* groq */ `
   *[_type == "service"]{
     "slug": slug.current
   }
-`);
+`)
 
 export const getServiceSlugs = async () => {
   try {
@@ -13,10 +13,10 @@ export const getServiceSlugs = async () => {
       query: SERVICE_SLUGS_QUERY,
       perspective: 'published',
       stega: false,
-    });
-    return serviceSlugs.data || [];
+    })
+    return serviceSlugs.data || []
   } catch (error) {
-    console.error('Error fetching service slugs', error);
-    return [];
+    console.error('Error fetching service slugs', error)
+    return []
   }
-};
+}

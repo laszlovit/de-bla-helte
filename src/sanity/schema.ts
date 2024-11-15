@@ -1,12 +1,12 @@
-import { type SchemaTypeDefinition } from 'sanity';
+import { type SchemaTypeDefinition } from 'sanity'
 
-import { blockContentType } from './types/block-content';
-import { categoryType } from './types/category';
-import { postType } from './types/post';
-import { serviceType } from './types/service';
-import { caseStudyType } from './types/case-study';
-import { testimonialType } from './types/testimonial';
-import { seoType } from './types/seo';
+import { blockContentType } from './types/block-content'
+import { caseStudyType } from './types/case-study'
+import { categoryType } from './types/category'
+import { postType } from './types/post'
+import { seoType } from './types/seo'
+import { serviceType } from './types/service'
+import { testimonialType } from './types/testimonial'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,4 +18,4 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     testimonialType,
     seoType,
   ],
-};
+}

@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity'
 
 export const seoType = defineType({
   name: 'seo',
@@ -18,7 +18,7 @@ export const seoType = defineType({
       title: 'Meta Description',
       validation: (Rule) =>
         Rule.max(160).warning(
-          'Meta descriptions should be under 160 characters.'
+          'Meta descriptions should be under 160 characters.',
         ),
     }),
     defineField({
@@ -33,4 +33,4 @@ export const seoType = defineType({
       options: { hotspot: true },
     }),
   ],
-});
+})

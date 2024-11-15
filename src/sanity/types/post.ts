@@ -1,5 +1,5 @@
-import { DocumentIcon } from '@heroicons/react/16/solid';
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { DocumentIcon } from '@heroicons/react/16/solid'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const postType = defineType({
   name: 'post',
@@ -53,7 +53,7 @@ export const postType = defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      return { ...selection };
+      return { ...selection }
     },
   },
-});
+})

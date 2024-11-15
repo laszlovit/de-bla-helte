@@ -1,19 +1,19 @@
-import Image from 'next/image';
-import { Button } from '@/components/button';
-import { Container } from '@/components/container';
-import NavBar from '@/components/navbar';
-import { Heading } from '@/components/text';
-import { getAllServices } from '@/sanity/lib/services/get-all-services';
-import { image } from '@/sanity/lib/image';
-import { ArrowLongRightIcon } from '@heroicons/react/16/solid';
-import { getAllCaseStudies } from '@/sanity/lib/case-studies/get-all-case-studies';
-import ArrowLink from '@/components/arrow-link';
-import { getAllTestimonials } from '@/sanity/lib/testimonials/get-all-testimonials';
-import { Link } from '@/components/link';
+import ArrowLink from '@/components/arrow-link'
+import { Button } from '@/components/button'
+import { Container } from '@/components/container'
+import { Link } from '@/components/link'
+import NavBar from '@/components/navbar'
+import { Heading } from '@/components/text'
+import { getAllCaseStudies } from '@/sanity/lib/case-studies/get-all-case-studies'
+import { image } from '@/sanity/lib/image'
+import { getAllServices } from '@/sanity/lib/services/get-all-services'
+import { getAllTestimonials } from '@/sanity/lib/testimonials/get-all-testimonials'
+import { ArrowLongRightIcon } from '@heroicons/react/16/solid'
+import Image from 'next/image'
 
 function Hero() {
   return (
-    <div className="px-6 py-16 sm:py-24 text-center lg:py-32 bg-primary/10 bg-[url(/dot-texture.svg)]">
+    <div className="bg-primary/10 bg-[url(/dot-texture.svg)] px-6 py-16 text-center sm:py-24 lg:py-32">
       <div className="relative">
         <Heading as="h1" className="mx-auto max-w-4xl sm:text-7xl">
           Creating{' '}
@@ -35,68 +35,68 @@ function Hero() {
           spaces. Our mission is to provide our customers with a superior
           standard of cleanliness that gives them confidence and peace of mind.
         </p>
-        <div className="mt-10 flex flex-col gap-x-6 gap-y-4 sm:flex-row justify-center">
+        <div className="mt-10 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
           <Button href="#">Get a free quote</Button>
           <Button variant="secondary" href="/pricing">
             Learn more
           </Button>
         </div>
-        <div className="hidden 2xl:block 2xl:absolute 2xl:left-10 2xl:top-0">
-          <div className="aspect-[1.1891891891891893/1] overflow-hidden relative h-48">
+        <div className="hidden 2xl:absolute 2xl:left-10 2xl:top-0 2xl:block">
+          <div className="relative aspect-[1.1891891891891893/1] h-48 overflow-hidden">
             <Image
               alt=""
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
               src="/home/hero-1.jpg"
-              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
+              className="block size-full rounded-xl object-cover shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
-        <div className="hidden 2xl:block 2xl:absolute 2xl:left-5 2xl:bottom-0">
-          <div className="aspect-[1.5808383233532934/1] overflow-hidden h-32 relative">
+        <div className="hidden 2xl:absolute 2xl:bottom-0 2xl:left-5 2xl:block">
+          <div className="relative aspect-[1.5808383233532934/1] h-32 overflow-hidden">
             <Image
               alt=""
               fill
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src="/home/hero-2.jpg"
-              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
+              className="block size-full rounded-xl object-cover shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
-        <div className="hidden 2xl:block 2xl:absolute 2xl:right-5 2xl:top-0">
-          <div className="aspect-[1.5808383233532934/1] overflow-hidden h-32 relative">
+        <div className="hidden 2xl:absolute 2xl:right-5 2xl:top-0 2xl:block">
+          <div className="relative aspect-[1.5808383233532934/1] h-32 overflow-hidden">
             <Image
               alt=""
               fill
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src="/home/hero-4.jpg"
-              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
+              className="block size-full rounded-xl object-cover shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
-        <div className="hidden 2xl:block 2xl:absolute 2xl:right-10 2xl:bottom-0">
-          <div className="aspect-[1.1891891891891893/1] overflow-hidden h-48 relative">
+        <div className="hidden 2xl:absolute 2xl:bottom-0 2xl:right-10 2xl:block">
+          <div className="relative aspect-[1.1891891891891893/1] h-48 overflow-hidden">
             <Image
               alt=""
               fill
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src="/home/hero-3.jpg"
-              className="block size-full object-cover rounded-xl shadow-2xl ring-1 ring-black/10"
+              className="block size-full rounded-xl object-cover shadow-2xl ring-1 ring-black/10"
             />
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 function LogoClouds() {
   return (
-    <div className="bg-white py-12 sm:py-16 border-b border-slate-900/10">
+    <div className="border-b border-slate-900/10 bg-white py-12 sm:py-16">
       <Container>
         <h2 className="text-center text-lg/8 font-semibold text-gray-900">
           Trusted by the world’s most innovative teams
@@ -145,7 +145,7 @@ function LogoClouds() {
         </div>
       </Container>
     </div>
-  );
+  )
 }
 
 function AboutUs() {
@@ -162,7 +162,7 @@ function AboutUs() {
     {
       name: 'Comprehensive cleaning for homes, offices, and more',
     },
-  ];
+  ]
 
   return (
     <div className="overflow-hidden bg-white pb-24 md:px-6 lg:px-8">
@@ -170,10 +170,10 @@ function AboutUs() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
           <div className="px-6 lg:px-0 lg:pr-4 lg:pt-4">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
-              <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
+              <h2 className="font-[family-name:var(--font-inter)] text-sm font-medium text-gray-900">
                 About Us
               </h2>
-              <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
+              <p className="mt-2 text-pretty font-[family-name:var(--font-outfit)] text-4xl font-semibold sm:text-5xl">
                 <span className="relative whitespace-nowrap text-blue-600">
                   <svg
                     aria-hidden="true"
@@ -194,10 +194,10 @@ function AboutUs() {
                 detail to every job, ensuring your spaces are spotless, safe,
                 and inviting.
               </p>
-              <dl className="mt-8 max-w-xl space-y-6 text-base/7 text-gray-600 ">
+              <dl className="mt-8 max-w-xl space-y-6 text-base/7 text-gray-600">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative pl-9">
-                    <div className="flex gap-x-2 items-start font-medium text-sm text-gray-900">
+                    <div className="flex items-start gap-x-2 text-sm font-medium text-gray-900">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -218,7 +218,7 @@ function AboutUs() {
                   </div>
                 ))}
               </dl>
-              <div className="mt-10 flex gap-x-6 gap-y-4 flex-row">
+              <div className="mt-10 flex flex-row gap-x-6 gap-y-4">
                 <Button href="#">Learn more</Button>
                 <Button variant="secondary" href="">
                   View services
@@ -250,19 +250,19 @@ function AboutUs() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 async function Services() {
-  const services = await getAllServices();
+  const services = await getAllServices()
 
   return (
     <Container>
       <div className="mx-auto max-w-2xl md:text-center">
-        <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
+        <h2 className="font-[family-name:var(--font-inter)] text-sm font-medium text-gray-900">
           Our Services
         </h2>
-        <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
+        <p className="mt-2 text-pretty font-[family-name:var(--font-outfit)] text-4xl font-semibold sm:text-5xl">
           We Provide Comprehensive
           <span className="relative whitespace-nowrap text-blue-600">
             <svg
@@ -281,14 +281,14 @@ async function Services() {
           efficiency for a spotless environment every day.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-20">
+      <div className="mt-20 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
           <div
             key={service.slug}
-            className="relative group rounded-lg bg-white hover:ring-black/10 shadow-sm ring-1 ring-black/5 p-8 flex flex-col"
+            className="group relative flex flex-col rounded-lg bg-white p-8 shadow-sm ring-1 ring-black/5 hover:ring-black/10"
           >
-            <div className="flex items-center gap-x-3 text-base/7 font-semibold justify-between">
-              <div className="flex-row flex items-center">
+            <div className="flex items-center justify-between gap-x-3 text-base/7 font-semibold">
+              <div className="flex flex-row items-center">
                 {service.mainImage && (
                   <img
                     alt={service.mainImage.alt || ''}
@@ -301,18 +301,18 @@ async function Services() {
                   <h3 className="ml-3 font-medium">{service.title}</h3>
                 </Link>
               </div>
-              <div className="bg-gray-200 rounded-full p-1 group-hover:bg-primary group-hover:text-white transition duration-300">
+              <div className="rounded-full bg-gray-200 p-1 transition duration-300 group-hover:bg-primary group-hover:text-white">
                 <ArrowLongRightIcon className="size-5" />
               </div>
             </div>
-            <p className="mt-4 text-sm line-clamp-2 text-slate-600">
+            <p className="mt-4 line-clamp-2 text-sm text-slate-600">
               {service.excerpt}
             </p>
           </div>
         ))}
       </div>
     </Container>
-  );
+  )
 }
 
 function CallToAction() {
@@ -325,7 +325,7 @@ function CallToAction() {
             It’s time to take control of your books. Buy our software so you can
             feel like you’re doing something productive.
           </p>
-          <div className="mt-10 flex flex-col gap-x-6 gap-y-4 sm:flex-row justify-center">
+          <div className="mt-10 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
             <Button href="#">Get a free quote</Button>
             <Button variant="secondary" href="/pricing">
               Call us now
@@ -334,20 +334,20 @@ function CallToAction() {
         </div>
       </Container>
     </section>
-  );
+  )
 }
 
 async function CaseStudies() {
-  const caseStudies = await getAllCaseStudies();
+  const caseStudies = await getAllCaseStudies()
   return (
     <section className="bg-white py-24 sm:py-32">
       <Container>
         <div className="lg:flex lg:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
+            <h2 className="font-[family-name:var(--font-inter)] text-sm font-medium text-gray-900">
               Case Studies
             </h2>
-            <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
+            <p className="mt-2 text-pretty font-[family-name:var(--font-outfit)] text-4xl font-semibold sm:text-5xl">
               <span className="relative whitespace-nowrap text-blue-600">
                 <svg
                   aria-hidden="true"
@@ -363,7 +363,7 @@ async function CaseStudies() {
               from Our Clients
             </p>
           </div>
-          <div className="flex items-end mt-10 lg:mt-0">
+          <div className="mt-10 flex items-end lg:mt-0">
             <Button href="#">View all case studies</Button>
           </div>
         </div>
@@ -378,13 +378,13 @@ async function CaseStudies() {
                   <img
                     alt={caseStudy.mainImage.alt || ''}
                     src={image(caseStudy.mainImage).format('webp').url()}
-                    className="aspect-[0.839286/1] w-full rounded-2xl shadow-md shadow-black/5 ring-1 ring-black/5 bg-gray-100 object-cover "
+                    className="aspect-[0.839286/1] w-full rounded-2xl bg-gray-100 object-cover shadow-md shadow-black/5 ring-1 ring-black/5"
                   />
                 </div>
               )}
               <div className="max-w-xl">
                 <div className="mt-6">
-                  <h3 className="font-semibold text-xl">{caseStudy.title}</h3>
+                  <h3 className="text-xl font-semibold">{caseStudy.title}</h3>
                   <p className="mt-2 line-clamp-3 text-sm text-slate-600">
                     {caseStudy.excerpt}
                   </p>
@@ -398,19 +398,19 @@ async function CaseStudies() {
         </div>
       </Container>
     </section>
-  );
+  )
 }
 
 async function Testimonials() {
-  const testimonials = await getAllTestimonials();
+  const testimonials = await getAllTestimonials()
   return (
     <div className="pb-24">
       <Container className="relative">
         <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="text-sm font-medium text-gray-900 font-[family-name:var(--font-inter)]">
+          <h2 className="font-[family-name:var(--font-inter)] text-sm font-medium text-gray-900">
             Testimonials
           </h2>
-          <p className="mt-2 text-pretty text-4xl font-semibold sm:text-5xl font-[family-name:var(--font-outfit)]">
+          <p className="mt-2 text-pretty font-[family-name:var(--font-outfit)] text-4xl font-semibold sm:text-5xl">
             <span className="relative whitespace-nowrap text-blue-600">
               <svg
                 aria-hidden="true"
@@ -431,11 +431,11 @@ async function Testimonials() {
             mission-critical features.
           </p>
         </div>
-        <div className="mt-16 lg:mt-20 group inline-flex w-full flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <ul className="py-0.5 justify-center md:justify-start items-start flex animate-infinite-scroll [&_li]:mx-4 group-hover:animation-pause">
+        <div className="group mt-16 inline-flex w-full flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] lg:mt-20">
+          <ul className="group-hover:animation-pause flex animate-infinite-scroll items-start justify-center py-0.5 md:justify-start [&_li]:mx-4">
             {testimonials.map((testimonial, index) => (
               <li
-                className="relative flex space-y-4 flex-col p-6 bg-white shadow-sm ring-1 ring-black/5 rounded-lg w-[22rem] h-full"
+                className="relative flex h-full w-[22rem] flex-col space-y-4 rounded-lg bg-white p-6 shadow-sm ring-1 ring-black/5"
                 key={index}
               >
                 {testimonial.logo && (
@@ -457,7 +457,7 @@ async function Testimonials() {
                   )}
                   <div>
                     <div className="font-medium">{testimonial.name}</div>
-                    <div className="text-gray-600 text-sm">Manager</div>
+                    <div className="text-sm text-gray-600">Manager</div>
                   </div>
                 </figcaption>
                 <blockquote className="text-sm text-gray-700">
@@ -466,10 +466,10 @@ async function Testimonials() {
               </li>
             ))}
           </ul>
-          <ul className="py-0.5 justify-center md:justify-start items-start flex animate-infinite-scroll [&_li]:mx-4 group-hover:animation-pause">
+          <ul className="group-hover:animation-pause flex animate-infinite-scroll items-start justify-center py-0.5 md:justify-start [&_li]:mx-4">
             {testimonials.map((testimonial, index) => (
               <li
-                className="relative flex space-y-4 flex-col p-6 bg-white shadow-sm ring-1 ring-black/5 rounded-lg w-[22rem] h-full"
+                className="relative flex h-full w-[22rem] flex-col space-y-4 rounded-lg bg-white p-6 shadow-sm ring-1 ring-black/5"
                 key={index}
               >
                 {testimonial.logo && (
@@ -491,7 +491,7 @@ async function Testimonials() {
                   )}
                   <div>
                     <div className="font-medium">{testimonial.name}</div>
-                    <div className="text-gray-600 text-sm">Manager</div>
+                    <div className="text-sm text-gray-600">Manager</div>
                   </div>
                 </figcaption>
                 <blockquote className="text-sm text-gray-700">
@@ -504,7 +504,7 @@ async function Testimonials() {
         </div>
       </Container>
     </div>
-  );
+  )
 }
 
 export default function Home() {
@@ -521,5 +521,5 @@ export default function Home() {
       <CaseStudies />
       <Testimonials />
     </>
-  );
+  )
 }

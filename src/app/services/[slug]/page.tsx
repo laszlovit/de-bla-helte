@@ -1,24 +1,24 @@
-import NavBar from '@/components/navbar';
-import { getService } from '@/sanity/lib/services/get-service';
-import { getServiceMeta } from '@/sanity/lib/services/get-service-meta';
-import { getServiceSlugs } from '@/sanity/lib/services/get-service-slugs';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import NavBar from '@/components/navbar'
+import { getService } from '@/sanity/lib/services/get-service'
+import { getServiceMeta } from '@/sanity/lib/services/get-service-meta'
+import { getServiceSlugs } from '@/sanity/lib/services/get-service-slugs'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 type Props = {
-  params: Promise<{ slug: string }>;
-};
+  params: Promise<{ slug: string }>
+}
 
 export async function generateStaticParams() {
-  const serviceSlugs = await getServiceSlugs();
-  return serviceSlugs;
+  const serviceSlugs = await getServiceSlugs()
+  return serviceSlugs
 }
 
 // TODO: Update custom OG image fallback
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
-  const pageMeta = await getServiceMeta(params.slug);
+  const params = await props.params
+  const pageMeta = await getServiceMeta(params.slug)
 
   return {
     title: pageMeta?.seo?.metaTitle || `${pageMeta?.title} | De Blæ Helte`,
@@ -32,15 +32,15 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
         },
       ],
     },
-  } satisfies Metadata;
+  } satisfies Metadata
 }
 
 export default async function SelectedServicePage({ params }: Props) {
-  const service = (await getService((await params).slug)) || notFound();
+  const service = (await getService((await params).slug)) || notFound()
   return (
     <>
       <NavBar />
       <div>{service.title}</div>
     </>
-  );
+  )
 }

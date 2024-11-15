@@ -1,5 +1,5 @@
-import { ChatBubbleBottomCenterIcon } from '@heroicons/react/16/solid';
-import { defineField, defineType } from 'sanity';
+import { ChatBubbleBottomCenterIcon } from '@heroicons/react/16/solid'
+import { defineField, defineType } from 'sanity'
 
 export const testimonialType = defineType({
   name: 'testimonial',
@@ -62,7 +62,7 @@ export const testimonialType = defineType({
       media: 'avatar',
     },
     prepare(selection) {
-      return { ...selection };
+      return { ...selection }
     },
   },
-});
+})

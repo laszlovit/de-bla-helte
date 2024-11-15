@@ -1,10 +1,11 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Container } from '@/components/container';
-import { Button } from '@/components/button';
+import { Button } from '@/components/button'
+import { Container } from '@/components/container'
+import { Link } from '@/components/link'
+import { Dialog, DialogPanel } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 
 const navigation = [
   { name: 'Services', href: '#' },
@@ -12,25 +13,25 @@ const navigation = [
   { name: 'Gallery', href: '#' },
   { name: 'Blog', href: '#' },
   { name: 'Contact', href: '#' },
-];
+]
 
 export default function NavBar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white border-b border-slate-900/10">
+    <header className="border-b border-slate-900/10 bg-white">
       <Container>
         <nav
           aria-label="Global"
           className="mx-auto flex max-w-7xl items-center justify-between py-6"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <p className="uppercase font-bold text-primary text-2xl">
+              <p className="font-[family-name:var(--font-outfit)] text-2xl font-bold uppercase text-primary">
                 De Blå Helte
               </p>
-            </a>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -109,5 +110,5 @@ export default function NavBar() {
         </Dialog>
       </Container>
     </header>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import { DocumentMagnifyingGlassIcon } from '@heroicons/react/16/solid';
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { DocumentMagnifyingGlassIcon } from '@heroicons/react/16/solid'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const caseStudyType = defineType({
   name: 'caseStudy',
@@ -57,7 +57,7 @@ export const caseStudyType = defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      return { ...selection };
+      return { ...selection }
     },
   },
-});
+})

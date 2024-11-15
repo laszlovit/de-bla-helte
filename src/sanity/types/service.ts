@@ -1,5 +1,5 @@
-import { WrenchScrewdriverIcon } from '@heroicons/react/16/solid';
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { WrenchScrewdriverIcon } from '@heroicons/react/16/solid'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const serviceType = defineType({
   name: 'service',
@@ -63,7 +63,7 @@ export const serviceType = defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      return { ...selection };
+      return { ...selection }
     },
   },
-});
+})
