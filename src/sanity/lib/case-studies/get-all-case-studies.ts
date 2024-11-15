@@ -1,10 +1,18 @@
 import { sanityFetch } from '@/sanity/lib/live'
 import { defineQuery } from 'next-sanity'
 
+const ALL_CASE_STUDIES_QUERY = defineQuery(/* groq */ `*[
+  _type == "caseStudy"
+  && defined(slug.current)
+]| order(title asc){
+  title,
+  "slug": slug.current,
+  publishedAt,
+  excerpt,
+  mainImage,
+}`)
+
 export const getAllCaseStudies = async () => {
-  const ALL_CASE_STUDIES_QUERY = defineQuery(
-    `*[_type == "caseStudy"] | order(title asc) `,
-  )
   try {
     const caseStudies = await sanityFetch({
       query: ALL_CASE_STUDIES_QUERY,

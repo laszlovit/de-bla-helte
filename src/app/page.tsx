@@ -370,7 +370,7 @@ async function CaseStudies() {
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {caseStudies.map((caseStudy) => (
             <article
-              key={caseStudy._id}
+              key={caseStudy.slug}
               className="flex flex-col items-start justify-between"
             >
               {caseStudy.mainImage && (
@@ -390,7 +390,10 @@ async function CaseStudies() {
                   </p>
                 </div>
                 <div className="mt-6">
-                  <ArrowLink href="" label="Learn more" />
+                  <ArrowLink
+                    href={`/casestudier/${caseStudy.slug}`}
+                    label="Learn more"
+                  />
                 </div>
               </div>
             </article>

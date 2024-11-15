@@ -50,6 +50,11 @@ export const caseStudyType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO Settings',
+    }),
   ],
   preview: {
     select: {
