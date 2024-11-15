@@ -6,6 +6,7 @@ import { postType } from './types/post';
 import { serviceType } from './types/service';
 import { caseStudyType } from './types/case-study';
 import { testimonialType } from './types/testimonial';
+import { seoType } from './types/seo';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -15,5 +16,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     serviceType,
     caseStudyType,
     testimonialType,
+    seoType,
   ],
 };

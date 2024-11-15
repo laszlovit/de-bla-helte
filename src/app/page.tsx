@@ -9,6 +9,7 @@ import { ArrowLongRightIcon } from '@heroicons/react/16/solid';
 import { getAllCaseStudies } from '@/sanity/lib/case-studies/get-all-case-studies';
 import ArrowLink from '@/components/arrow-link';
 import { getAllTestimonials } from '@/sanity/lib/testimonials/get-all-testimonials';
+import { Link } from '@/components/link';
 
 function Hero() {
   return (
@@ -283,7 +284,7 @@ async function Services() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-20">
         {services.map((service) => (
           <div
-            key={service._id}
+            key={service.slug}
             className="relative group rounded-lg bg-white hover:ring-black/10 shadow-sm ring-1 ring-black/5 p-8 flex flex-col"
           >
             <div className="flex items-center gap-x-3 text-base/7 font-semibold justify-between">
@@ -295,10 +296,10 @@ async function Services() {
                     className="size-9"
                   />
                 )}
-                <a href="">
+                <Link href={`/services/${service.slug}`}>
                   <span className="absolute inset-0" />
                   <h3 className="ml-3 font-medium">{service.title}</h3>
-                </a>
+                </Link>
               </div>
               <div className="bg-gray-200 rounded-full p-1 group-hover:bg-primary group-hover:text-white transition duration-300">
                 <ArrowLongRightIcon className="size-5" />

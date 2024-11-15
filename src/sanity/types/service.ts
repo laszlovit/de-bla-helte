@@ -17,6 +17,7 @@ export const serviceType = defineType({
       options: {
         source: 'title',
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
@@ -49,6 +50,11 @@ export const serviceType = defineType({
     defineField({
       name: 'body',
       type: 'blockContent',
+    }),
+    defineField({
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO Settings',
     }),
   ],
   preview: {

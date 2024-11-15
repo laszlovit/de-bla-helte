@@ -1,10 +1,18 @@
 import { defineQuery } from 'next-sanity';
 import { sanityFetch } from '@/sanity/lib/live';
 
+const ALL_SERVICES_QUERY = defineQuery(/* groq */ `*[
+  _type == "service"
+  && defined(slug.current)
+]| order(title asc){
+  title,
+  "slug": slug.current,
+  publishedAt,
+  excerpt,
+  mainImage,
+}`);
+
 export const getAllServices = async () => {
-  const ALL_SERVICES_QUERY = defineQuery(
-    `*[_type == "service"] | order(title asc) `
-  );
   try {
     const services = await sanityFetch({
       query: ALL_SERVICES_QUERY,
