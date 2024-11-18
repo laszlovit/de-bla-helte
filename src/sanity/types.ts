@@ -177,6 +177,18 @@ export type Service = {
   _rev: string
   title?: string
   slug?: Slug
+  icon?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+  }
   mainImage?: {
     asset?: {
       _ref: string
@@ -231,6 +243,26 @@ export type Service = {
         _key: string
       }
   >
+  gallery?: Array<{
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'galleryImage'
+    _key: string
+  }>
+  testimonials?: Array<{
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'testimonial'
+  }>
   seo?: Seo
 }
 
@@ -547,12 +579,24 @@ export type CASE_STUDY_QUERYResult = {
 
 // Source: ./src/sanity/lib/services/get-all-services.ts
 // Variable: ALL_SERVICES_QUERY
-// Query: *[  _type == "service"  && defined(slug.current)]| order(title asc){  title,  "slug": slug.current,  publishedAt,  excerpt,  mainImage,}
+// Query: *[  _type == "service"  && defined(slug.current)]| order(title asc){  title,  "slug": slug.current,  publishedAt,  excerpt,  icon,  mainImage,}
 export type ALL_SERVICES_QUERYResult = Array<{
   title: string | null
   slug: string | null
   publishedAt: string | null
   excerpt: string | null
+  icon: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+  } | null
   mainImage: {
     asset?: {
       _ref: string
@@ -595,7 +639,7 @@ export type SERVICE_SLUGS_QUERYResult = Array<{
 
 // Source: ./src/sanity/lib/services/get-service.ts
 // Variable: SERVICE_QUERY
-// Query: *[  _type == "service"  && slug.current == $slug][0]{  publishedAt,  title,  mainImage,  excerpt,  body,}
+// Query: *[  _type == "service"  && slug.current == $slug][0]{  publishedAt,  title,  mainImage,  excerpt,  body,  gallery[]{    _key,    alt,    asset->{      _id,      url    }  },  testimonials[]->{   "slug": slug.current,    name,    logo,    avatar,    content,  },}
 export type SERVICE_QUERYResult = {
   publishedAt: string | null
   title: string | null
@@ -645,6 +689,43 @@ export type SERVICE_QUERYResult = {
         _key: string
       }
   > | null
+  gallery: Array<{
+    _key: string
+    alt: string | null
+    asset: {
+      _id: string
+      url: string | null
+    } | null
+  }> | null
+  testimonials: Array<{
+    slug: string | null
+    name: string | null
+    logo: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+    } | null
+    avatar: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+    } | null
+    content: string | null
+  }> | null
 } | null
 
 // Source: ./src/sanity/lib/testimonials/get-all-testimonials.ts
@@ -694,10 +775,10 @@ declare module '@sanity/client' {
     '*[\n  _type == "caseStudy"\n  && slug.current == $slug\n][0]{\n  title,\n  excerpt,  \n  seo {\n    metaTitle,\n    metaDescription,\n    canonicalUrl,\n    ogImage {\n      asset -> {\n        _id,\n        url\n      }\n    }\n  },\n}\n': CASE_STUDY_META_QUERYResult
     '\n  *[_type == "caseStudy"]{\n    "slug": slug.current\n  }\n': CASE_STUDY_SLUGS_QUERYResult
     '*[\n  _type == "caseStudy"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n}\n': CASE_STUDY_QUERYResult
-    '*[\n  _type == "service"\n  && defined(slug.current)\n]| order(title asc){\n  title,\n  "slug": slug.current,\n  publishedAt,\n  excerpt,\n  mainImage,\n}': ALL_SERVICES_QUERYResult
+    '*[\n  _type == "service"\n  && defined(slug.current)\n]| order(title asc){\n  title,\n  "slug": slug.current,\n  publishedAt,\n  excerpt,\n  icon,\n  mainImage,\n}': ALL_SERVICES_QUERYResult
     '*[\n  _type == "service"\n  && slug.current == $slug\n][0]{\n  title,\n  excerpt,  \n  seo {\n    metaTitle,\n    metaDescription,\n    canonicalUrl,\n    ogImage {\n      asset -> {\n        _id,\n        url\n      }\n    }\n  },\n}\n': SERVICE_META_QUERYResult
     '\n  *[_type == "service"]{\n    "slug": slug.current\n  }\n': SERVICE_SLUGS_QUERYResult
-    '*[\n  _type == "service"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n}\n': SERVICE_QUERYResult
+    '*[\n  _type == "service"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n  gallery[]{\n    _key,\n    alt,\n    asset->{\n      _id,\n      url\n    }\n  },\n  testimonials[]->{\n   "slug": slug.current,\n    name,\n    logo,\n    avatar,\n    content,\n  },\n}\n': SERVICE_QUERYResult
     '*[_type == "testimonial"] | order(publishedAt asc)': ALL_TESTIMONIALS_QUERYResult
   }
 }

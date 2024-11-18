@@ -1,5 +1,6 @@
 import ArrowLink from '@/components/arrow-link'
 import { Button } from '@/components/button'
+import CallToAction from '@/components/call-to-action'
 import { Container } from '@/components/container'
 import { Link } from '@/components/link'
 import NavBar from '@/components/navbar'
@@ -289,10 +290,10 @@ async function Services() {
           >
             <div className="flex items-center justify-between gap-x-3 text-base/7 font-semibold">
               <div className="flex flex-row items-center">
-                {service.mainImage && (
+                {service.icon && (
                   <img
-                    alt={service.mainImage.alt || ''}
-                    src={image(service.mainImage).url()}
+                    alt={service.icon.alt || ''}
+                    src={image(service.icon).url()}
                     className="size-9"
                   />
                 )}
@@ -312,28 +313,6 @@ async function Services() {
         ))}
       </div>
     </Container>
-  )
-}
-
-function CallToAction() {
-  return (
-    <section className="relative overflow-hidden bg-primary/10 bg-[url(/dot-texture.svg)] py-32">
-      <Container>
-        <div className="mx-auto max-w-lg text-center">
-          <Heading>Get started today</Heading>
-          <p className="mt-4 text-lg tracking-tight">
-            It’s time to take control of your books. Buy our software so you can
-            feel like you’re doing something productive.
-          </p>
-          <div className="mt-10 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
-            <Button href="#">Get a free quote</Button>
-            <Button variant="secondary" href="/pricing">
-              Call us now
-            </Button>
-          </div>
-        </div>
-      </Container>
-    </section>
   )
 }
 

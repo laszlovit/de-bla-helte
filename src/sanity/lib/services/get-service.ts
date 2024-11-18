@@ -10,6 +10,21 @@ const SERVICE_QUERY = defineQuery(/* groq */ `*[
   mainImage,
   excerpt,
   body,
+  gallery[]{
+    _key,
+    alt,
+    asset->{
+      _id,
+      url
+    }
+  },
+  testimonials[]->{
+   "slug": slug.current,
+    name,
+    logo,
+    avatar,
+    content,
+  },
 }
 `)
 

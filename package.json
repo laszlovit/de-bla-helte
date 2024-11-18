@@ -10,6 +10,7 @@
     "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate && rm ./src/sanity/extract.json"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
     "@sanity/icons": "^3.4.0",

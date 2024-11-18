@@ -9,6 +9,7 @@ const ALL_SERVICES_QUERY = defineQuery(/* groq */ `*[
   "slug": slug.current,
   publishedAt,
   excerpt,
+  icon,
   mainImage,
 }`)
 
