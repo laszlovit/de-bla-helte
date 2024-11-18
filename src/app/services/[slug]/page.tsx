@@ -72,7 +72,7 @@ export default async function SelectedServicePage({ params }: Props) {
                   src={image(service.mainImage).url()}
                   alt={service.mainImage.alt || ''}
                   fetchPriority="high"
-                  className="relative z-20 -mb-20 rounded-xl bg-slate-200 shadow-xl shadow-black/5 ring-1 ring-slate-900/5 sm:-mb-16 lg:-mb-8 xl:-mb-20"
+                  className="relative z-20 -mb-20 aspect-[853/682] rounded-xl bg-slate-200 object-cover shadow-xl shadow-black/5 ring-1 ring-slate-900/5 sm:-mb-16 lg:-mb-8 xl:-mb-20"
                 />
               )}
             </div>
