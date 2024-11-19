@@ -68,42 +68,6 @@ export type Geopoint = {
   alt?: number
 }
 
-export type Testimonial = {
-  _id: string
-  _type: 'testimonial'
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  name?: string
-  slug?: Slug
-  logo?: {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    alt?: string
-    _type: 'image'
-  }
-  avatar?: {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    alt?: string
-    _type: 'image'
-  }
-  publishedAt?: string
-  content?: string
-}
-
 export type CaseStudy = {
   _id: string
   _type: 'caseStudy'
@@ -124,6 +88,11 @@ export type CaseStudy = {
     alt?: string
     _type: 'image'
   }
+  period?: {
+    startDate?: string
+    endDate?: string
+    isActive?: boolean
+  }
   services?: Array<{
     _ref: string
     _type: 'reference'
@@ -131,6 +100,12 @@ export type CaseStudy = {
     _key: string
     [internalGroqTypeReferenceTo]?: 'service'
   }>
+  testimonial?: {
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: 'testimonial'
+  }
   publishedAt?: string
   excerpt?: string
   body?: Array<
@@ -167,6 +142,43 @@ export type CaseStudy = {
       }
   >
   seo?: Seo
+}
+
+export type Testimonial = {
+  _id: string
+  _type: 'testimonial'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  slug?: Slug
+  role?: string
+  logo?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+  }
+  avatar?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+  }
+  publishedAt?: string
+  content?: string
 }
 
 export type Service = {
@@ -461,8 +473,8 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
-  | Testimonial
   | CaseStudy
+  | Testimonial
   | Service
   | Seo
   | Post
@@ -525,7 +537,7 @@ export type CASE_STUDY_SLUGS_QUERYResult = Array<{
 
 // Source: ./src/sanity/lib/case-studies/get-case-study.ts
 // Variable: CASE_STUDY_QUERY
-// Query: *[  _type == "caseStudy"  && slug.current == $slug][0]{  publishedAt,  title,  mainImage,  excerpt,  body,}
+// Query: *[  _type == "caseStudy"  && slug.current == $slug][0]{  publishedAt,  title,  mainImage,  excerpt,  body,  services[]->{    title,    "slug": slug.current,  },  period,  testimonial->{    name,    role,    content,    logo,  },}
 export type CASE_STUDY_QUERYResult = {
   publishedAt: string | null
   title: string | null
@@ -575,6 +587,32 @@ export type CASE_STUDY_QUERYResult = {
         _key: string
       }
   > | null
+  services: Array<{
+    title: string | null
+    slug: string | null
+  }> | null
+  period: {
+    startDate?: string
+    endDate?: string
+    isActive?: boolean
+  } | null
+  testimonial: {
+    name: string | null
+    role: string | null
+    content: string | null
+    logo: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+    } | null
+  } | null
 } | null
 
 // Source: ./src/sanity/lib/services/get-all-services.ts
@@ -739,6 +777,7 @@ export type ALL_TESTIMONIALS_QUERYResult = Array<{
   _rev: string
   name?: string
   slug?: Slug
+  role?: string
   logo?: {
     asset?: {
       _ref: string
@@ -774,7 +813,7 @@ declare module '@sanity/client' {
     '*[\n  _type == "caseStudy"\n  && defined(slug.current)\n]| order(title asc){\n  title,\n  "slug": slug.current,\n  publishedAt,\n  excerpt,\n  mainImage,\n}': ALL_CASE_STUDIES_QUERYResult
     '*[\n  _type == "caseStudy"\n  && slug.current == $slug\n][0]{\n  title,\n  excerpt,  \n  seo {\n    metaTitle,\n    metaDescription,\n    canonicalUrl,\n    ogImage {\n      asset -> {\n        _id,\n        url\n      }\n    }\n  },\n}\n': CASE_STUDY_META_QUERYResult
     '\n  *[_type == "caseStudy"]{\n    "slug": slug.current\n  }\n': CASE_STUDY_SLUGS_QUERYResult
-    '*[\n  _type == "caseStudy"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n}\n': CASE_STUDY_QUERYResult
+    '*[\n  _type == "caseStudy"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n  services[]->{\n    title,\n    "slug": slug.current,\n  },\n  period,\n  testimonial->{\n    name,\n    role,\n    content,\n    logo,\n  },\n}\n': CASE_STUDY_QUERYResult
     '*[\n  _type == "service"\n  && defined(slug.current)\n]| order(title asc){\n  title,\n  "slug": slug.current,\n  publishedAt,\n  excerpt,\n  icon,\n  mainImage,\n}': ALL_SERVICES_QUERYResult
     '*[\n  _type == "service"\n  && slug.current == $slug\n][0]{\n  title,\n  excerpt,  \n  seo {\n    metaTitle,\n    metaDescription,\n    canonicalUrl,\n    ogImage {\n      asset -> {\n        _id,\n        url\n      }\n    }\n  },\n}\n': SERVICE_META_QUERYResult
     '\n  *[_type == "service"]{\n    "slug": slug.current\n  }\n': SERVICE_SLUGS_QUERYResult

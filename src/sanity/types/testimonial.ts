@@ -19,6 +19,10 @@ export const testimonialType = defineType({
       },
     }),
     defineField({
+      name: 'role',
+      type: 'string',
+    }),
+    defineField({
       name: 'logo',
       type: 'image',
       options: {

@@ -10,6 +10,17 @@ const CASE_STUDY_QUERY = defineQuery(/* groq */ `*[
   mainImage,
   excerpt,
   body,
+  services[]->{
+    title,
+    "slug": slug.current,
+  },
+  period,
+  testimonial->{
+    name,
+    role,
+    content,
+    logo,
+  },
 }
 `)
 

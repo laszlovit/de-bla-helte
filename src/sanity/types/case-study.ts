@@ -33,9 +33,38 @@ export const caseStudyType = defineType({
       ],
     }),
     defineField({
+      name: 'period',
+      type: 'object',
+      fields: [
+        {
+          name: 'startDate',
+          type: 'string',
+          title: 'Start Date',
+          description: 'E.g., 2021',
+        },
+        {
+          name: 'endDate',
+          type: 'string',
+          title: 'End Date',
+          description: 'E.g., 2023',
+        },
+        {
+          name: 'isActive',
+          type: 'boolean',
+          initialValue: false,
+          title: 'Is it still active?',
+        },
+      ],
+    }),
+    defineField({
       name: 'services',
       type: 'array',
       of: [defineArrayMember({ type: 'reference', to: { type: 'service' } })],
+    }),
+    defineField({
+      name: 'testimonial',
+      type: 'reference',
+      to: { type: 'testimonial' },
     }),
     defineField({
       name: 'publishedAt',
