@@ -11,6 +11,7 @@ import { getAllServices } from '@/sanity/lib/services/get-all-services'
 import { getAllTestimonials } from '@/sanity/lib/testimonials/get-all-testimonials'
 import { ArrowLongRightIcon } from '@heroicons/react/16/solid'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 function Hero() {
   return (
@@ -255,7 +256,7 @@ function AboutUs() {
 }
 
 async function Services() {
-  const services = await getAllServices()
+  const services = (await getAllServices()) || notFound()
 
   return (
     <Container>
@@ -317,7 +318,7 @@ async function Services() {
 }
 
 async function CaseStudies() {
-  const caseStudies = await getAllCaseStudies()
+  const caseStudies = (await getAllCaseStudies()) || notFound()
   return (
     <section className="bg-white py-24 sm:py-32">
       <Container>
@@ -384,7 +385,7 @@ async function CaseStudies() {
 }
 
 async function Testimonials() {
-  const testimonials = await getAllTestimonials()
+  const testimonials = (await getAllTestimonials()) || notFound()
   return (
     <div className="pb-24">
       <Container className="relative">
