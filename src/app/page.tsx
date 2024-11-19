@@ -38,7 +38,7 @@ function Hero() {
         </p>
         <div className="mt-10 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
           <Button href="#">Get a free quote</Button>
-          <Button variant="secondary" href="/pricing">
+          <Button variant="secondary" href="#">
             Learn more
           </Button>
         </div>
