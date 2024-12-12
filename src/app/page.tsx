@@ -8,6 +8,7 @@ import { getAllServices } from "@/sanity/lib/services/get-all-services";
 import { getAllTestimonials } from "@/sanity/lib/testimonials/get-all-testimonials";
 import { CheckCircleIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
+import { ReactNode } from "react";
 
 function Hero() {
 	return (
@@ -224,7 +225,7 @@ function HowItWorks() {
 		isFirstItem,
 		isLastItem,
 	}: {
-		icon: any;
+		icon: ReactNode;
 		title: string;
 		description: string;
 		isFirstItem: boolean;
