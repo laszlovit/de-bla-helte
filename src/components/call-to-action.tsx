@@ -1,44 +1,25 @@
-import { Button } from '@/components/button'
-import { Container } from '@/components/container'
-import { Heading } from '@/components/text'
+import { Button, ButtonProps } from "@relume_io/relume-ui";
 
-export default function CallToAction({
-  title,
-  description,
-  buttonText,
-  buttonHref,
-  secondaryButtonText,
-  secondaryButtonHref,
-}: {
-  title?: string
-  description?: string
-  buttonText?: string
-  buttonHref?: string
-  secondaryButtonText?: string
-  secondaryButtonHref?: string
-}) {
-  return (
-    <section className="relative overflow-hidden bg-primary/10 bg-[url(/dot-texture.svg)] py-32">
-      <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <Heading>{title || 'Get started today'}</Heading>
-          <p className="mt-4 text-lg tracking-tight">
-            {description ||
-              'It’s time to take control of your books. Buy our software so you can focus on something else'}
-          </p>
-          <div className="mt-10 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
-            <Button href={buttonHref || '/kontakt'}>
-              {buttonText || 'Get a free quote'}
-            </Button>
-            <Button
-              variant="secondary"
-              href={secondaryButtonHref || 'tel:+4570604615'}
-            >
-              {secondaryButtonText || 'Call us now'}
-            </Button>
-          </div>
-        </div>
-      </Container>
-    </section>
-  )
+type Props = {
+	heading: string;
+	description: string;
+	buttons: ButtonProps[];
+};
+
+export default function CallToAction({ heading, description, buttons }: Props) {
+	return (
+		<section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+			<div className="container max-w-lg text-center">
+				<h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
+				<p className="md:text-md">{description}</p>
+				<div className="mt-6 flex items-center justify-center gap-4 md:mt-8">
+					{buttons.map((button, index) => (
+						<Button key={index} {...button}>
+							{button.title}
+						</Button>
+					))}
+				</div>
+			</div>
+		</section>
+	);
 }
