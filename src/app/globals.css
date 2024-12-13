@@ -3,16 +3,28 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-inter);
+	font-family: var(--font-inter);
 }
 
 h1,
 h2 {
-  font-family: var(--font-outfit);
+	font-family: var(--font-outfit);
 }
 
 @layer utilities {
-  .animation-pause {
-    animation-play-state: paused;
-  }
+	.animation-pause {
+		animation-play-state: paused;
+	}
+}
+
+@media (min-width: 768px) {
+	.grid-service-item {
+		grid-template-columns: 1fr 1.25fr;
+	}
+}
+
+@media (min-width: 768px) {
+	.clip-left {
+		clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+	}
 }

@@ -1,5 +1,6 @@
 import CallToAction from "@/components/call-to-action";
 import { Navbar } from "@/components/navbar";
+import ServicesCarousel from "@/components/services-carousel";
 import TestimonialCarousel from "@/components/testimonials-carousel";
 import { getAllCaseStudies } from "@/sanity/lib/case-studies/get-all-case-studies";
 import { image } from "@/sanity/lib/image";
@@ -41,6 +42,78 @@ function Hero() {
 					loading="lazy"
 					className="absolute -top-1.5 bottom-0 left-0 right-0"
 				/>
+			</div>
+		</section>
+	);
+}
+
+function AboutUs() {
+	const features = [
+		{
+			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 1" },
+			heading: "Medium length",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+		},
+		{
+			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 2" },
+			heading: "Medium length",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+		},
+		{
+			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 3" },
+			heading: "Medium length ",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+		},
+	];
+
+	return (
+		<section id="relume" className="bg-grayish relative px-[5%] py-16 md:py-24 lg:py-28">
+			<img
+				src="https://cdn.prod.website-files.com/66d02aba8349878eec2c58c5/67580bc30453a61ed3433362_update-About%20Decoration.svg"
+				loading="lazy"
+				alt="Decoration"
+				className="absolute -bottom-1.5 left-0 right-0 top-auto w-full"
+			></img>
+			<div className="container">
+				<div className="grid grid-cols-1 items-start justify-center gap-y-12 pb-16 md:grid-cols-3 md:gap-x-8 md:gap-y-16 md:pb-24 lg:gap-x-12 lg:pb-28">
+					{features.map((feature, index) => (
+						<div key={index} className="flex gap-6">
+							<div className="flex-none">
+								<img src={feature.icon.src} className="size-12" alt={feature.icon.alt} />
+							</div>
+							<div>
+								<h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
+									{feature.heading}
+								</h3>
+								<p>{feature.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div className="relative z-10 grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:-mb-20 lg:gap-x-20 xl:-mb-24">
+					<div className="order-2 md:order-1">
+						<img
+							src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+							className="aspect-[2/2.3] w-full object-cover"
+							alt=""
+						/>
+					</div>
+					<div className="order-2 lg:order-2">
+						<p className="mb-3 font-semibold text-primary md:mb-4">Your trusted partner</p>
+						<h2 className="rb-5 mb-5 text-pretty text-4xl font-bold md:mb-6 lg:text-6xl">
+							With our satisfaction guarantee, you can trust that we will exceed your expectations
+							every time.
+						</h2>
+						<div className="mt-6 flex flex-wrap gap-4 md:mt-8">
+							<Button variant="secondary" iconRight={<ArrowLongRightIcon className="size-5" />}>
+								Read more about us
+							</Button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	);
@@ -113,39 +186,11 @@ async function Services() {
 	const services = await getAllServices();
 
 	return (
-		<section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-			<div className="container">
-				<div className="mb-12 grid grid-cols-1 items-start gap-5 md:mb-18 md:grid-cols-2 md:gap-x-12 lg:mb-20 lg:gap-x-20">
-					<h2 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
-						Long heading is what you see here in this feature section
-					</h2>
-					<p className="md:text-md">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-						elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-						commodo diam libero vitae erat. Suspendisse varius enim in eros elementum tristique.
-						Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.
-					</p>
-				</div>
-				<div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 lg:gap-x-12">
-					{services.map((service) => (
-						<div key={service.slug}>
-							{service.icon && (
-								<div className="mb-5 md:mb-6">
-									<img src={image(service.icon).url()} className="size-12" alt="" />
-								</div>
-							)}
-							<h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">{service.title}</h3>
-							<p>{service.excerpt}</p>
-							<div className="mt-6 flex items-center gap-4 md:mt-8">
-								<Button>
-									<a href={`/services/${service.slug}`}>Read More</a>
-								</Button>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
+		<ServicesCarousel
+			heading="What we offer"
+			description="Explore a wide range of consulting services tailored to meet your specific needs and goals"
+			services={services}
+		/>
 	);
 }
 
@@ -373,7 +418,9 @@ export default function Home() {
 		<>
 			<Navbar />
 			<Hero />
-			<LogoCloud />
+
+			<AboutUs />
+			{/* <LogoCloud /> */}
 			<Services />
 			<WhyUs />
 			<HowItWorks />
