@@ -36,7 +36,7 @@ export const Navbar = (props: Navbar2Props) => {
 	const isMobile = useMediaQuery("(max-width: 991px)");
 
 	return (
-		<nav className="flex w-full items-center border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%]">
+		<nav className="absolute top-0 z-30 flex w-full items-center bg-white lg:min-h-18 lg:bg-transparent lg:px-[5%]">
 			<div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
 				<div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
 					<a href={logo.url}>
@@ -88,11 +88,14 @@ export const Navbar = (props: Navbar2Props) => {
 					className="overflow-hidden px-[5%] text-center lg:flex lg:items-center lg:justify-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
 				>
 					{navLinks.map((navLink, index) => (
-						<div key={index} className="first:pt-4 lg:first:pt-0">
+						<div key={index} className="te first:pt-4 lg:first:pt-0">
 							{navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
 								<SubMenu navLink={navLink} isMobile={isMobile} />
 							) : (
-								<a href={navLink.url} className="block py-3 text-md lg:px-4 lg:py-2 lg:text-base">
+								<a
+									href={navLink.url}
+									className="block py-3 text-md lg:px-4 lg:py-2 lg:text-base lg:text-white"
+								>
 									{navLink.title}
 								</a>
 							)}
@@ -101,7 +104,7 @@ export const Navbar = (props: Navbar2Props) => {
 				</motion.div>
 				<div className="hidden justify-self-end lg:block">
 					{buttons.map((button, index) => (
-						<Button key={index} className="px-6 py-2" {...button}>
+						<Button key={index} className="text-secondary bg-white px-6 py-2" {...button}>
 							{button.title}
 						</Button>
 					))}
@@ -123,7 +126,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 				className="flex w-full items-center justify-center gap-4 py-3 text-center text-md lg:w-auto lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
 				onClick={() => setIsDropdownOpen((prev) => !prev)}
 			>
-				<span>{navLink.title}</span>
+				<span className="lg:text-white">{navLink.title}</span>
 				<motion.span
 					animate={isDropdownOpen ? "rotated" : "initial"}
 					variants={{
@@ -132,7 +135,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 					}}
 					transition={{ duration: 0.3 }}
 				>
-					<RxChevronDown />
+					<RxChevronDown className="lg:text-white" />
 				</motion.span>
 			</button>
 			{isDropdownOpen && (
@@ -179,11 +182,8 @@ export const Navbar2Defaults: Props = {
 		alt: "Logo image",
 	},
 	navLinks: [
-		{ title: "Link One", url: "#" },
-		{ title: "Link Two", url: "#" },
-		{ title: "Link Three", url: "#" },
 		{
-			title: "Link Four",
+			title: "Services",
 			url: "#",
 			subMenuLinks: [
 				{ title: "Link Five", url: "#" },
@@ -191,6 +191,9 @@ export const Navbar2Defaults: Props = {
 				{ title: "Link Seven", url: "#" },
 			],
 		},
+		{ title: "Link Two", url: "#" },
+		{ title: "Link Three", url: "#" },
+		{ title: "Link Four", url: "#" },
 	],
 	buttons: [
 		{

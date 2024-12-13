@@ -1,14 +1,13 @@
 import { Button } from "@/components/button";
 import CallToAction from "@/components/call-to-action";
-import { Container } from "@/components/container";
 import Fancybox from "@/components/fancybox-wrapper";
 import { Link } from "@/components/link";
 import { Navbar } from "@/components/navbar";
-import { Heading } from "@/components/text";
 import { image } from "@/sanity/lib/image";
 import { getService } from "@/sanity/lib/services/get-service";
 import { getServiceMeta } from "@/sanity/lib/services/get-service-meta";
 import { getServiceSlugs } from "@/sanity/lib/services/get-service-slugs";
+import { Input } from "@relume_io/relume-ui";
 import { Metadata } from "next";
 import { PortableText, toPlainText } from "next-sanity";
 import { notFound } from "next/navigation";
@@ -48,45 +47,33 @@ export default async function SelectedServicePage({ params }: Props) {
 	return (
 		<>
 			<Navbar />
-			<div className="relative bg-primary/10 bg-[url(/dot-texture.svg)] pt-16 sm:px-6 lg:px-8 lg:pt-20">
-				<Container className="relative">
-					<div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
-						<div className="flex flex-col justify-center lg:max-w-lg lg:pb-12">
-							<p className="text-sm font-medium text-gray-900">Services</p>
-							<Heading as="h1" className="mt-2">
-								{service.title}
-							</Heading>
-							<p className="max-w-2xl mt-4 text-lg tracking-tight text-slate-700">
-								{service.excerpt}
-							</p>
-							<div className="mt-10 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-								<Button href="#">Get a free quote</Button>
-								<Button variant="secondary" href="#details">
-									Learn more
-								</Button>
-							</div>
-						</div>
-						<div className="relative">
-							{service.mainImage && (
-								<img
-									src={image(service.mainImage).url()}
-									alt={service.mainImage.alt || ""}
-									fetchPriority="high"
-									className="shadow-xl relative z-20 -mb-20 aspect-[853/682] rounded-xl bg-slate-200 object-cover shadow-black/5 ring-1 ring-slate-900/5 sm:-mb-16 lg:-mb-8 xl:-mb-20"
-								/>
-							)}
-						</div>
+			<section id="relume" className="px-[5%] pt-16 md:pt-24 lg:pt-28">
+				<div className="container">
+					<div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+						<h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+							{service.title}
+						</h1>
+						<p className="md:text-md">{service.excerpt}</p>
 					</div>
-				</Container>
-			</div>
-			<div className="mt-52 pb-20 sm:mt-36 sm:pb-24 lg:mt-28 lg:pb-32 xl:mt-36">
-				<Container>
-					<div className="max-w-7xl lg:max-w-none mx-auto space-y-20 divide-y divide-slate-200 sm:space-y-24 lg:space-y-32">
-						<section className="grid grid-cols-1 items-baseline gap-x-6 gap-y-10 lg:grid-cols-3">
-							<h2 className="text-2xl/9 font-semibold tracking-tight text-slate-900">
+					<div>
+						{service.mainImage && (
+							<img
+								src={image(service.mainImage).url()}
+								alt={service.mainImage.alt}
+								className="w-full object-cover lg:aspect-[5/2]"
+							/>
+						)}
+					</div>
+				</div>
+			</section>
+			<section id="relume" className="px-[5%] py-16 md:pb-24 lg:pb-28">
+				<div className="container">
+					<div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_0.5fr] lg:gap-x-20">
+						<div className="">
+							<h2 className="mb-10 text-2xl/9 font-semibold tracking-tight text-slate-900">
 								Hvad er inkluderet
 							</h2>
-							<div className="max-w-2xl space-y-10 lg:col-span-2">
+							<div className="prose md:prose-md lg:prose-lg">
 								{service.body && (
 									<PortableText
 										value={service.body}
@@ -175,82 +162,105 @@ export default async function SelectedServicePage({ params }: Props) {
 									/>
 								)}
 							</div>
-						</section>
-						{service.gallery && (
-							<section className="grid grid-cols-1 gap-x-6 gap-y-10 pt-10 lg:grid-cols-3">
-								<h2 className="text-2xl/9 font-semibold tracking-tight text-slate-900">Galleri</h2>
-								<Fancybox
-									className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2"
-									options={{
-										Carousel: {
-											infinite: false,
-										},
-									}}
-								>
-									{service.gallery.map((imageItem) => (
-										<div key={imageItem._key} className="flex flex-col items-center">
-											<Link
-												data-fancybox="gallery"
-												data-caption={imageItem.alt || ""}
-												href={image(imageItem).url()}
-												className="group relative overflow-hidden rounded-xl"
+							{service.gallery && (
+								<section className="grid grid-cols-1 gap-x-6 gap-y-10 pt-10">
+									<h2 className="text-2xl/9 font-semibold tracking-tight text-slate-900">
+										Galleri
+									</h2>
+									<Fancybox
+										className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2"
+										options={{
+											Carousel: {
+												infinite: false,
+											},
+										}}
+									>
+										{service.gallery.map((imageItem) => (
+											<div key={imageItem._key} className="flex flex-col items-center">
+												<Link
+													data-fancybox="gallery"
+													data-caption={imageItem.alt || ""}
+													href={image(imageItem).url()}
+													className="group relative overflow-hidden rounded-xl"
+												>
+													<img
+														alt={imageItem.alt || ""}
+														src={image(imageItem).url()}
+														loading="lazy"
+														className="w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+													/>
+												</Link>
+											</div>
+										))}
+									</Fancybox>
+								</section>
+							)}
+							{service.testimonials && (
+								<section className="grid grid-cols-1 gap-x-6 gap-y-10 pt-10">
+									<h2 className="text-2xl/9 font-semibold tracking-tight text-slate-900">
+										Hvad vores kunder siger
+									</h2>
+									<ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2">
+										{service.testimonials.map((testimonial) => (
+											<li
+												key={testimonial.slug}
+												className="shadow-sm relative col-span-2 flex flex-col space-y-4 rounded-lg bg-white p-6 ring-1 ring-black/5"
 											>
-												<img
-													alt={imageItem.alt || ""}
-													src={image(imageItem).url()}
-													loading="lazy"
-													className="w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-												/>
-											</Link>
-										</div>
-									))}
-								</Fancybox>
-							</section>
-						)}
-						{service.testimonials && (
-							<section className="grid grid-cols-1 gap-x-6 gap-y-10 pt-10 lg:grid-cols-3">
-								<h2 className="text-2xl/9 font-semibold tracking-tight text-slate-900">
-									Hvad vores kunder siger
-								</h2>
-								<ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2">
-									{service.testimonials.map((testimonial) => (
-										<li
-											key={testimonial.slug}
-											className="shadow-sm relative flex flex-col space-y-4 rounded-lg bg-white p-6 ring-1 ring-black/5"
-										>
-											{testimonial.logo && (
-												<div className="border-b border-slate-100 pb-4">
-													<img
-														alt={testimonial.logo.alt || ""}
-														src={image(testimonial.logo).format("webp").url()}
-														className="h-6 w-auto"
-													/>
-												</div>
-											)}
-											<figcaption className="mt-6 flex items-center gap-x-4">
-												{testimonial.avatar && (
-													<img
-														alt={testimonial.avatar.alt || ""}
-														src={image(testimonial.avatar).format("webp").url()}
-														className="h-10 w-10 rounded-full bg-gray-50"
-													/>
+												{testimonial.logo && (
+													<div className="border-b border-slate-100 pb-4">
+														<img
+															alt={testimonial.logo.alt || ""}
+															src={image(testimonial.logo).format("webp").url()}
+															className="h-6 w-auto"
+														/>
+													</div>
 												)}
-												<div>
-													<div className="font-medium">{testimonial.name}</div>
-													<div className="text-sm text-gray-600">Manager</div>
-												</div>
-											</figcaption>
-											<blockquote className="text-sm text-gray-700">
-												“{testimonial.content}”
-											</blockquote>
-										</li>
-									))}
-								</ul>
-							</section>
-						)}
+												<figcaption className="mt-6 flex items-center gap-x-4">
+													{testimonial.avatar && (
+														<img
+															alt={testimonial.avatar.alt || ""}
+															src={image(testimonial.avatar).format("webp").url()}
+															className="h-10 w-10 rounded-full bg-gray-50"
+														/>
+													)}
+													<div>
+														<div className="font-medium">{testimonial.name}</div>
+														<div className="text-sm text-gray-600">Manager</div>
+													</div>
+												</figcaption>
+												<blockquote className="text-sm text-gray-700">
+													“{testimonial.content}”
+												</blockquote>
+											</li>
+										))}
+									</ul>
+								</section>
+							)}
+						</div>
+						<div>
+							<div className="border border-border-primary p-8 lg:sticky lg:top-20">
+								<h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
+									Send an inquiry
+								</h6>
+								<p className="mb-3 md:mb-4">
+									Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis.
+								</p>
+								<form className="mb-4 flex flex-col gap-3 sm:gap-4">
+									<Input id="email" type="email" placeholder="emai..." />
+									<Button>Send</Button>
+								</form>
+								<p className="text-xs">
+									By submitting the form you agree with our{" "}
+									<a href="#" className="underline">
+										Privacy Policy
+									</a>
+									.
+								</p>
+							</div>
+						</div>
 					</div>
-				</Container>
-			</div>
+				</div>
+			</section>
 			<CallToAction
 				heading="Medium length heading goes here"
 				description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."

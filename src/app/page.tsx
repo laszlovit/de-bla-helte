@@ -1,4 +1,3 @@
-import { Button } from "@/components/button";
 import CallToAction from "@/components/call-to-action";
 import { Navbar } from "@/components/navbar";
 import TestimonialCarousel from "@/components/testimonials-carousel";
@@ -6,35 +5,41 @@ import { getAllCaseStudies } from "@/sanity/lib/case-studies/get-all-case-studie
 import { image } from "@/sanity/lib/image";
 import { getAllServices } from "@/sanity/lib/services/get-all-services";
 import { getAllTestimonials } from "@/sanity/lib/testimonials/get-all-testimonials";
-import { CheckCircleIcon } from "@heroicons/react/16/solid";
+import { ArrowLongRightIcon, CheckCircleIcon } from "@heroicons/react/16/solid";
+import { Button } from "@relume_io/relume-ui";
 import clsx from "clsx";
 import { ReactNode } from "react";
 
 function Hero() {
 	return (
-		<section
-			id="relume"
-			className="grid grid-cols-1 items-center gap-y-16 pt-16 md:pt-24 lg:grid-cols-2 lg:pt-0"
-		>
-			<div className="mx-[5%] pt-16 sm:max-w-md md:justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end">
-				<h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-					Medium length hero heading goes here
-				</h1>
-				<p className="md:text-md">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-					elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-					commodo diam libero vitae erat.
-				</p>
-				<div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-					<Button>Button</Button>
-					<Button variant="secondary">Button</Button>
+		<section className="bg-secondary overflow-hidden pt-32">
+			<div className="px-[5%]">
+				<div className="relative z-10">
+					<h1 className="mb-5 max-w-lg text-6xl font-bold text-white md:mb-6 md:text-9xl lg:text-[5rem]">
+						Medium length hero heading goes here
+					</h1>
+					<div className="mt-6 flex flex-wrap gap-4 md:mt-8">
+						<Button className="bg-primary" iconRight={<ArrowLongRightIcon className="size-5" />}>
+							Get a free qoute
+						</Button>
+						<Button variant="secondary">View services</Button>
+					</div>
 				</div>
 			</div>
-			<div>
+			<div className="relative lg:-mt-36">
+				<div className="overflow-hidden">
+					<img
+						src="https://cdn.prod.website-files.com/66d02aba8349878eec2c58c5/66d15ed4f6b8d0d2473889be_hero-image.avif"
+						alt=""
+						className="h-full w-full object-cover"
+					/>
+				</div>
+				<div className="bg-secondary absolute inset-0 opacity-30"></div>
 				<img
-					src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-					alt="Relume placeholder image"
-					className="w-full object-cover lg:h-screen lg:max-h-[60rem]"
+					src="https://cdn.prod.website-files.com/66d02aba8349878eec2c58c5/675805f3ed3bcba3504f98e5_update-hero-decoration.svg"
+					alt=""
+					loading="lazy"
+					className="absolute -top-1.5 bottom-0 left-0 right-0"
 				/>
 			</div>
 		</section>
@@ -132,7 +137,9 @@ async function Services() {
 							<h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">{service.title}</h3>
 							<p>{service.excerpt}</p>
 							<div className="mt-6 flex items-center gap-4 md:mt-8">
-								<Button>Read More</Button>
+								<Button>
+									<a href={`/services/${service.slug}`}>Read More</a>
+								</Button>
 							</div>
 						</div>
 					))}
