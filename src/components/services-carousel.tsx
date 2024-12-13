@@ -26,16 +26,11 @@ export default function ServicesCarousel({
 	services: ALL_SERVICES_QUERYResult;
 }) {
 	const [api, setApi] = useState<CarouselApi>();
-	const [current, setCurrent] = useState(0);
 
 	useEffect(() => {
 		if (!api) {
 			return;
 		}
-		setCurrent(api.selectedScrollSnap() + 1);
-		api.on("select", () => {
-			setCurrent(api.selectedScrollSnap() + 1);
-		});
 	}, [api]);
 
 	return (
