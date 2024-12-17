@@ -69,7 +69,7 @@ export const serviceType = defineType({
 						return true;
 					}
 
-					let featuredServices = await getClient({ apiVersion })
+					const featuredServices = await getClient({ apiVersion })
 						.withConfig({ perspective: "previewDrafts" })
 						.fetch<number>(groq`count(*[_type == 'post' && isFeatured == true])`);
 

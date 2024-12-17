@@ -24,11 +24,11 @@ type Props = {
 	button: ButtonProps;
 };
 
-export type Navbar13Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type NavbarProps = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
-export const Navbar13 = (props: Navbar13Props) => {
+export const Navbar = (props: NavbarProps) => {
 	const { logo, navLinks, button } = {
-		...Navbar13Defaults,
+		...NavbarDefaults,
 		...props,
 	};
 
@@ -200,7 +200,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 	);
 };
 
-export const Navbar13Defaults: Props = {
+export const NavbarDefaults: Props = {
 	logo: {
 		url: "#",
 		src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",

@@ -1,4 +1,4 @@
-import { Navbar13 } from "@/components/navbar";
+import { Navbar } from "@/components/navbar";
 import { image } from "@/sanity/lib/image";
 import { getFeaturedServices } from "@/sanity/lib/services/get-featured-services";
 import { Button } from "@relume_io/relume-ui";
@@ -20,7 +20,7 @@ function LogoCloudBento() {
 		<section id="relume" className="overflow-hidden py-12 md:py-16 lg:py-20">
 			<div className="container mb-8 w-full max-w-lg px-[5%] md:mb-10 lg:mb-12">
 				<h1 className="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">
-					Used by the world's leading companies
+					Used by the world&apos;s leading companies
 				</h1>
 			</div>
 			<div className="flex items-center pt-7 md:pt-0">
@@ -152,13 +152,13 @@ async function Services() {
 										<span className="absolute inset-0"></span>
 									</Link>
 								</h3>
-								<p>{service.excerpt}</p>
+								<p className="line-clamp-3">{service.excerpt}</p>
 							</div>
 						</div>
 					))}
 				</div>
 				<div className="mt-10 flex items-center justify-center gap-4 md:mt-14 lg:mt-16">
-					<Button className="rounded-md bg-primary">View all services</Button>
+					<Button className="rounded-md border-primary bg-primary">View all services</Button>
 				</div>
 			</div>
 		</section>
@@ -168,7 +168,7 @@ async function Services() {
 export default function Page() {
 	return (
 		<>
-			<Navbar13 />
+			<Navbar />
 			<Hero />
 			<Services />
 		</>
