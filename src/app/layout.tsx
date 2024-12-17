@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.variable} ${outfit.variable} bg-[#f2f4f4] antialiased`}>
+			<body className={`${inter.variable} ${outfit.variable} bg-lightGray antialiased`}>
 				{children}
 				<SanityLive />
 			</body>

@@ -14,7 +14,7 @@ const config: Config = {
 				secondary: "#121a1f",
 				grayish: "#e4ebf0",
 				blackPearl: "#20282c",
-				lightGray: "#e4ebf0",
+				lightGray: "#f2f4f4",
 			},
 			animation: {
 				"infinite-scroll": "infinite-scroll 30s linear infinite",
