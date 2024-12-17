@@ -6,14 +6,14 @@ import { getAllCaseStudies } from "@/sanity/lib/case-studies/get-all-case-studie
 import { image } from "@/sanity/lib/image";
 import { getAllServices } from "@/sanity/lib/services/get-all-services";
 import { getAllTestimonials } from "@/sanity/lib/testimonials/get-all-testimonials";
-import { ArrowLongRightIcon, CheckCircleIcon } from "@heroicons/react/16/solid";
+import { ArrowLongRightIcon, CheckCircleIcon, CheckIcon } from "@heroicons/react/16/solid";
 import { Button } from "@relume_io/relume-ui";
 import clsx from "clsx";
 import { ReactNode } from "react";
 
 function Hero() {
 	return (
-		<section className="bg-secondary overflow-hidden pt-32">
+		<section className="overflow-hidden bg-secondary pt-32 lg:pt-60">
 			<div className="px-[5%]">
 				<div className="relative z-10">
 					<h1 className="mb-5 max-w-lg text-6xl font-bold text-white md:mb-6 md:text-9xl lg:text-[5rem]">
@@ -35,7 +35,7 @@ function Hero() {
 						className="h-full w-full object-cover"
 					/>
 				</div>
-				<div className="bg-secondary absolute inset-0 opacity-30"></div>
+				<div className="absolute inset-0 bg-secondary opacity-30"></div>
 				<img
 					src="https://cdn.prod.website-files.com/66d02aba8349878eec2c58c5/675805f3ed3bcba3504f98e5_update-hero-decoration.svg"
 					alt=""
@@ -70,7 +70,7 @@ function AboutUs() {
 	];
 
 	return (
-		<section id="relume" className="bg-grayish relative px-[5%] py-16 md:py-24 lg:py-28">
+		<section id="relume" className="relative bg-grayish px-[5%] py-16 md:py-24 lg:py-28">
 			<img
 				src="https://cdn.prod.website-files.com/66d02aba8349878eec2c58c5/67580bc30453a61ed3433362_update-About%20Decoration.svg"
 				loading="lazy"
@@ -251,32 +251,37 @@ function WhyUs() {
 function HowItWorks() {
 	const stepsItems = [
 		{
+			number: "1",
 			icon: <CheckCircleIcon className="size-8" />,
-			title: "Step 1",
+			title: "Fill Out the Booking Form",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+				"Provide your details, cleaning requirements, and any special requests in the form available on the website.",
 		},
 		{
-			icon: <CheckCircleIcon className="size-8" />,
-			title: "Step 2",
+			number: "2",
+			icon: <CheckIcon className="size-8" />,
+			title: "Wait for Our Response",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+				"After submitting the form, we’ll review your needs and contact you via phone or email to discuss the details and confirm the service.",
 		},
 		{
+			number: "3",
 			icon: <CheckCircleIcon className="size-8" />,
-			title: "Step 3",
+			title: "Finalize and Schedule",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+				"Once everything is agreed upon, we’ll finalize the booking and schedule the cleaning service at your convenience.",
 		},
 	];
 
 	const StepsItem = ({
 		icon,
+		number,
 		title,
 		description,
 		isFirstItem,
 		isLastItem,
 	}: {
+		number: string;
 		icon: ReactNode;
 		title: string;
 		description: string;
@@ -285,15 +290,17 @@ function HowItWorks() {
 	}) => {
 		return (
 			<div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
-				<div className="mb-8 overflow-hidden md:mb-0">{icon}</div>
+				<div className="mb-8 flex size-12 items-center justify-center overflow-hidden bg-primary md:mb-0">
+					<p className="font-semibold text-white">{number}</p>
+				</div>
 				<div className="relative flex flex-col items-center self-stretch md:mb-4 md:mt-8 md:w-full md:flex-row md:self-auto">
 					{isFirstItem && (
 						<div className="absolute left-0 top-1.5 z-10 hidden h-1 w-16 bg-gradient-to-r from-background-primary to-transparent md:block" />
 					)}
-					<div className="h-2 w-[3px] bg-neutral-black md:h-[3px] md:w-full" />
-					<div className="z-20 size-[0.9375rem] flex-none rounded-full bg-neutral-black shadow-[0_0_0_8px_white]" />
+					<div className="h-2 w-[3px] bg-primary opacity-30 md:h-[3px] md:w-full" />
+					<div className="z-20 size-[0.9375rem] flex-none rounded-full bg-blackPearl shadow-[0_0_0_8px_white]" />
 					<div
-						className={clsx("h-full w-[3px] bg-neutral-black md:h-[3px] md:w-full", {
+						className={clsx("h-full w-[3px] bg-primary opacity-30 md:h-[3px] md:w-full", {
 							"hidden md:block": isLastItem,
 						})}
 					/>
@@ -302,7 +309,7 @@ function HowItWorks() {
 					)}
 				</div>
 				<div className="pb-4 sm:pb-0 md:mb-0 md:px-3 md:text-center">
-					<h3 className="mb-2 text-xl font-bold md:text-2xl">{title}</h3>
+					<h3 className="mb-2 text-pretty text-xl font-bold md:text-2xl">{title}</h3>
 					<p>{description}</p>
 				</div>
 			</div>
@@ -315,17 +322,9 @@ function HowItWorks() {
 				<div className="mb-12 md:mb-18 lg:mb-20">
 					<div className="mx-auto w-full max-w-lg text-center">
 						<p className="mb-3 font-semibold md:mb-4">Effortless</p>
-						<h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+						<h2 className="mb-5 text-pretty text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
 							Your Simple Guide to Booking Our Services
 						</h2>
-						<p className="md:text-md">
-							Booking a cleaning service with us is straightforward. Follow these easy steps to get
-							started today!
-						</p>
-						<div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-							<Button>Book now</Button>
-							<Button variant="secondary">Learn more</Button>
-						</div>
 					</div>
 				</div>
 				<div className="relative grid auto-cols-fr grid-cols-1 md:flex">
@@ -350,24 +349,26 @@ async function CaseStudies() {
 		<section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
 			<div className="container">
 				<header className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-					<p className="mb-3 font-semibold md:mb-4">Portfolio</p>
+					<p className="mb-3 font-semibold text-primary md:mb-4">Case Studies</p>
 					<h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-						Short heading goes here
+						Our Cleaning Projects
 					</h2>
-					<p className="md:text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p className="md:text-md">Explore our diverse range of cleaning services.</p>
 				</header>
 				<div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:gap-x-12">
 					{caseStudies.map((caseStudy) => (
-						<article key={caseStudy.slug} className="border border-border-primary">
-							<div>
-								<a href={`/casestudier/${caseStudy.slug}`}>
+						<article key={caseStudy.slug} className="group relative">
+							<div className="relative overflow-hidden">
+								<a href={`/casestudier/${caseStudy.slug}`} className="">
 									{caseStudy.mainImage ? (
-										<img
-											src={image(caseStudy.mainImage).url()}
-											className="w-full object-cover"
-											alt={caseStudy.mainImage.alt}
-											loading="lazy"
-										/>
+										<div className="clip-bottom">
+											<img
+												src={image(caseStudy.mainImage).format("webp").url()}
+												className="aspect-video w-full object-cover transition-all duration-500 group-hover:scale-105"
+												alt={caseStudy.mainImage.alt}
+												loading="lazy"
+											/>
+										</div>
 									) : (
 										<div className="h-64 w-full animate-pulse bg-gray-200"></div>
 									)}
@@ -375,7 +376,10 @@ async function CaseStudies() {
 							</div>
 							<div className="px-5 py-6 sm:px-6">
 								<h3 className="mb-2 text-xl font-bold md:text-2xl">
-									<a href={`/casestudier/${caseStudy.slug}`}>{caseStudy.title}</a>
+									<a href={`/casestudier/${caseStudy.slug}`}>
+										{caseStudy.title}
+										<span className="absolute inset-0"></span>
+									</a>
 								</h3>
 								<p>{caseStudy.excerpt}</p>
 								<ul className="mt-3 flex flex-wrap gap-2 md:mt-4">
@@ -383,14 +387,14 @@ async function CaseStudies() {
 										<li key={service.slug} className="flex">
 											<a
 												href={`/services/${service.slug}`}
-												className="bg-background-secondary px-2 py-1 text-sm font-semibold"
+												className="z-20 bg-background-secondary px-2 py-1 text-sm font-semibold"
 											>
 												{service.title}
 											</a>
 										</li>
 									))}
 								</ul>
-								<Button className="mt-5 md:mt-6">
+								<Button className="mt-5 bg-primary md:mt-6">
 									<a href={`/casestudier/${caseStudy.slug}`}>View project</a>
 								</Button>
 							</div>
@@ -404,13 +408,7 @@ async function CaseStudies() {
 
 async function Testimonials() {
 	const testimonials = await getAllTestimonials();
-	return (
-		<TestimonialCarousel
-			testimonials={testimonials}
-			heading="Customer testimonials"
-			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-		/>
-	);
+	return <TestimonialCarousel testimonials={testimonials} />;
 }
 
 export default function Home() {
@@ -422,10 +420,10 @@ export default function Home() {
 			<AboutUs />
 			{/* <LogoCloud /> */}
 			<Services />
-			<WhyUs />
-			<HowItWorks />
+			{/* <HowItWorks /> */}
 			<CaseStudies />
 			<Testimonials />
+			{/* <WhyUs /> */}
 			<CallToAction
 				heading="Medium length heading goes here"
 				description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
