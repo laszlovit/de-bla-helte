@@ -67,7 +67,9 @@ export default function TestimonialsCarousel({
 													/>
 												</div>
 											)}
-											<blockquote className="md:text-md">"{testimonial.content}"</blockquote>
+											<blockquote className="md:text-md">
+												&quot;{testimonial.content}&quot;
+											</blockquote>
 											<div className="mt-6 flex flex-nowrap items-center gap-5 md:mt-8">
 												<div>
 													<p className="font-semibold">{testimonial.name}</p>
