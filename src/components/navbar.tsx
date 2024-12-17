@@ -3,7 +3,7 @@
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 
 type ImageProps = {
@@ -21,93 +21,115 @@ type NavLink = {
 type Props = {
 	logo: ImageProps;
 	navLinks: NavLink[];
-	buttons: ButtonProps[];
+	button: ButtonProps;
 };
 
-export type Navbar2Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Navbar13Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
-export const Navbar = (props: Navbar2Props) => {
-	const { logo, navLinks, buttons } = {
-		...Navbar2Defaults,
+export const Navbar13 = (props: Navbar13Props) => {
+	const { logo, navLinks, button } = {
+		...Navbar13Defaults,
 		...props,
 	};
 
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const isMobile = useMediaQuery("(max-width: 991px)");
+	const menuRef = useRef<HTMLDivElement>(null);
+	const buttonRef = useRef<HTMLButtonElement>(null);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				menuRef.current &&
+				!menuRef.current.contains(event.target as Node) &&
+				buttonRef.current &&
+				!buttonRef.current.contains(event.target as Node)
+			) {
+				setIsMobileMenuOpen(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
 
 	return (
-		<nav className="absolute top-0 z-30 flex w-full items-center bg-white lg:min-h-18 lg:bg-transparent lg:px-[5%]">
-			<div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
-				<div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-					<a href={logo.url}>
-						<img src={logo.src} alt={logo.alt} />
-					</a>
-					<div className="flex items-center gap-4 lg:hidden">
-						<div>
-							{buttons.map((button, index) => (
-								<Button key={index} className="w-full px-4 py-1" {...button}>
-									{button.title}
-								</Button>
-							))}
-						</div>
-						<button
-							className="-mr-2 flex size-12 flex-col items-center justify-center"
-							onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-						>
-							<motion.span
-								className="my-[3px] h-0.5 w-6 bg-black"
-								animate={isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"}
-								variants={topLineVariants}
-							/>
-							<motion.span
-								className="my-[3px] h-0.5 w-6 bg-black"
-								animate={isMobileMenuOpen ? "open" : "closed"}
-								variants={middleLineVariants}
-							/>
-							<motion.span
-								className="my-[3px] h-0.5 w-6 bg-black"
-								animate={isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"}
-								variants={bottomLineVariants}
-							/>
-						</button>
-					</div>
-				</div>
+		<nav className="relative z-[999] mx-auto mt-5 flex w-full items-start justify-center px-[5%] md:mt-6 lg:w-full lg:max-w-[1536px] lg:px-0">
+			<div className="mx-auto flex min-h-16 w-full items-center justify-between gap-4 rounded-lg bg-white px-5 ring-1 ring-black/5 md:min-h-18 md:px-8 lg:w-full">
+				<a href={logo.url}>
+					<img src={logo.src} alt={logo.alt} />
+				</a>
 				<motion.div
 					variants={{
-						open: {
-							height: "var(--height-open, 100dvh)",
-						},
-						close: {
-							height: "var(--height-closed, 0)",
-						},
+						open: { height: "var(--height, 100vh)" },
+						close: { height: "auto" },
 					}}
-					animate={isMobileMenuOpen ? "open" : "close"}
 					initial="close"
 					exit="close"
-					transition={{ duration: 0.4 }}
-					className="overflow-hidden px-[5%] text-center lg:flex lg:items-center lg:justify-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
+					animate={isMobileMenuOpen ? "open" : "close"}
+					className="absolute left-0 right-0 top-full w-full overflow-hidden lg:static lg:left-auto lg:right-auto lg:top-auto lg:w-auto lg:overflow-visible lg:[--height:auto]"
 				>
-					{navLinks.map((navLink, index) => (
-						<div key={index} className="te first:pt-4 lg:first:pt-0">
-							{navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
-								<SubMenu navLink={navLink} isMobile={isMobile} />
-							) : (
-								<a
-									href={navLink.url}
-									className="block py-3 text-md lg:px-4 lg:py-2 lg:text-base lg:text-white"
-								>
-									{navLink.title}
-								</a>
-							)}
+					<motion.div
+						variants={{
+							open: { y: 0 },
+							close: { y: "var(--translate-y, -100%)" },
+						}}
+						animate={isMobileMenuOpen ? "open" : "close"}
+						initial="close"
+						exit="close"
+						transition={{ duration: 0.3 }}
+						className="absolute left-0 right-0 top-2 mx-auto w-full min-w-[200px] justify-self-center px-[5%] text-center lg:static lg:inset-auto lg:mx-0 lg:px-0 lg:text-left lg:[--translate-y:0%]"
+					>
+						<div
+							ref={menuRef}
+							className="s flex w-full flex-col rounded-lg bg-background-primary p-5 ring-1 ring-black/5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:ring-0"
+						>
+							{navLinks.map((navLink, index) => (
+								<div key={index}>
+									{navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
+										<SubMenu navLink={navLink} isMobile={isMobile} />
+									) : (
+										<a
+											href={navLink.url}
+											className="relative block py-3 text-center text-md lg:px-4 lg:py-2 lg:text-left lg:text-base"
+										>
+											{navLink.title}
+										</a>
+									)}
+								</div>
+							))}
 						</div>
-					))}
+					</motion.div>
 				</motion.div>
-				<div className="hidden justify-self-end lg:block">
-					{buttons.map((button, index) => (
-						<Button key={index} className="text-secondary bg-white px-6 py-2" {...button}>
-							{button.title}
-						</Button>
-					))}
+				<div className="flex items-center justify-center gap-4">
+					<Button {...button} className="rounded-md border-primary bg-primary">
+						{button.title}
+					</Button>
+					<button
+						ref={buttonRef}
+						className="-mr-2 flex size-12 flex-col items-center justify-center justify-self-end lg:hidden"
+						onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+					>
+						<motion.span
+							className="my-[3px] h-0.5 w-6 bg-black"
+							animate={isMobileMenuOpen ? "open" : "close"}
+							variants={topLineVariants}
+						/>
+						<motion.span
+							className="my-[3px] h-0.5 w-6 bg-black"
+							animate={isMobileMenuOpen ? "open" : "close"}
+							variants={middleLineVariants}
+						/>
+						<motion.span
+							className="my-[3px] h-0.5 w-6 bg-black"
+							animate={isMobileMenuOpen ? "open" : "close"}
+							variants={bottomLineVariants}
+						/>
+					</button>
 				</div>
 			</div>
 		</nav>
@@ -118,101 +140,117 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
 	return (
-		<nav
+		<div
+			className="relative"
 			onMouseEnter={() => !isMobile && setIsDropdownOpen(true)}
 			onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
 		>
 			<button
-				className="flex w-full items-center justify-center gap-4 py-3 text-center text-md lg:w-auto lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
+				className="relative flex w-full items-center justify-center gap-4 whitespace-nowrap py-3 text-center text-md lg:gap-2 lg:px-4 lg:py-2 lg:text-left lg:text-base"
 				onClick={() => setIsDropdownOpen((prev) => !prev)}
 			>
-				<span className="lg:text-white">{navLink.title}</span>
+				<span>{navLink.title}</span>
 				<motion.span
-					animate={isDropdownOpen ? "rotated" : "initial"}
 					variants={{
-						rotated: { rotate: 180 },
+						rotate: { rotate: 180 },
 						initial: { rotate: 0 },
 					}}
+					animate={isDropdownOpen ? "rotate" : "initial"}
 					transition={{ duration: 0.3 }}
 				>
-					<RxChevronDown className="lg:text-white" />
+					<RxChevronDown />
 				</motion.span>
 			</button>
-			{isDropdownOpen && (
-				<AnimatePresence>
+			<AnimatePresence>
+				{isDropdownOpen && (
 					<motion.nav
 						animate={isDropdownOpen ? "open" : "close"}
 						initial="close"
 						exit="close"
 						variants={{
 							open: {
-								visibility: "visible",
 								opacity: "var(--opacity-open, 100%)",
-								y: 0,
+								y: "var(--translate-y-open, 0%)",
+								visibility: "visible",
+								height: "auto",
 							},
 							close: {
+								opacity: "var(--opacity-close, 100%)",
+								y: "var(--translate-y-close, 0%)",
 								visibility: "hidden",
-								opacity: "var(--opacity-close, 0)",
-								y: "var(--y-close, 0%)",
+								height: "var(--height, 0)",
 							},
 						}}
 						transition={{ duration: 0.2 }}
-						className="bg-background-primary lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
+						className="static flex w-full min-w-full flex-col overflow-hidden whitespace-nowrap rounded-lg bg-background-primary p-0 ring-1 ring-black/5 lg:absolute lg:overflow-visible lg:border lg:p-2 lg:[--height:auto] lg:[--opacity-close:0%] lg:[--opacity-open:100%] lg:[--translate-y-close:25%] lg:[--translate-y-open:0%]"
 					>
-						{navLink.subMenuLinks?.map((subMenuLink, index) => (
+						{navLink.subMenuLinks?.map((subMenuLink, subIndex) => (
 							<a
-								key={index}
+								key={subIndex}
 								href={subMenuLink.url}
-								className="block py-3 text-center lg:px-4 lg:py-2 lg:text-left"
+								className="px-0 py-3 text-center lg:px-4 lg:py-2 lg:text-left"
 							>
 								{subMenuLink.title}
 							</a>
 						))}
 					</motion.nav>
-				</AnimatePresence>
-			)}
-		</nav>
+				)}
+			</AnimatePresence>
+		</div>
 	);
 };
 
-export const Navbar2Defaults: Props = {
+export const Navbar13Defaults: Props = {
 	logo: {
 		url: "#",
 		src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
-		alt: "Logo image",
+		alt: "Relume placeholder logo",
 	},
 	navLinks: [
 		{
-			title: "Services",
 			url: "#",
+			title: "Link One",
+		},
+		{
+			url: "#",
+			title: "Link Two",
+		},
+		{
+			url: "#",
+			title: "Link Three",
+		},
+		{
+			url: "#",
+			title: "Link Four",
 			subMenuLinks: [
-				{ title: "Link Five", url: "#" },
-				{ title: "Link Six", url: "#" },
-				{ title: "Link Seven", url: "#" },
+				{
+					url: "#",
+					title: "Link Five",
+				},
+				{
+					url: "#",
+					title: "Link Six",
+				},
+				{
+					url: "#",
+					title: "Link Seven",
+				},
 			],
 		},
-		{ title: "Link Two", url: "#" },
-		{ title: "Link Three", url: "#" },
-		{ title: "Link Four", url: "#" },
 	],
-	buttons: [
-		{
-			title: "Button",
-			size: "sm",
-		},
-	],
+	button: {
+		title: "Get a qoute",
+		size: "sm",
+	},
 };
 
 const topLineVariants = {
 	open: {
 		translateY: 8,
-		transition: { delay: 0.1 },
+		rotate: 45,
+		transition: { duration: 0.3 },
 	},
-	rotatePhase: {
-		rotate: -45,
-		transition: { delay: 0.2 },
-	},
-	closed: {
+	close: {
 		translateY: 0,
 		rotate: 0,
 		transition: { duration: 0.2 },
@@ -221,25 +259,22 @@ const topLineVariants = {
 
 const middleLineVariants = {
 	open: {
-		width: 0,
-		transition: { duration: 0.1 },
+		opacity: 0,
+		transition: { duration: 0.2 },
 	},
-	closed: {
-		width: "1.5rem",
-		transition: { delay: 0.3, duration: 0.2 },
+	close: {
+		opacity: 1,
+		transition: { duration: 0.2 },
 	},
 };
 
 const bottomLineVariants = {
 	open: {
 		translateY: -8,
-		transition: { delay: 0.1 },
+		rotate: -45,
+		transition: { duration: 0.3 },
 	},
-	rotatePhase: {
-		rotate: 45,
-		transition: { delay: 0.2 },
-	},
-	closed: {
+	close: {
 		translateY: 0,
 		rotate: 0,
 		transition: { duration: 0.2 },

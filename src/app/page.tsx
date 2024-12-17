@@ -1,5 +1,4 @@
 import CallToAction from "@/components/call-to-action";
-import { Navbar } from "@/components/navbar";
 import ServicesCarousel from "@/components/services-carousel";
 import TestimonialCarousel from "@/components/testimonials-carousel";
 import { getAllCaseStudies } from "@/sanity/lib/case-studies/get-all-case-studies";
@@ -201,7 +200,6 @@ async function Testimonials() {
 export default function Home() {
 	return (
 		<>
-			<Navbar />
 			<Hero />
 			<AboutUs />
 			<Services />
