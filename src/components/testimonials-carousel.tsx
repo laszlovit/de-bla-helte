@@ -18,20 +18,15 @@ export default function TestimonialsCarousel({
 	testimonials: ALL_TESTIMONIALS_QUERYResult;
 }) {
 	const [api, setApi] = useState<CarouselApi>();
-	const [current, setCurrent] = useState(0);
 
 	useEffect(() => {
 		if (!api) {
 			return;
 		}
-		setCurrent(api.selectedScrollSnap() + 1);
-		api.on("select", () => {
-			setCurrent(api.selectedScrollSnap() + 1);
-		});
 	}, [api]);
 
 	return (
-		<section id="relume" className="bg-grayish overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
+		<section id="relume" className="overflow-hidden bg-grayish px-[5%] py-16 md:py-24 lg:py-28">
 			<div className="container">
 				<Carousel
 					setApi={setApi}
@@ -89,7 +84,6 @@ export default function TestimonialsCarousel({
 					</div>
 				</Carousel>
 			</div>
-			{/* for all available options: https://www.embla-carousel.com/api/options/ */}
 		</section>
 	);
 }

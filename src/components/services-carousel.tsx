@@ -36,7 +36,7 @@ export default function ServicesCarousel({
 	return (
 		<section
 			id="relume"
-			className="bg-secondary overflow-hidden px-[5%] py-16 text-white md:py-24 lg:py-28"
+			className="overflow-hidden bg-secondary px-[5%] py-16 text-white md:py-24 lg:py-28"
 		>
 			<div className="container">
 				<div className="rb-12 mb-12 ml-auto max-w-sm text-right md:mb-18 lg:mb-20">
@@ -45,7 +45,6 @@ export default function ServicesCarousel({
 					</h2>
 					<p className="md:text-md">{description}</p>
 				</div>
-				{/* for all available options: https://www.embla-carousel.com/api/options/ */}
 				<Carousel
 					setApi={setApi}
 					opts={{
@@ -59,7 +58,7 @@ export default function ServicesCarousel({
 								key={index}
 								className="group relative basis-[95%] pl-0 pr-6 sm:basis-[80%] md:basis-[70%] md:pr-8 xl:basis-1/2"
 							>
-								<div className="bg-blackPearl grid-service-item group grid h-full overflow-hidden">
+								<div className="grid-service-item group grid h-full overflow-hidden bg-blackPearl">
 									<div className="z-10 flex items-center justify-between p-10 md:flex-col md:items-start">
 										<div>
 											<h3 className="text-2xl font-bold transition-all duration-500 group-hover:text-primary lg:text-3xl">
@@ -68,7 +67,7 @@ export default function ServicesCarousel({
 													<span className="absolute inset-0"></span>
 												</Link>
 											</h3>
-											<p className="text-lightGray mt-2 hidden md:line-clamp-3">
+											<p className="mt-2 hidden text-lightGray md:line-clamp-3">
 												{service.excerpt}
 											</p>
 										</div>
@@ -94,7 +93,7 @@ export default function ServicesCarousel({
 						<h2 className="hidden text-xl font-semibold md:block md:text-2xl">
 							Discover our full range of services
 						</h2>
-						<div className="bg-blackPearl hidden h-0.5 w-48 lg:block"></div>
+						<div className="hidden h-0.5 w-48 bg-blackPearl lg:block"></div>
 						<Button variant="secondary" iconRight={<ArrowLongRightIcon className="size-5" />}>
 							View all services
 						</Button>

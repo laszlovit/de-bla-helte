@@ -6,10 +6,8 @@ import { getAllCaseStudies } from "@/sanity/lib/case-studies/get-all-case-studie
 import { image } from "@/sanity/lib/image";
 import { getAllServices } from "@/sanity/lib/services/get-all-services";
 import { getAllTestimonials } from "@/sanity/lib/testimonials/get-all-testimonials";
-import { ArrowLongRightIcon, CheckCircleIcon, CheckIcon } from "@heroicons/react/16/solid";
+import { ArrowLongRightIcon } from "@heroicons/react/16/solid";
 import { Button } from "@relume_io/relume-ui";
-import clsx from "clsx";
-import { ReactNode } from "react";
 
 function Hero() {
 	return (
@@ -119,69 +117,6 @@ function AboutUs() {
 	);
 }
 
-// function LogoCloud() {
-// 	const logos = [
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
-// 			alt: "Webflow logo 1",
-// 		},
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
-// 			alt: "Relume logo 1",
-// 		},
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
-// 			alt: "Webflow logo 2",
-// 		},
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
-// 			alt: "Relume logo 2",
-// 		},
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
-// 			alt: "Webflow logo 3",
-// 		},
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
-// 			alt: "Relume logo 3",
-// 		},
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
-// 			alt: "Webflow logo 4",
-// 		},
-// 		{
-// 			src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
-// 			alt: "Relume logo 4",
-// 		},
-// 	];
-
-// 	return (
-// 		<section id="relume" className="overflow-hidden py-12 md:py-16 lg:py-20">
-// 			<div className="container mb-8 w-full max-w-lg px-[5%] md:mb-10 lg:mb-12">
-// 				<h1 className="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">
-// 					Used by the world&apos;s leading companies
-// 				</h1>
-// 			</div>
-// 			<div className="flex items-center pt-7 md:pt-0">
-// 				{Array(2)
-// 					.fill(0)
-// 					.map((_, index) => (
-// 						<div key={index} className="flex shrink-0 animate-loop-horizontally items-center">
-// 							{logos.map((logo, index) => (
-// 								<img
-// 									key={index}
-// 									className="mx-7 max-h-12 shrink-0 md:mx-10 md:max-h-14"
-// 									src={logo.src}
-// 									alt={logo.alt}
-// 								/>
-// 							))}
-// 						</div>
-// 					))}
-// 			</div>
-// 		</section>
-// 	);
-// }
-
 async function Services() {
 	const services = await getAllServices();
 
@@ -191,154 +126,6 @@ async function Services() {
 			description="Explore a wide range of consulting services tailored to meet your specific needs and goals"
 			services={services}
 		/>
-	);
-}
-
-function WhyUs() {
-	const features = [
-		{
-			paragraph: "Eco-friendly products",
-		},
-		{
-			paragraph: "Satisfaction guarantee",
-		},
-		{
-			paragraph: "Experienced staff",
-		},
-	];
-
-	return (
-		<section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-			<div className="container">
-				<div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-x-20">
-					<div className="order-2 md:order-1">
-						<img
-							src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-							className="w-full object-cover"
-							alt="Placeholder"
-						/>
-					</div>
-					<div className="order-1 md:order-2">
-						<p className="mb-3 font-semibold md:mb-4">Clean</p>
-						<h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-							Why Choose Our Cleaning Services?
-						</h2>
-						<p className="mb-5 md:mb-6 md:text-md">
-							Our experienced staff utilizes eco-friendly products to ensure a safe and healthy
-							environment for you and your family. With our satisfaction guarantee, you can trust
-							that we will exceed your expectations every time.
-						</p>
-						<div className="grid grid-cols-1 gap-4 py-2">
-							{features.map((feature, index) => (
-								<div key={index} className="flex self-start">
-									<div className="mr-4 flex-none self-start">
-										<CheckCircleIcon className="size-6" />
-									</div>
-									<p>{feature.paragraph}</p>
-								</div>
-							))}
-						</div>
-						<div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-							<Button>Button</Button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
-}
-
-function HowItWorks() {
-	const stepsItems = [
-		{
-			number: "1",
-			icon: <CheckCircleIcon className="size-8" />,
-			title: "Fill Out the Booking Form",
-			description:
-				"Provide your details, cleaning requirements, and any special requests in the form available on the website.",
-		},
-		{
-			number: "2",
-			icon: <CheckIcon className="size-8" />,
-			title: "Wait for Our Response",
-			description:
-				"After submitting the form, we’ll review your needs and contact you via phone or email to discuss the details and confirm the service.",
-		},
-		{
-			number: "3",
-			icon: <CheckCircleIcon className="size-8" />,
-			title: "Finalize and Schedule",
-			description:
-				"Once everything is agreed upon, we’ll finalize the booking and schedule the cleaning service at your convenience.",
-		},
-	];
-
-	const StepsItem = ({
-		icon,
-		number,
-		title,
-		description,
-		isFirstItem,
-		isLastItem,
-	}: {
-		number: string;
-		icon: ReactNode;
-		title: string;
-		description: string;
-		isFirstItem: boolean;
-		isLastItem: boolean;
-	}) => {
-		return (
-			<div className="relative grid auto-cols-fr grid-cols-[0.5fr_max-content_1fr] items-start gap-4 md:flex md:flex-col md:items-center md:gap-0">
-				<div className="mb-8 flex size-12 items-center justify-center overflow-hidden bg-primary md:mb-0">
-					<p className="font-semibold text-white">{number}</p>
-				</div>
-				<div className="relative flex flex-col items-center self-stretch md:mb-4 md:mt-8 md:w-full md:flex-row md:self-auto">
-					{isFirstItem && (
-						<div className="absolute left-0 top-1.5 z-10 hidden h-1 w-16 bg-gradient-to-r from-background-primary to-transparent md:block" />
-					)}
-					<div className="h-2 w-[3px] bg-primary opacity-30 md:h-[3px] md:w-full" />
-					<div className="z-20 size-[0.9375rem] flex-none rounded-full bg-blackPearl shadow-[0_0_0_8px_white]" />
-					<div
-						className={clsx("h-full w-[3px] bg-primary opacity-30 md:h-[3px] md:w-full", {
-							"hidden md:block": isLastItem,
-						})}
-					/>
-					{isLastItem && (
-						<div className="absolute right-0 top-1.5 z-0 hidden h-1 w-16 bg-gradient-to-l from-background-primary to-transparent md:block" />
-					)}
-				</div>
-				<div className="pb-4 sm:pb-0 md:mb-0 md:px-3 md:text-center">
-					<h3 className="mb-2 text-pretty text-xl font-bold md:text-2xl">{title}</h3>
-					<p>{description}</p>
-				</div>
-			</div>
-		);
-	};
-
-	return (
-		<section id="relume" className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
-			<div className="container">
-				<div className="mb-12 md:mb-18 lg:mb-20">
-					<div className="mx-auto w-full max-w-lg text-center">
-						<p className="mb-3 font-semibold md:mb-4">Effortless</p>
-						<h2 className="mb-5 text-pretty text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-							Your Simple Guide to Booking Our Services
-						</h2>
-					</div>
-				</div>
-				<div className="relative grid auto-cols-fr grid-cols-1 md:flex">
-					{stepsItems.map((item, index) => (
-						<StepsItem
-							key={index}
-							isFirstItem={index === 0}
-							isLastItem={index === stepsItems.length - 1}
-							{...item}
-						/>
-					))}
-				</div>
-			</div>
-		</section>
 	);
 }
 
@@ -416,14 +203,10 @@ export default function Home() {
 		<>
 			<Navbar />
 			<Hero />
-
 			<AboutUs />
-			{/* <LogoCloud /> */}
 			<Services />
-			{/* <HowItWorks /> */}
 			<CaseStudies />
 			<Testimonials />
-			{/* <WhyUs /> */}
 			<CallToAction
 				heading="Medium length heading goes here"
 				description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
