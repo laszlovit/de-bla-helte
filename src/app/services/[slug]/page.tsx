@@ -261,11 +261,7 @@ export default async function SelectedServicePage({ params }: Props) {
 					</div>
 				</div>
 			</section>
-			<CallToAction
-				heading="Medium length heading goes here"
-				description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-				buttons={[{ title: "Button" }, { title: "Button", variant: "secondary" }]}
-			/>
+			<CallToAction />
 		</>
 	);
 }

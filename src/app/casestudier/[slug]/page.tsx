@@ -237,11 +237,7 @@ export default async function SelectedCaseStudyPage({ params }: Props) {
 					</div>
 				</Container>
 			</main>
-			<CallToAction
-				heading="Medium length heading goes here"
-				description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-				buttons={[{ title: "Button" }, { title: "Button", variant: "secondary" }]}
-			/>
+			<CallToAction />
 		</>
 	);
 }
