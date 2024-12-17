@@ -67,9 +67,7 @@ export default function ServicesCarousel({
 													<span className="absolute inset-0"></span>
 												</Link>
 											</h3>
-											<p className="mt-2 hidden text-lightGray md:line-clamp-3">
-												{service.excerpt}
-											</p>
+											<p className="mt-2 text-lightGray md:line-clamp-3">{service.excerpt}</p>
 										</div>
 										<Button size="icon" className="size-12 border-none bg-primary md:mt-6 lg:mt-0">
 											<ArrowUpRightIcon className="h-5 w-8 transition duration-500 group-hover:rotate-45" />

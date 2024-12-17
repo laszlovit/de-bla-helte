@@ -19,6 +19,9 @@ const config: Config = {
 			animation: {
 				"infinite-scroll": "infinite-scroll 30s linear infinite",
 			},
+			maxWidth: {
+				"screen-2xl": "1536px",
+			},
 			keyframes: {
 				"infinite-scroll": {
 					from: { transform: "translateX(0)" },

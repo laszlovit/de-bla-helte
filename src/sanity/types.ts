@@ -221,6 +221,7 @@ export type Service = {
 		[internalGroqTypeReferenceTo]?: "category";
 	}>;
 	publishedAt?: string;
+	isFeatured?: boolean;
 	excerpt?: string;
 	body?: Array<
 		| {
@@ -653,6 +654,28 @@ export type ALL_SERVICES_QUERYResult = Array<{
 	} | null;
 }>;
 
+// Source: ./src/sanity/lib/services/get-featured-services.ts
+// Variable: FEATURED_SERVICES_QUERY
+// Query: *[  _type == "service"  && isFeatured == true  && defined(slug.current)]|order(publishedAt desc)[0...$quantity]{  title,  "slug": slug.current,  publishedAt,  mainImage,  excerpt,}
+export type FEATURED_SERVICES_QUERYResult = Array<{
+	title: string | null;
+	slug: string | null;
+	publishedAt: string | null;
+	mainImage: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		alt?: string;
+		_type: "image";
+	} | null;
+	excerpt: string | null;
+}>;
+
 // Source: ./src/sanity/lib/services/get-service-meta.ts
 // Variable: SERVICE_META_QUERY
 // Query: *[  _type == "service"  && slug.current == $slug][0]{  title,  excerpt,    seo {    metaTitle,    metaDescription,    canonicalUrl,    ogImage {      asset -> {        _id,        url      }    }  },}
@@ -819,6 +842,7 @@ declare module "@sanity/client" {
 		'\n  *[_type == "caseStudy"]{\n    "slug": slug.current\n  }\n': CASE_STUDY_SLUGS_QUERYResult;
 		'*[\n  _type == "caseStudy"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n  services[]->{\n    title,\n    "slug": slug.current,\n  },\n  period,\n  testimonial->{\n    name,\n    role,\n    content,\n    logo,\n  },\n}\n': CASE_STUDY_QUERYResult;
 		'*[\n  _type == "service"\n  && defined(slug.current)\n]| order(title asc){\n  title,\n  "slug": slug.current,\n  publishedAt,\n  excerpt,\n  icon,\n  mainImage,\n}': ALL_SERVICES_QUERYResult;
+		'*[\n  _type == "service"\n  && isFeatured == true\n  && defined(slug.current)\n]|order(publishedAt desc)[0...$quantity]{\n  title,\n  "slug": slug.current,\n  publishedAt,\n  mainImage,\n  excerpt,\n}': FEATURED_SERVICES_QUERYResult;
 		'*[\n  _type == "service"\n  && slug.current == $slug\n][0]{\n  title,\n  excerpt,  \n  seo {\n    metaTitle,\n    metaDescription,\n    canonicalUrl,\n    ogImage {\n      asset -> {\n        _id,\n        url\n      }\n    }\n  },\n}\n': SERVICE_META_QUERYResult;
 		'\n  *[_type == "service"]{\n    "slug": slug.current\n  }\n': SERVICE_SLUGS_QUERYResult;
 		'*[\n  _type == "service"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n  gallery[]{\n    _key,\n    alt,\n    asset->{\n      _id,\n      url\n    }\n  },\n  testimonials[]->{\n   "slug": slug.current,\n    name,\n    logo,\n    avatar,\n    content,\n  },\n}\n': SERVICE_QUERYResult;
