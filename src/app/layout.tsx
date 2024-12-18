@@ -4,7 +4,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-	subsets: ["latin-ext"],
+	subsets: ["latin"],
 	variable: "--font-inter",
 	display: "swap",
 	preload: true,
@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 const outfit = Outfit({
-	subsets: ["latin-ext"],
+	subsets: ["latin"],
 	variable: "--font-outfit",
 	display: "swap",
 	preload: true,

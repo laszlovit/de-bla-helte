@@ -28,6 +28,10 @@ const config: Config = {
 					to: { transform: "translateX(-100%)" },
 				},
 			},
+			fontFamily: {
+				sans: ["var(--font-inter)"],
+				outfit: ["var(--font-outfit)"],
+			},
 		},
 	},
 	plugins: [],
