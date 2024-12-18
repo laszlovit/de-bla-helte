@@ -4,6 +4,7 @@ import type { ButtonProps } from "@relume_io/relume-ui";
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 
@@ -32,6 +33,8 @@ export const Navbar = (props: NavbarProps) => {
 		...NavbarDefaults,
 		...props,
 	};
+
+	const pathname = usePathname();
 
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const isMobile = useMediaQuery("(max-width: 991px)");
@@ -90,13 +93,16 @@ export const Navbar = (props: NavbarProps) => {
 							className="s flex w-full flex-col rounded-lg bg-background-primary p-5 ring-1 ring-black/5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:ring-0"
 						>
 							{navLinks.map((navLink, index) => (
-								<div key={index}>
+								<div
+									key={index}
+									className={`${pathname === navLink.url ? "text-primary" : ""} font-semibold [&>a]:hover:text-primary`}
+								>
 									{navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
 										<SubMenu navLink={navLink} isMobile={isMobile} />
 									) : (
 										<Link
 											href={navLink.url}
-											className="relative block py-3 text-center text-md lg:px-4 lg:py-2 lg:text-left lg:text-base"
+											className="relative block py-3 text-center text-md hover:text-primary lg:px-4 lg:py-2 lg:text-left lg:text-base"
 										>
 											{navLink.title}
 										</Link>
@@ -107,7 +113,7 @@ export const Navbar = (props: NavbarProps) => {
 					</motion.div>
 				</motion.div>
 				<div className="flex items-center justify-center gap-4">
-					<Button {...button} className="rounded-md border-primary bg-primary">
+					<Button {...button} className="rounded-md border-primary bg-primary font-medium">
 						<Link href="/fa-et-tilbud">{button.title}</Link>
 					</Button>
 					<button
@@ -189,7 +195,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 							<Link
 								key={subIndex}
 								href={subMenuLink.url}
-								className="px-0 py-3 text-center lg:px-4 lg:py-2 lg:text-left"
+								className="px-0 py-3 text-center hover:text-primary lg:px-4 lg:py-2 lg:text-left"
 							>
 								{subMenuLink.title}
 							</Link>
@@ -217,26 +223,34 @@ export const NavbarDefaults: Props = {
 					title: "Vinduespolering",
 				},
 				{
-					url: "#",
-					title: "Link Six",
+					url: "/services/fliserens",
+					title: "Fliserens",
 				},
 				{
-					url: "#",
-					title: "Link Seven",
+					url: "/services/algbehandling",
+					title: "Algebehandeling",
+				},
+				{
+					url: "/services/rens-of-tagrender",
+					title: "Rens of tagrender",
+				},
+				{
+					url: "/services/erhvervsrengoring",
+					title: "Erhvervsrengøring",
 				},
 			],
 		},
 		{
-			url: "#",
-			title: "Link One",
+			url: "/om-os",
+			title: "Om os",
 		},
 		{
-			url: "#",
-			title: "Link Two",
+			url: "/galleri",
+			title: "Galleri",
 		},
 		{
-			url: "#",
-			title: "Link Three",
+			url: "/kontakt",
+			title: "Kontakt",
 		},
 	],
 	button: {
