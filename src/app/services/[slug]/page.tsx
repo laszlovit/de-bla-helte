@@ -53,7 +53,7 @@ export default async function SelectedServicePage({ params }: Props) {
 						<div className="shadow-sm rounded-lg bg-white p-8 ring-1 ring-black/5 xl:p-12">
 							{service.mainImage && (
 								<img
-									src={image(service.mainImage).url()}
+									src={image(service.mainImage).format("webp").url()}
 									alt={service.mainImage.alt}
 									className="w-full rounded-md object-cover lg:aspect-[4/2]"
 								/>

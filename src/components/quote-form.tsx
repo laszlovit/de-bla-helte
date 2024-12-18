@@ -176,7 +176,7 @@ export const QuoteForm = () => {
 
 						<div className="grid w-full items-center">
 							<Label htmlFor="postalCode" className="mb-2">
-								By
+								Postnummer
 							</Label>
 							<Input
 								type="text"

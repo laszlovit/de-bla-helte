@@ -66,7 +66,7 @@ function Hero() {
 						<div className="lg:order-none">
 							<div className="shadow-xl flex size-full items-center justify-center rounded-lg outline-1 -outline-offset-1 outline-black/10">
 								<img
-									src="https://media.istockphoto.com/id/2159632844/photo/commercial-office-cleaners.jpg?s=2048x2048&w=is&k=20&c=FPZ6FScyBo4_63JT0vwVrCUmN50X5PtkXI9a25WIQz4="
+									src="https://cdn.sanity.io/images/11915si6/production/f25bc368bb61056309441abc03383dc7ab553bc7-1505x1004.jpg?w=2000&fit=max&auto=format"
 									alt=""
 									fetchPriority="high"
 									className="size-full rounded-lg object-cover"
@@ -165,7 +165,9 @@ async function Services() {
 					))}
 				</div>
 				<div className="mt-10 flex items-center justify-center gap-4 md:mt-14 lg:mt-16">
-					<Button className="rounded-md border-primary bg-primary">View all services</Button>
+					<Button asChild className="rounded-md border-primary bg-primary">
+						<Link href="/services">View all services</Link>
+					</Button>
 				</div>
 			</div>
 		</section>

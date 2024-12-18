@@ -61,9 +61,9 @@ export const Navbar = (props: NavbarProps) => {
 	return (
 		<nav className="relative z-[999] mx-auto mt-5 flex w-full items-start justify-center px-[5%] md:mt-6 xl:w-full xl:max-w-[1536px] xl:px-0">
 			<div className="mx-auto flex min-h-16 w-full items-center justify-between gap-4 rounded-lg bg-white px-5 ring-1 ring-black/5 md:min-h-18 md:px-8 lg:w-full">
-				<a href={logo.url}>
+				<Link href={logo.url || "/"}>
 					<img src={logo.src} alt={logo.alt} />
-				</a>
+				</Link>
 				<motion.div
 					variants={{
 						open: { height: "var(--height, 100vh)" },
@@ -94,12 +94,12 @@ export const Navbar = (props: NavbarProps) => {
 									{navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
 										<SubMenu navLink={navLink} isMobile={isMobile} />
 									) : (
-										<a
+										<Link
 											href={navLink.url}
 											className="relative block py-3 text-center text-md lg:px-4 lg:py-2 lg:text-left lg:text-base"
 										>
 											{navLink.title}
-										</a>
+										</Link>
 									)}
 								</div>
 							))}
@@ -183,16 +183,16 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 							},
 						}}
 						transition={{ duration: 0.2 }}
-						className="static flex w-full min-w-full flex-col overflow-hidden whitespace-nowrap rounded-lg bg-background-primary p-0 ring-1 ring-black/5 lg:absolute lg:overflow-visible lg:border lg:p-2 lg:[--height:auto] lg:[--opacity-close:0%] lg:[--opacity-open:100%] lg:[--translate-y-close:25%] lg:[--translate-y-open:0%]"
+						className="static flex w-full min-w-full flex-col overflow-hidden whitespace-nowrap rounded-lg bg-background-primary p-0 ring-1 ring-black/5 lg:absolute lg:w-auto lg:overflow-visible lg:border lg:p-2 lg:[--height:auto] lg:[--opacity-close:0%] lg:[--opacity-open:100%] lg:[--translate-y-close:25%] lg:[--translate-y-open:0%]"
 					>
 						{navLink.subMenuLinks?.map((subMenuLink, subIndex) => (
-							<a
+							<Link
 								key={subIndex}
 								href={subMenuLink.url}
 								className="px-0 py-3 text-center lg:px-4 lg:py-2 lg:text-left"
 							>
 								{subMenuLink.title}
-							</a>
+							</Link>
 						))}
 					</motion.nav>
 				)}
@@ -209,24 +209,12 @@ export const NavbarDefaults: Props = {
 	},
 	navLinks: [
 		{
-			url: "#",
-			title: "Link One",
-		},
-		{
-			url: "#",
-			title: "Link Two",
-		},
-		{
-			url: "#",
-			title: "Link Three",
-		},
-		{
-			url: "#",
-			title: "Link Four",
+			url: "/services",
+			title: "Services",
 			subMenuLinks: [
 				{
-					url: "#",
-					title: "Link Five",
+					url: "/services/vinduespolering",
+					title: "Vinduespolering",
 				},
 				{
 					url: "#",
@@ -237,6 +225,18 @@ export const NavbarDefaults: Props = {
 					title: "Link Seven",
 				},
 			],
+		},
+		{
+			url: "#",
+			title: "Link One",
+		},
+		{
+			url: "#",
+			title: "Link Two",
+		},
+		{
+			url: "#",
+			title: "Link Three",
 		},
 	],
 	button: {
