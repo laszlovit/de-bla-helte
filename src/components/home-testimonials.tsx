@@ -68,6 +68,7 @@ export default function HomeTestimonials({
 											<img
 												src={image(testimonial.logo).url()}
 												alt={testimonial.logo?.alt}
+												loading="lazy"
 												className="max-h-12"
 											/>
 										)}

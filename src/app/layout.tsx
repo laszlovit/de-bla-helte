@@ -7,12 +7,14 @@ const inter = Inter({
 	subsets: ["latin-ext"],
 	variable: "--font-inter",
 	display: "swap",
+	preload: true,
 });
 
 const outfit = Outfit({
 	subsets: ["latin-ext"],
 	variable: "--font-outfit",
 	display: "swap",
+	preload: true,
 });
 
 export const metadata: Metadata = {

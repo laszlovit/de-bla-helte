@@ -225,7 +225,12 @@ function WhyUs() {
 								className="shadow-sm flex self-start rounded-lg bg-white p-8 ring-1 ring-black/5"
 							>
 								<div className="mr-6 flex-none self-start">
-									<img src={feature.icon.src} className="size-12" alt={feature.icon.alt} />
+									<img
+										src={feature.icon.src}
+										className="size-12"
+										alt={feature.icon.alt}
+										loading="lazy"
+									/>
 								</div>
 								<div>
 									<h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">{feature.heading}</h3>
@@ -252,6 +257,7 @@ async function Testimonials() {
 							src="https://placehold.co/1000x800"
 							className="size-full rounded-lg object-cover"
 							alt=""
+							loading="lazy"
 						/>
 					</div>
 					<div className="shadow-sm order-2 h-full rounded-lg bg-white ring-1 ring-black/5">
