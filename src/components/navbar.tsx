@@ -118,7 +118,7 @@ export const Navbar = (props: NavbarProps) => {
 					</Button>
 					<button
 						ref={buttonRef}
-						name="menu"
+						aria-label="Menu"
 						className="-mr-2 flex size-12 flex-col items-center justify-center justify-self-end lg:hidden"
 						onClick={() => setIsMobileMenuOpen((prev) => !prev)}
 					>
