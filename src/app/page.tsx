@@ -69,7 +69,7 @@ function Hero() {
 									src="https://cdn.sanity.io/images/11915si6/production/f25bc368bb61056309441abc03383dc7ab553bc7-1505x1004.jpg?w=2000&fit=max&auto=format"
 									alt=""
 									loading="lazy"
-									className="size-full rounded-lg object-cover"
+									className="size-full rounded-lg bg-gray-50 object-cover"
 								/>
 							</div>
 						</div>
