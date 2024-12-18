@@ -8,6 +8,7 @@ const inter = Inter({
 	variable: "--font-inter",
 	display: "swap",
 	preload: true,
+	adjustFontFallback: true,
 });
 
 const outfit = Outfit({
@@ -15,6 +16,7 @@ const outfit = Outfit({
 	variable: "--font-outfit",
 	display: "swap",
 	preload: true,
+	adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
