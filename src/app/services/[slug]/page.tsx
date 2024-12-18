@@ -235,7 +235,7 @@ export default async function SelectedServicePage({ params }: Props) {
 										Get a quote
 									</Button>
 									<Button asChild className="rounded-md border-white bg-transparent">
-										<a href="tel:+4570604615">Call now</a>
+										<a href="tel:+4570604615">Ring nu</a>
 									</Button>
 								</div>
 							</div>

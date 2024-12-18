@@ -40,9 +40,11 @@ function Hero() {
 									</p>
 								</div>
 								<div className="mt-6 flex items-center gap-4 md:mt-8">
-									<Button className="rounded-md border-primary bg-primary">Get a quote</Button>
+									<Button asChild className="rounded-md border-primary bg-primary">
+										<Link href="/fa-et-tilbud">Få et tilbud</Link>
+									</Button>
 									<Button variant="secondary" className="rounded-md">
-										Call now
+										Ring nu
 									</Button>
 								</div>
 								<div className="mt-12 xl:mt-auto">
@@ -140,7 +142,7 @@ async function Services() {
 					{services.map((service) => (
 						<div
 							key={service.slug}
-							className="shadow-md ring-black/105 group relative flex h-full flex-col rounded-lg bg-white p-2 shadow-black/10 ring-1 ring-black/10"
+							className="group relative flex h-full flex-col rounded-lg bg-white p-2 shadow-black/10 ring-1 ring-black/10"
 						>
 							{service.mainImage && (
 								<img

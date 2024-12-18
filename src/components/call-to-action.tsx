@@ -20,7 +20,7 @@ export default function CallToAction() {
 					<div className="flex w-full flex-wrap items-center justify-start gap-4 md:w-auto md:justify-end">
 						<Button className="rounded-md border-white bg-white text-gray-900">Get a quote</Button>
 						<Button asChild className="rounded-md border-white bg-transparent">
-							<a href="tel:+4570604615">Call now</a>
+							<a href="tel:+4570604615">Ring nu</a>
 						</Button>
 					</div>
 				</div>

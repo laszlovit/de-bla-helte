@@ -3,6 +3,7 @@
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 
@@ -107,7 +108,7 @@ export const Navbar = (props: NavbarProps) => {
 				</motion.div>
 				<div className="flex items-center justify-center gap-4">
 					<Button {...button} className="rounded-md border-primary bg-primary">
-						{button.title}
+						<Link href="/fa-et-tilbud">{button.title}</Link>
 					</Button>
 					<button
 						ref={buttonRef}
@@ -239,8 +240,9 @@ export const NavbarDefaults: Props = {
 		},
 	],
 	button: {
-		title: "Get a qoute",
+		title: "Få et tilbud",
 		size: "sm",
+		asChild: true,
 	},
 };
 

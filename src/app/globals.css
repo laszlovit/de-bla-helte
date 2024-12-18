@@ -32,3 +32,13 @@ h2 {
 .clip-bottom {
 	clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
+
+@layer components {
+	.radio-item[data-state="checked"] {
+		@apply !border-primary !bg-primary;
+	}
+
+	.checkbox-item[data-state="checked"] {
+		@apply !border-primary !bg-primary;
+	}
+}
