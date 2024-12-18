@@ -68,6 +68,42 @@ export type Geopoint = {
 	alt?: number;
 };
 
+export type Gallery = {
+	_id: string;
+	_type: "gallery";
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	title?: string;
+	slug?: Slug;
+	mainImage?: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		alt?: string;
+		_type: "image";
+	};
+	gallery?: Array<{
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		alt?: string;
+		_type: "galleryImage";
+		_key: string;
+	}>;
+	publishedAt?: string;
+};
+
 export type CaseStudy = {
 	_id: string;
 	_type: "caseStudy";
@@ -474,6 +510,7 @@ export type AllSanitySchemaTypes =
 	| SanityImageDimensions
 	| SanityFileAsset
 	| Geopoint
+	| Gallery
 	| CaseStudy
 	| Testimonial
 	| Service
@@ -488,6 +525,71 @@ export type AllSanitySchemaTypes =
 	| SanityAssetSourceData
 	| SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./src/sanity/lib/galleries/get-all-galleries.ts
+// Variable: ALL_GALLERIES_QUERY
+// Query: *[  _type == "gallery"][]{  publishedAt,  title,  mainImage,  gallery[]{    _key,    alt,    asset->{      _id,      url    }  },   "slug": slug.current,}
+export type ALL_GALLERIES_QUERYResult = Array<{
+	publishedAt: string | null;
+	title: string | null;
+	mainImage: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		alt?: string;
+		_type: "image";
+	} | null;
+	gallery: Array<{
+		_key: string;
+		alt: string | null;
+		asset: {
+			_id: string;
+			url: string | null;
+		} | null;
+	}> | null;
+	slug: string | null;
+}>;
+
+// Source: ./src/sanity/lib/galleries/get-gallery-slugs.ts
+// Variable: GALLERY_SLUGS_QUERY
+// Query: *[_type == "gallery"]{    "slug": slug.current  }
+export type GALLERY_SLUGS_QUERYResult = Array<{
+	slug: string | null;
+}>;
+
+// Source: ./src/sanity/lib/galleries/get-gallery.ts
+// Variable: GALLERY_QUERY
+// Query: *[  _type == "gallery"    && slug.current == $slug][0]{  publishedAt,  title,  mainImage,  gallery[]{    _key,    alt,    asset->{      _id,      url    }  },   "slug": slug.current,}
+export type GALLERY_QUERYResult = {
+	publishedAt: string | null;
+	title: string | null;
+	mainImage: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		alt?: string;
+		_type: "image";
+	} | null;
+	gallery: Array<{
+		_key: string;
+		alt: string | null;
+		asset: {
+			_id: string;
+			url: string | null;
+		} | null;
+	}> | null;
+	slug: string | null;
+} | null;
+
 // Source: ./src/sanity/lib/case-studies/get-all-case-studies.ts
 // Variable: ALL_CASE_STUDIES_QUERY
 // Query: *[  _type == "caseStudy"  && defined(slug.current)]| order(title asc){  title,  "slug": slug.current,  publishedAt,  excerpt,  mainImage,  services[]->{    title,    "slug": slug.current,  },}
@@ -837,6 +939,9 @@ export type SERVICE_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
 	interface SanityQueries {
+		'*[\n  _type == "gallery"\n][]{\n  publishedAt,\n  title,\n  mainImage,\n  gallery[]{\n    _key,\n    alt,\n    asset->{\n      _id,\n      url\n    }\n  },\n   "slug": slug.current,\n}\n': ALL_GALLERIES_QUERYResult;
+		'\n  *[_type == "gallery"]{\n    "slug": slug.current\n  }\n': GALLERY_SLUGS_QUERYResult;
+		'*[\n  _type == "gallery"\n    && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  gallery[]{\n    _key,\n    alt,\n    asset->{\n      _id,\n      url\n    }\n  },\n   "slug": slug.current,\n}\n': GALLERY_QUERYResult;
 		'*[\n  _type == "caseStudy"\n  && defined(slug.current)\n]| order(title asc){\n  title,\n  "slug": slug.current,\n  publishedAt,\n  excerpt,\n  mainImage,\n  services[]->{\n    title,\n    "slug": slug.current,\n  },\n}': ALL_CASE_STUDIES_QUERYResult;
 		'*[\n  _type == "caseStudy"\n  && slug.current == $slug\n][0]{\n  title,\n  excerpt,  \n  seo {\n    metaTitle,\n    metaDescription,\n    canonicalUrl,\n    ogImage {\n      asset -> {\n        _id,\n        url\n      }\n    }\n  },\n}\n': CASE_STUDY_META_QUERYResult;
 		'\n  *[_type == "caseStudy"]{\n    "slug": slug.current\n  }\n': CASE_STUDY_SLUGS_QUERYResult;
