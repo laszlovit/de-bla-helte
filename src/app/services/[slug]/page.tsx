@@ -1,13 +1,13 @@
-import { Button } from "@/components/button";
 import CallToAction from "@/components/call-to-action";
 import Fancybox from "@/components/fancybox-wrapper";
+import { Footer } from "@/components/footer";
 import { Link } from "@/components/link";
 import { Navbar } from "@/components/navbar";
 import { image } from "@/sanity/lib/image";
 import { getService } from "@/sanity/lib/services/get-service";
 import { getServiceMeta } from "@/sanity/lib/services/get-service-meta";
 import { getServiceSlugs } from "@/sanity/lib/services/get-service-slugs";
-import { Input } from "@relume_io/relume-ui";
+import { Button } from "@relume_io/relume-ui";
 import { Metadata } from "next";
 import { PortableText, toPlainText } from "next-sanity";
 import { notFound } from "next/navigation";
@@ -47,29 +47,20 @@ export default async function SelectedServicePage({ params }: Props) {
 	return (
 		<>
 			<Navbar />
-			<section id="relume" className="px-[5%] pt-16 md:pt-24 lg:pt-28">
+			<section id="relume" className="px-[5%] pb-8 pt-6 md:pb-12 lg:pb-14 lg:pt-8">
 				<div className="container">
-					<div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-						<h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-							{service.title}
-						</h1>
-						<p className="md:text-md">{service.excerpt}</p>
-					</div>
-					<div>
-						{service.mainImage && (
-							<img
-								src={image(service.mainImage).url()}
-								alt={service.mainImage.alt}
-								className="w-full object-cover lg:aspect-[5/2]"
-							/>
-						)}
-					</div>
-				</div>
-			</section>
-			<section id="relume" className="px-[5%] py-16 md:pb-24 lg:pb-28">
-				<div className="container">
-					<div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_0.5fr] lg:gap-x-20">
-						<div className="">
+					<div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_0.5fr] lg:gap-8">
+						<div className="shadow-sm rounded-lg bg-white p-8 ring-1 ring-black/5 xl:p-12">
+							{service.mainImage && (
+								<img
+									src={image(service.mainImage).url()}
+									alt={service.mainImage.alt}
+									className="w-full rounded-md object-cover lg:aspect-[4/2]"
+								/>
+							)}
+							<h1 className="mb-5 mt-10 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+								{service.title}
+							</h1>
 							<h2 className="mb-10 text-2xl/9 font-semibold tracking-tight text-slate-900">
 								Hvad er inkluderet
 							</h2>
@@ -204,7 +195,7 @@ export default async function SelectedServicePage({ params }: Props) {
 										{service.testimonials.map((testimonial) => (
 											<li
 												key={testimonial.slug}
-												className="shadow-sm relative col-span-2 flex flex-col space-y-4 rounded-lg bg-white p-6 ring-1 ring-black/5"
+												className="shadow-sm relative col-span-2 flex flex-col space-y-4 rounded-md bg-white p-6 ring-1 ring-black/10"
 											>
 												{testimonial.logo && (
 													<div className="border-b border-slate-100 pb-4">
@@ -215,19 +206,12 @@ export default async function SelectedServicePage({ params }: Props) {
 														/>
 													</div>
 												)}
-												<figcaption className="mt-6 flex items-center gap-x-4">
-													{testimonial.avatar && (
-														<img
-															alt={testimonial.avatar.alt || ""}
-															src={image(testimonial.avatar).format("webp").url()}
-															className="h-10 w-10 rounded-full bg-gray-50"
-														/>
-													)}
+												<div className="mt-6 flex items-center gap-x-4">
 													<div>
 														<div className="font-medium">{testimonial.name}</div>
 														<div className="text-sm text-gray-600">Manager</div>
 													</div>
-												</figcaption>
+												</div>
 												<blockquote className="text-sm text-gray-700">
 													“{testimonial.content}”
 												</blockquote>
@@ -238,30 +222,31 @@ export default async function SelectedServicePage({ params }: Props) {
 							)}
 						</div>
 						<div>
-							<div className="border border-border-primary p-8 lg:sticky lg:top-20">
-								<h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
-									Send an inquiry
-								</h6>
-								<p className="mb-3 md:mb-4">
-									Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis.
+							<div className="shadow-sm rounded-lg border border-primary bg-primary p-8 lg:sticky lg:top-20">
+								<h2 className="mb-3 text-pretty text-xl font-bold leading-[1.4] text-white md:mb-4 md:text-2xl">
+									Ready to Transform Your Space?
+								</h2>
+								<p className="text-white">
+									Whether it’s your home, office, or commercial property, our expert team ensures
+									spotless results every time.
 								</p>
-								<form className="mb-4 flex flex-col gap-3 sm:gap-4">
-									<Input id="email" type="email" placeholder="emai..." />
-									<Button>Send</Button>
-								</form>
-								<p className="text-xs">
-									By submitting the form you agree with our{" "}
-									<a href="#" className="underline">
-										Privacy Policy
-									</a>
-									.
-								</p>
+								<div className="mt-6 flex w-full flex-wrap items-center justify-start gap-4 md:w-auto">
+									<Button className="rounded-md border-white bg-white text-gray-900">
+										Get a quote
+									</Button>
+									<Button asChild className="rounded-md border-white bg-transparent">
+										<a href="tel:+4570604615">Call now</a>
+									</Button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<CallToAction />
+			<div className="hidden lg:block">
+				<CallToAction />
+			</div>
+			<Footer />
 		</>
 	);
 }

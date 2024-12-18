@@ -58,7 +58,7 @@ export const Navbar = (props: NavbarProps) => {
 	}, []);
 
 	return (
-		<nav className="relative z-[999] mx-auto mt-5 flex w-full items-start justify-center px-[5%] md:mt-6 lg:w-full lg:max-w-[1536px] lg:px-0">
+		<nav className="relative z-[999] mx-auto mt-5 flex w-full items-start justify-center px-[5%] md:mt-6 xl:w-full xl:max-w-[1536px] xl:px-0">
 			<div className="mx-auto flex min-h-16 w-full items-center justify-between gap-4 rounded-lg bg-white px-5 ring-1 ring-black/5 md:min-h-18 md:px-8 lg:w-full">
 				<a href={logo.url}>
 					<img src={logo.src} alt={logo.alt} />
@@ -202,7 +202,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 
 export const NavbarDefaults: Props = {
 	logo: {
-		url: "#",
+		url: "/",
 		src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
 		alt: "Relume placeholder logo",
 	},

@@ -66,6 +66,7 @@ function Hero() {
 								<img
 									src="https://media.istockphoto.com/id/2159632844/photo/commercial-office-cleaners.jpg?s=2048x2048&w=is&k=20&c=FPZ6FScyBo4_63JT0vwVrCUmN50X5PtkXI9a25WIQz4="
 									alt=""
+									fetchPriority="high"
 									className="size-full rounded-lg object-cover"
 								/>
 							</div>
