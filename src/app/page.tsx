@@ -1,6 +1,6 @@
 import CallToAction from "@/components/call-to-action";
+import { DynamicHomeTestimonials } from "@/components/dynamic-home-testimonials";
 import { Footer } from "@/components/footer";
-import HomeTestimonials from "@/components/home-testimonials";
 import { Navbar } from "@/components/navbar";
 import { image } from "@/sanity/lib/image";
 import { getFeaturedServices } from "@/sanity/lib/services/get-featured-services";
@@ -254,7 +254,7 @@ async function Testimonials() {
 						/>
 					</div>
 					<div className="shadow-sm order-2 h-full rounded-lg bg-white ring-1 ring-black/5">
-						<HomeTestimonials testimonials={testimonials} />
+						<DynamicHomeTestimonials testimonials={testimonials} />
 					</div>
 				</div>
 			</div>
