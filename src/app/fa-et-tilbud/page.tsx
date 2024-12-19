@@ -1,6 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
-import { QuoteForm } from "@/components/quote-form";
+import QuoteForm from "@/components/quote-form";
 import SubPageHeader from "@/components/sub-page-header";
 
 export default function Page() {
