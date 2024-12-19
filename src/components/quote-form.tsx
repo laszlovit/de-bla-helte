@@ -26,9 +26,9 @@ export default function QuoteForm() {
 		city: "",
 		postalCode: "",
 		message: "",
-		acceptTerms: false,
 	});
 
+	const [acceptTerms, setAcceptTerms] = useState<boolean | "indeterminate">(false);
 	const [formSuccess, setFormSuccess] = useState(false);
 	const [formSuccessMessage, setFormSuccessMessage] = useState("");
 	const [formError, setFormError] = useState("");
@@ -44,9 +44,6 @@ export default function QuoteForm() {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		// Exclude terms chechbox
-		const { acceptTerms, ...dataToSubmit } = formData;
-
 		try {
 			const response = await fetch("https://www.formbackend.com/f/d6bbaf9d54863c56", {
 				method: "POST",
@@ -54,7 +51,7 @@ export default function QuoteForm() {
 					accept: "application/json",
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(dataToSubmit),
+				body: JSON.stringify(formData),
 			});
 
 			if (!response.ok) {
@@ -74,11 +71,11 @@ export default function QuoteForm() {
 				city: "",
 				postalCode: "",
 				message: "",
-				acceptTerms: false,
 			});
 
+			setAcceptTerms(false);
 			setFormSuccess(true);
-			setFormSuccessMessage("Din besked er blevet sendt! Vi vil snart kontakte os.");
+			setFormSuccessMessage("Din besked er blevet sendt! Vi vil snart kontakte dig.");
 		} catch (error) {
 			console.error("Error submitting the form:", error);
 			setFormSuccess(false);
@@ -170,6 +167,7 @@ export default function QuoteForm() {
 							onValueChange={(value) =>
 								setFormData((prevData) => ({ ...prevData, service: value }))
 							}
+							value={formData.service}
 							required
 						>
 							{radioItems.map((item, index) => (
@@ -252,13 +250,8 @@ export default function QuoteForm() {
 					<div className="mb-3 flex items-center space-x-2 text-sm md:mb-4">
 						<Checkbox
 							id="terms"
-							checked={formData.acceptTerms}
-							onCheckedChange={(checked) =>
-								setFormData((prevData) => ({
-									...prevData,
-									acceptTerms: checked === true, // Ensure it's a boolean
-								}))
-							}
+							checked={acceptTerms}
+							onCheckedChange={setAcceptTerms}
 							required
 							className="checkbox-item rounded-md"
 						/>
