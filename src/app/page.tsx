@@ -85,14 +85,12 @@ function Hero() {
 
 function LogoCloudBento() {
 	const logos = [
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 1" },
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 1" },
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 2" },
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 2" },
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 3" },
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 3" },
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 4" },
-		{ src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 4" },
+		{ src: "/home/rekom-group-logo.png", alt: "Webflow logo 1" },
+		{ src: "/home/place-to-logo.png", alt: "Relume logo 1" },
+		{ src: "/home/henne-molle-hotel-logo.png", alt: "Webflow logo 2" },
+		{ src: "/home/rustik-logo.webp", alt: "Relume logo 2" },
+		{ src: "/home/stennevad-logo.png", alt: "Webflow logo 3" },
+		{ src: "/home/dansk-bilglas-logo.png", alt: "Relume logo 3" },
 	];
 
 	return (
