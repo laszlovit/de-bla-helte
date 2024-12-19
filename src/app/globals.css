@@ -7,30 +7,12 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: var(--font-outfit);
-}
-
-@layer utilities {
-	.animation-pause {
-		animation-play-state: paused;
-	}
-}
-
-@media (min-width: 768px) {
-	.grid-service-item {
-		grid-template-columns: 1fr 1.25fr;
-	}
-}
-
-@media (min-width: 768px) {
-	.clip-left {
-		clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-	}
-}
-
-.clip-bottom {
-	clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
 @layer components {

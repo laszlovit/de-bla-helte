@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
 	BiLogoFacebookCircle,
 	BiLogoInstagram,
@@ -35,6 +36,7 @@ type Contact = {
 	label: string;
 	phone: string;
 	email: string;
+	cvr: string;
 };
 
 type Props = {
@@ -60,9 +62,9 @@ export const Footer = (props: FooterProps) => {
 				<div className="grid grid-cols-1 gap-x-[4vw] gap-y-12 p-8 md:gap-y-16 md:p-12 lg:grid-cols-[1fr_0.5fr] lg:gap-y-4">
 					<div>
 						<div className="rb-6 mb-6 md:mb-8">
-							<a href={logo.url}>
+							<Link href={logo.url || "/"}>
 								<img src={logo.src} alt={logo.alt} className="inline-block" />
-							</a>
+							</Link>
 						</div>
 						<div className="rb-6 mb-6 md:mb-8">
 							<div>
@@ -71,10 +73,21 @@ export const Footer = (props: FooterProps) => {
 							</div>
 							<div>
 								<p className="mb-1 text-sm font-semibold">{contact.label}</p>
-								<p className="flex flex-col text-sm underline decoration-black underline-offset-1 md:mb-6">
-									<a href={`tel:${contact.phone}`}>{contact.phone}</a>
-									<a href={`mailto:${contact.email}`}>{contact.email}</a>
-								</p>
+								<div className="flex flex-col gap-y-1 text-sm md:mb-6">
+									<a
+										href={`tel:${contact.phone}`}
+										className="underline decoration-black underline-offset-1"
+									>
+										{contact.phone}
+									</a>
+									<a
+										href={`mailto:${contact.email}`}
+										className="underline decoration-black underline-offset-1"
+									>
+										{contact.email}
+									</a>
+									<p>{contact.cvr}</p>
+								</div>
 							</div>
 						</div>
 						<div className="grid grid-flow-col grid-cols-[max-content] items-start justify-start gap-x-3">
@@ -90,7 +103,7 @@ export const Footer = (props: FooterProps) => {
 							<ul key={index}>
 								{column.links.map((link, linkIndex) => (
 									<li key={linkIndex} className="py-2 text-sm font-semibold">
-										<a href={link.url}>{link.title}</a>
+										<Link href={link.url}>{link.title}</Link>
 									</li>
 								))}
 							</ul>
@@ -101,7 +114,7 @@ export const Footer = (props: FooterProps) => {
 						<ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
 							{footerLinks.map((link, index) => (
 								<li key={index} className="underline">
-									<a href={link.url}>{link.title}</a>
+									<Link href={link.url}>{link.title}</Link>
 								</li>
 							))}
 						</ul>
@@ -119,31 +132,33 @@ export const FooterDefaults: Props = {
 		alt: "Logo image",
 	},
 	address: {
-		label: "Address:",
+		label: "Adresse:",
 		value: "Forumlundvej 15, 6715 Esbjerg N.",
 	},
 	contact: {
 		label: "Kontakt:",
 		phone: "+45 70 60 46 15",
 		email: "support@blaahelte.com",
+		cvr: "CVR: 43755315",
 	},
 	columnLinks: [
 		{
 			links: [
-				{ title: "Link One", url: "#" },
-				{ title: "Link Two", url: "#" },
-				{ title: "Link Three", url: "#" },
-				{ title: "Link Four", url: "#" },
-				{ title: "Link Five", url: "#" },
+				{ title: "Vinduespolering", url: "/services/vinduespolering" },
+				{ title: "Solcellevask", url: "/services/solcellevask" },
+				{ title: "Fliserens", url: "/services/fliserens" },
+				{ title: "Algebehandeling", url: "/services/algbehandling" },
+				{ title: "Rens of tagrender", url: "/services/rens-of-tagrender" },
+				{ title: "Erhvervsrengøring", url: "/services/erhvervsrengoring" },
 			],
 		},
 		{
 			links: [
-				{ title: "Link Six", url: "#" },
-				{ title: "Link Seven", url: "#" },
-				{ title: "Link Eight", url: "#" },
-				{ title: "Link Nine", url: "#" },
-				{ title: "Link Ten", url: "#" },
+				{ title: "Services", url: "/services" },
+				{ title: "Om os", url: "/om-os" },
+				{ title: "Galleri", url: "/galleri" },
+				{ title: "Kontakt", url: "/kontakt" },
+				{ title: "Få et tilbud", url: "/fa-et-tilbud" },
 			],
 		},
 	],

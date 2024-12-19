@@ -40,10 +40,10 @@ function Hero() {
 									</p>
 								</div>
 								<div className="mt-6 flex items-center gap-4 md:mt-8">
-									<Button asChild className="rounded-md border-primary bg-primary">
+									<Button asChild className="rounded-md border-primary bg-primary font-semibold">
 										<Link href="/fa-et-tilbud">Få et tilbud</Link>
 									</Button>
-									<Button variant="secondary" className="rounded-md">
+									<Button variant="secondary" className="rounded-md font-semibold">
 										Ring nu
 									</Button>
 								</div>
@@ -97,7 +97,7 @@ function LogoCloudBento() {
 		<section id="relume" className="overflow-hidden py-12 md:py-16 lg:py-20">
 			<div className="container mb-8 w-full max-w-lg px-[5%] md:mb-10 lg:mb-12">
 				<h1 className="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">
-					Used by the world&apos;s leading companies
+					Betroet af vores værdifulde kunder
 				</h1>
 			</div>
 			<div className="flex items-center pt-7 md:pt-0">
@@ -163,8 +163,8 @@ async function Services() {
 					))}
 				</div>
 				<div className="mt-10 flex items-center justify-center gap-4 md:mt-14 lg:mt-16">
-					<Button asChild className="rounded-md border-primary bg-primary">
-						<Link href="/services">View all services</Link>
+					<Button asChild className="rounded-md border-primary bg-primary font-semibold">
+						<Link href="/services">Se alle services</Link>
 					</Button>
 				</div>
 			</div>
@@ -205,9 +205,9 @@ function WhyUs() {
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:gap-x-20">
 					<div className="">
 						<div className="lg:sticky lg:top-20">
-							<p className="mb-3 font-semibold text-primary md:mb-4">About Us</p>
+							<p className="mb-3 font-semibold text-primary md:mb-4">Om os</p>
 							<h2 className="rb-5 mb-5 text-pretty text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-								Why choose us for your cleaning needs?
+								Hvorfor vælge os til dit rengøringsbehov?
 							</h2>
 							<p className="md:text-md">
 								Our experienced staff utilizes eco-friendly products to ensure a safe and healthy

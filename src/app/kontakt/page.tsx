@@ -1,12 +1,88 @@
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
-import SubPageHeader from "@/components/sub-page-header";
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 
+function Intro() {
+	const contacts = [
+		{
+			icon: <EnvelopeIcon className="size-12" />,
+			title: "Email",
+			description: "Besvares alle hverdage 07 - 15",
+			link: {
+				label: "support@blaahelte.com",
+				url: "mailto:support@blaahelte.com",
+			},
+		},
+		{
+			icon: <PhoneIcon className="size-12" />,
+			title: "Telefonnummer",
+			description: "Ring til os alle dage 07 - 16",
+			link: {
+				label: "+45 70 60 46 15",
+				url: "tel:+4570604615",
+			},
+		},
+		{
+			icon: <MapPinIcon className="size-12" />,
+			title: "Adresse",
+			description: "Vi holder til i Esbjerg N. og dækker hele Syddanmark.",
+			link: {
+				label: "Forumlundvej 15, 6715 Esbjerg N.",
+				url: "#",
+			},
+		},
+	];
+
+	return (
+		<>
+			<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+				<div className="container">
+					<div className="rb-12 mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+						<h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+							Ræk ud – vi er her for at lytte
+						</h2>
+						<p className="md:text-md">
+							Har du spørgsmål eller forespørgsler? Vi vil meget gerne høre fra dig.
+						</p>
+					</div>
+					<div className="grid auto-cols-fr grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+						{contacts.map((contact, index) => (
+							<div
+								key={index}
+								className="shadow-sm rounded-lg bg-white p-6 ring-1 ring-black/5 md:p-8"
+							>
+								<div className="shadow-sm mb-5 w-fit rounded-md bg-lightGray p-1 ring-1 ring-black/10 lg:mb-6">
+									<div className="text-primary">{contact.icon}</div>
+								</div>
+
+								<h3 className="mb-3 text-2xl font-bold leading-[1.4] md:text-3xl lg:mb-4 lg:text-4xl">
+									{contact.title}
+								</h3>
+								<p className="mb-5 md:mb-6">{contact.description}</p>
+								<a className="text-primary underline" href={contact.link.url}>
+									{contact.link.label}
+								</a>
+							</div>
+						))}
+						<div className="col-span-full">
+							<img
+								src="https://cdn.sanity.io/images/11915si6/production/fccd6cf84822a3fcf54662be0ff2582ade71d417-1400x650.jpg?fit=max&w=1200&h=1200&auto=format"
+								alt=""
+								loading="lazy"
+								className="size-full rounded-lg"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
+	);
+}
 export default function Page() {
 	return (
 		<>
 			<Navbar />
-			<SubPageHeader title="Kontakt" />
+			<Intro />
 			<Footer />
 		</>
 	);

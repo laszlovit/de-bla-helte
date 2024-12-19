@@ -1,7 +1,7 @@
 import CallToAction from "@/components/call-to-action";
 import Fancybox from "@/components/fancybox-wrapper";
 import { Footer } from "@/components/footer";
-import { Link } from "@/components/link";
+
 import { Navbar } from "@/components/navbar";
 import { image } from "@/sanity/lib/image";
 import { getService } from "@/sanity/lib/services/get-service";
@@ -10,6 +10,7 @@ import { getServiceSlugs } from "@/sanity/lib/services/get-service-slugs";
 import { Button } from "@relume_io/relume-ui";
 import { Metadata } from "next";
 import { PortableText, toPlainText } from "next-sanity";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -224,15 +225,15 @@ export default async function SelectedServicePage({ params }: Props) {
 						<div>
 							<div className="shadow-sm rounded-lg border border-primary bg-primary p-8 lg:sticky lg:top-20">
 								<h2 className="mb-3 text-pretty text-xl font-bold leading-[1.4] text-white md:mb-4 md:text-2xl">
-									Ready to Transform Your Space?
+									Klar til at forvandle dit rum?
 								</h2>
 								<p className="text-white">
-									Whether it’s your home, office, or commercial property, our expert team ensures
-									spotless results every time.
+									Uanset om det er dit hjem, kontor eller erhvervsejendom, sikrer vores ekspertteam
+									pletfrie resultater hver gang.
 								</p>
 								<div className="mt-6 flex w-full flex-wrap items-center justify-start gap-4 md:w-auto">
-									<Button className="rounded-md border-white bg-white text-gray-900">
-										Get a quote
+									<Button asChild className="rounded-md border-white bg-white text-gray-900">
+										<Link href="/fa-et-tilbud">Få et tilbud</Link>
 									</Button>
 									<Button asChild className="rounded-md border-white bg-transparent">
 										<a href="tel:+4570604615">Ring nu</a>

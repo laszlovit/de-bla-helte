@@ -93,16 +93,13 @@ export const Navbar = (props: NavbarProps) => {
 							className="s flex w-full flex-col rounded-lg bg-background-primary p-5 ring-1 ring-black/5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:ring-0"
 						>
 							{navLinks.map((navLink, index) => (
-								<div
-									key={index}
-									className={`${pathname === navLink.url ? "text-primary" : ""} font-semibold [&>a]:hover:text-primary`}
-								>
+								<div key={index} className="font-semibold [&>a]:hover:text-primary">
 									{navLink.subMenuLinks && navLink.subMenuLinks.length > 0 ? (
 										<SubMenu navLink={navLink} isMobile={isMobile} />
 									) : (
 										<Link
 											href={navLink.url}
-											className="relative block py-3 text-center text-md hover:text-primary lg:px-4 lg:py-2 lg:text-left lg:text-base"
+											className={`${pathname === navLink.url && "text-primary"} relative block py-3 text-center text-md font-semibold hover:text-primary lg:px-4 lg:py-2 lg:text-left lg:text-base`}
 										>
 											{navLink.title}
 										</Link>
@@ -222,6 +219,10 @@ export const NavbarDefaults: Props = {
 				{
 					url: "/services/vinduespolering",
 					title: "Vinduespolering",
+				},
+				{
+					url: "/services/solcellevask",
+					title: "Solcellevask",
 				},
 				{
 					url: "/services/fliserens",
