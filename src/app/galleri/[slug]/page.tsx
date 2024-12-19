@@ -1,4 +1,6 @@
+import CallToAction from "@/components/call-to-action";
 import Fancybox from "@/components/fancybox-wrapper";
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import SubPageHeader from "@/components/sub-page-header";
 import { getGallery } from "@/sanity/lib/galleries/get-gallery";
@@ -23,7 +25,7 @@ export default async function Page({ params }: Props) {
 		<>
 			<Navbar />
 			<SubPageHeader title={`${gallery.title} - Galleri`} />
-			<section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+			<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
 				<div className="mx-auto max-w-screen-2xl">
 					<div className="grid grid-cols-2 items-start justify-center gap-6 md:gap-8 lg:grid-cols-4">
 						<Fancybox
@@ -55,6 +57,8 @@ export default async function Page({ params }: Props) {
 					</div>
 				</div>
 			</section>
+			<CallToAction />
+			<Footer />
 		</>
 	);
 }

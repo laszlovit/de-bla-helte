@@ -196,7 +196,7 @@ export default async function SelectedServicePage({ params }: Props) {
 										{service.testimonials.map((testimonial) => (
 											<li
 												key={testimonial.slug}
-												className="shadow-sm relative col-span-2 flex flex-col space-y-4 rounded-md bg-white p-6 ring-1 ring-black/10"
+												className="shadow-sm relative col-span-1 flex flex-col space-y-4 rounded-md bg-white p-6 ring-1 ring-black/10"
 											>
 												{testimonial.logo && (
 													<div className="border-b border-slate-100 pb-4">
@@ -210,7 +210,6 @@ export default async function SelectedServicePage({ params }: Props) {
 												<div className="mt-6 flex items-center gap-x-4">
 													<div>
 														<div className="font-medium">{testimonial.name}</div>
-														<div className="text-sm text-gray-600">Manager</div>
 													</div>
 												</div>
 												<blockquote className="text-sm text-gray-700">
@@ -225,11 +224,11 @@ export default async function SelectedServicePage({ params }: Props) {
 						<div>
 							<div className="shadow-sm rounded-lg border border-primary bg-primary p-8 lg:sticky lg:top-20">
 								<h2 className="mb-3 text-pretty text-xl font-bold leading-[1.4] text-white md:mb-4 md:text-2xl">
-									Klar til at forvandle dit rum?
+									Klar til at få professionel rengøring?
 								</h2>
 								<p className="text-white">
-									Uanset om det er dit hjem, kontor eller erhvervsejendom, sikrer vores ekspertteam
-									pletfrie resultater hver gang.
+									Kontakt os i dag for at få et tilbud på tilpasset rengøring til din virksomhed.
+									Ring nu eller få et uforpligtende tilbud!
 								</p>
 								<div className="mt-6 flex w-full flex-wrap items-center justify-start gap-4 md:w-auto">
 									<Button

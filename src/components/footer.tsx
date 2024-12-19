@@ -58,7 +58,7 @@ export const Footer = (props: FooterProps) => {
 					<div>
 						<div className="rb-6 mb-6 md:mb-8">
 							<Link href={logo.url || "/"}>
-								<img src={logo.src} alt={logo.alt} className="inline-block" />
+								<img src={logo.src} alt={logo.alt} className="inline-block h-6" />
 							</Link>
 						</div>
 						<div className="rb-6 mb-6 md:mb-8">
@@ -123,7 +123,7 @@ export const Footer = (props: FooterProps) => {
 export const FooterDefaults: Props = {
 	logo: {
 		url: "#",
-		src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
+		src: "/de-bla-helte-logo.svg",
 		alt: "Logo image",
 	},
 	address: {

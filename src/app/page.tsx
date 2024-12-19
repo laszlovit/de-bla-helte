@@ -5,7 +5,15 @@ import { Navbar } from "@/components/navbar";
 import { image } from "@/sanity/lib/image";
 import { getFeaturedServices } from "@/sanity/lib/services/get-featured-services";
 import { getAllTestimonials } from "@/sanity/lib/testimonials/get-all-testimonials";
-import { BanknotesIcon, CheckBadgeIcon } from "@heroicons/react/24/outline";
+
+import {
+	BanknotesIcon,
+	CheckBadgeIcon,
+	FaceSmileIcon,
+	ShieldCheckIcon,
+	SparklesIcon,
+	UserGroupIcon,
+} from "@heroicons/react/24/outline";
 import { Button } from "@relume_io/relume-ui";
 import Link from "next/link";
 
@@ -32,8 +40,9 @@ function Hero() {
 										Rengøringsservice løsninger til private og erhvervskunder
 									</h1>
 									<p className="md:text-md">
-										Vores mål er at gøre dine lokaler rene, så du kan nyde komforten og hyggen i dit
-										hjem eller på arbejdspladsen.
+										Vi tilbyder pålidelig rengøring i Esbjerg og Syddanmark, herunder
+										vinduespolering, fliserensning, solcellerensning med mere. Vores erfarne team
+										sikrer høj kvalitet og tilfredshed.
 									</p>
 								</div>
 								<div className="mt-6 flex items-center gap-4 md:mt-8">
@@ -125,11 +134,12 @@ async function Services() {
 				<div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
 					<p className="mb-3 font-semibold text-primary md:mb-4">Services</p>
 					<h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-						Comprehensive cleaning solutions
+						Oplev vores professionelle rengøringsservice
 					</h2>
 					<p className="md:text-md">
-						Experience the difference with our professional cleaning services tailored for both
-						homes and offices. Let us take care of the mess so you can focus on what truly matters.
+						Vi tilbyder professionelle rengøringstjenester i Esbjerg og Syddanmark, tilpasset dine
+						behov. Fra vinduespolering til erhvervsrengøring kan du stole på vores dygtige team for
+						at levere høj kvalitet og pålidelig service.
 					</p>
 				</div>
 				<div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8">
@@ -171,44 +181,44 @@ async function Services() {
 function WhyUs() {
 	const features = [
 		{
-			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 1" },
-			heading: "Short heading here",
+			icon: <ShieldCheckIcon className="size-12 text-primary" />,
+			heading: "Troværdighed",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+				"Vi sætter en stor ære i at yde det bedste for vores kunder. Derfor er De Blå Helte bygget op omkring troværdighed, høj kvalitet og et serviceminded personale.",
 		},
 		{
-			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 2" },
-			heading: "Short heading here",
+			icon: <FaceSmileIcon className="size-12 text-primary" />,
+			heading: "Kundetilfredshed",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+				"For os er det vigtigt, at vores kunder er tilfredse og føler sig trygge ved den service, vi udfører.",
 		},
 		{
-			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 3" },
-			heading: "Short heading here",
+			icon: <UserGroupIcon className="size-12 text-primary" />,
+			heading: "Personlig Service",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+				"Derfor tilfører vi et fast team til hver enkelt opgave. Det giver vores team et personligt tilhørsforhold og garanterer ensartet rengøring.",
 		},
 		{
-			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 4" },
-			heading: "Short heading here",
+			icon: <SparklesIcon className="size-12 text-primary" />,
+			heading: "Ren Komfort",
 			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+				"Vores mål er at levere en grundig rengøring af dine lokaler, så du kan nyde et rent og behageligt miljø.",
 		},
 	];
 	return (
-		<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+		<section id="om-os" className="px-[5%] py-8 md:py-12 lg:py-14">
 			<div className="mx-auto max-w-screen-2xl">
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:gap-x-20">
 					<div className="">
 						<div className="lg:sticky lg:top-20">
 							<p className="mb-3 font-semibold text-primary md:mb-4">Om os</p>
 							<h2 className="rb-5 mb-5 text-pretty text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-								Hvorfor vælge os til dit rengøringsbehov?
+								Hvordan sikrer vi din troværdighed og kvalitet?
 							</h2>
 							<p className="md:text-md">
-								Our experienced staff utilizes eco-friendly products to ensure a safe and healthy
-								environment for you and your family. With our satisfaction guarantee, you can trust
-								that we will exceed your expectations every time.
+								Vi er dedikeret til at levere service af højeste kvalitet, hvor tillid og
+								pålidelighed er i fokus. Vores team arbejder altid med stor omhu og professionel
+								integritet for at sikre, at du får den bedste oplevelse hver gang.
 							</p>
 						</div>
 					</div>
@@ -218,14 +228,7 @@ function WhyUs() {
 								key={index}
 								className="shadow-sm flex self-start rounded-lg bg-white p-8 ring-1 ring-black/5"
 							>
-								<div className="mr-6 flex-none self-start">
-									<img
-										src={feature.icon.src}
-										className="size-12"
-										alt={feature.icon.alt}
-										loading="lazy"
-									/>
-								</div>
+								<div className="mr-6 flex-none self-start">{feature.icon}</div>
 								<div>
 									<h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">{feature.heading}</h3>
 									<p>{feature.description}</p>

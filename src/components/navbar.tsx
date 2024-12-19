@@ -243,7 +243,7 @@ export const NavbarDefaults: Props = {
 			],
 		},
 		{
-			url: "/om-os",
+			url: "/#om-os",
 			title: "Om os",
 		},
 		{

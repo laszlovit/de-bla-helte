@@ -264,7 +264,7 @@ export default function QuoteForm() {
 						</Label>
 					</div>
 
-					<div className="mt-6">
+					<div className="">
 						<Button type="submit" className="rounded-md border-primary bg-primary text-white">
 							Indsend
 						</Button>

@@ -1,4 +1,5 @@
 import { Button } from "@relume_io/relume-ui";
+import Link from "next/link";
 
 export default function CallToAction() {
 	return (
@@ -8,18 +9,21 @@ export default function CallToAction() {
 					<div className="md:mr-12 lg:mr-0">
 						<div className="w-full max-w-lg">
 							<h3 className="mb-3 text-4xl font-bold leading-[1.2] text-white md:mb-4 md:text-5xl lg:text-6xl">
-								Ready to Transform Your Space?
+								Klar til at få professionel rengøring?
 							</h3>
 							<p className="text-white md:text-md">
-								Discover the difference a professional cleaning service can make. Whether it’s your
-								home, office, or commercial property, our expert team ensures spotless results every
-								time.
+								Kontakt os i dag for at få et tilbud på tilpasset rengøring til din virksomhed.
+								Vores team er klar til at hjælpe dig med dine behov. Ring nu eller få et
+								uforpligtende tilbud!
 							</p>
 						</div>
 					</div>
 					<div className="flex w-full flex-wrap items-center justify-start gap-4 md:w-auto md:justify-end">
-						<Button className="rounded-md border-white bg-white font-semibold text-gray-900">
-							Få et tilbud
+						<Button
+							asChild
+							className="rounded-md border-white bg-white font-semibold text-gray-900"
+						>
+							<Link href="/fa-et-tilbud">Få et tilbud</Link>
 						</Button>
 						<Button
 							asChild
