@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-	BiLogoFacebookCircle,
-	BiLogoInstagram,
-	BiLogoLinkedinSquare,
-	BiLogoYoutube,
-} from "react-icons/bi";
-import { FaXTwitter } from "react-icons/fa6";
+import { BiLogoFacebookCircle, BiLogoInstagram, BiLogoLinkedinSquare } from "react-icons/bi";
 
 type ImageProps = {
 	url?: string;
@@ -76,13 +70,13 @@ export const Footer = (props: FooterProps) => {
 								<div className="flex flex-col gap-y-1 text-sm md:mb-6">
 									<a
 										href={`tel:${contact.phone}`}
-										className="underline decoration-black underline-offset-1"
+										className="underline decoration-black underline-offset-1 hover:text-primary hover:decoration-primary"
 									>
 										{contact.phone}
 									</a>
 									<a
 										href={`mailto:${contact.email}`}
-										className="underline decoration-black underline-offset-1"
+										className="underline decoration-black underline-offset-1 hover:text-primary hover:decoration-primary"
 									>
 										{contact.email}
 									</a>
@@ -102,7 +96,7 @@ export const Footer = (props: FooterProps) => {
 						{columnLinks.map((column, index) => (
 							<ul key={index}>
 								{column.links.map((link, linkIndex) => (
-									<li key={linkIndex} className="py-2 text-sm font-semibold">
+									<li key={linkIndex} className="py-2 text-sm font-semibold hover:text-primary">
 										<Link href={link.url}>{link.title}</Link>
 									</li>
 								))}
@@ -163,16 +157,23 @@ export const FooterDefaults: Props = {
 		},
 	],
 	socialMediaLinks: [
-		{ url: "#", icon: <BiLogoFacebookCircle className="size-6" /> },
-		{ url: "#", icon: <BiLogoInstagram className="size-6" /> },
-		{ url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
-		{ url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-		{ url: "#", icon: <BiLogoYoutube className="size-6" /> },
+		{
+			url: "https://www.facebook.com/deblaahelte",
+			icon: <BiLogoFacebookCircle className="size-6 hover:text-primary" />,
+		},
+		{
+			url: "https://www.instagram.com/deblaahelte",
+			icon: <BiLogoInstagram className="size-6 hover:text-primary" />,
+		},
+		{
+			url: "https://www.linkedin.com/company/de-bl%C3%A5-helte-v-cbl-service-aps/",
+			icon: <BiLogoLinkedinSquare className="size-6 hover:text-primary" />,
+		},
 	],
 	footerText: "© 2025 De Blå Helte. All rights reserved.",
 	footerLinks: [
-		{ title: "Privacy Policy", url: "#" },
-		{ title: "Terms of Service", url: "#" },
-		{ title: "Cookies Settings", url: "#" },
+		{ title: "Privatlivspolitik", url: "#" },
+		{ title: "Handelsbetingelser", url: "#" },
+		{ title: "Cookiepolitik", url: "#" },
 	],
 };

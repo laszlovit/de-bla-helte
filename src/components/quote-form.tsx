@@ -210,9 +210,9 @@ export const QuoteForm = () => {
 							className="checkbox-item rounded-md"
 						/>
 						<Label htmlFor="terms" className="cursor-pointer">
-							I accept the{" "}
+							Jeg accepterer{" "}
 							<a className="text-primary underline" href="#">
-								Terms
+								vilkårene
 							</a>{" "}
 							<span className="text-red-500">&#42;</span>
 						</Label>

@@ -18,8 +18,13 @@ export default function CallToAction() {
 						</div>
 					</div>
 					<div className="flex w-full flex-wrap items-center justify-start gap-4 md:w-auto md:justify-end">
-						<Button className="rounded-md border-white bg-white text-gray-900">Get a quote</Button>
-						<Button asChild className="rounded-md border-white bg-transparent">
+						<Button className="rounded-md border-white bg-white font-semibold text-gray-900">
+							Få et tilbud
+						</Button>
+						<Button
+							asChild
+							className="rounded-md border-2 border-white bg-transparent font-semibold"
+						>
 							<a href="tel:+4570604615">Ring nu</a>
 						</Button>
 					</div>

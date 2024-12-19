@@ -28,7 +28,7 @@ function Intro() {
 			description: "Vi holder til i Esbjerg N. og dækker hele Syddanmark.",
 			link: {
 				label: "Forumlundvej 15, 6715 Esbjerg N.",
-				url: "#",
+				url: "https://www.google.com/maps/dir//Forumlundvej+15,+6715+Esbjerg+Municipality,+Esbjerg+N/@55.5757943,8.3998048,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x464b1f7554c3e7bf:0x37056b6f03e2a474!2m2!1d8.4822045!2d55.5757249?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
 			},
 		},
 	];
@@ -59,7 +59,7 @@ function Intro() {
 									{contact.title}
 								</h3>
 								<p className="mb-5 md:mb-6">{contact.description}</p>
-								<a className="text-primary underline" href={contact.link.url}>
+								<a className="text-primary underline" href={contact.link.url} target="_blank">
 									{contact.link.label}
 								</a>
 							</div>
@@ -69,7 +69,7 @@ function Intro() {
 								src="https://cdn.sanity.io/images/11915si6/production/fccd6cf84822a3fcf54662be0ff2582ade71d417-1400x650.jpg?fit=max&w=1200&h=1200&auto=format"
 								alt=""
 								loading="lazy"
-								className="size-full rounded-lg"
+								className="shadow-xl size-full rounded-lg object-cover outline-1 -outline-offset-1 outline-black/10"
 							/>
 						</div>
 					</div>

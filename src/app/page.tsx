@@ -5,22 +5,19 @@ import { Navbar } from "@/components/navbar";
 import { image } from "@/sanity/lib/image";
 import { getFeaturedServices } from "@/sanity/lib/services/get-featured-services";
 import { getAllTestimonials } from "@/sanity/lib/testimonials/get-all-testimonials";
+import { BanknotesIcon, CheckBadgeIcon } from "@heroicons/react/24/outline";
 import { Button } from "@relume_io/relume-ui";
 import Link from "next/link";
 
 function Hero() {
 	const features = [
 		{
-			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 1" },
-			heading: "Short heading here",
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+			icon: <BanknotesIcon className="size-10 text-primary" />,
+			heading: "Simple priser, ingen ubehagelige overraskelser",
 		},
 		{
-			icon: { src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg", alt: "Relume logo 2" },
-			heading: "Short heading here",
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+			icon: <CheckBadgeIcon className="size-10 text-primary" />,
+			heading: "Garanti for veludført arbejde",
 		},
 	];
 	return (
@@ -32,18 +29,18 @@ function Hero() {
 							<div className="block flex-1 flex-col items-stretch justify-center p-6 md:flex md:p-8 lg:p-20">
 								<div>
 									<h1 className="mb-5 text-6xl font-bold leading-[1.2] md:mb-6 md:text-9xl lg:text-10xl">
-										Medium length hero heading goes here
+										Rengøringsservice løsninger til private og erhvervskunder
 									</h1>
 									<p className="md:text-md">
-										From life and health to property and auto insurance, we provide reliable
-										protection for what matters most.
+										Vores mål er at gøre dine lokaler rene, så du kan nyde komforten og hyggen i dit
+										hjem eller på arbejdspladsen.
 									</p>
 								</div>
 								<div className="mt-6 flex items-center gap-4 md:mt-8">
 									<Button asChild className="rounded-md border-primary bg-primary font-semibold">
 										<Link href="/fa-et-tilbud">Få et tilbud</Link>
 									</Button>
-									<Button variant="secondary" className="rounded-md font-semibold">
+									<Button variant="secondary" className="rounded-md border-2 font-semibold">
 										Ring nu
 									</Button>
 								</div>
@@ -51,10 +48,8 @@ function Hero() {
 									<div className="grid grid-cols-1 gap-x-6 gap-y-8 py-2 sm:grid-cols-2">
 										{features.map((feature, index) => (
 											<div key={index}>
-												<div className="mb-3 md:mb-4">
-													<img src={feature.icon.src} className="size-12" alt={feature.icon.alt} />
-												</div>
-												<p className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">
+												<div className="mb-3 md:mb-4">{feature.icon}</div>
+												<p className="mb-3 text-pretty text-lg font-bold md:mb-4 md:text-xl">
 													{feature.heading}
 												</p>
 											</div>
@@ -136,7 +131,7 @@ async function Services() {
 						homes and offices. Let us take care of the mess so you can focus on what truly matters.
 					</p>
 				</div>
-				<div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
+				<div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8">
 					{services.map((service) => (
 						<div
 							key={service.slug}
@@ -151,7 +146,7 @@ async function Services() {
 								/>
 							)}
 							<div className="flex flex-1 flex-col p-8">
-								<h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">
+								<h3 className="mb-3 text-xl font-bold transition-all duration-300 ease-in-out group-hover:text-primary md:mb-4 md:text-2xl">
 									<Link href={`/services/${service.slug}`}>
 										{service.title}
 										<span className="absolute inset-0"></span>
@@ -252,7 +247,7 @@ async function Testimonials() {
 				<div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-center md:gap-8">
 					<div className="order-1 h-full rounded-lg outline-1 -outline-offset-1 outline-black/10">
 						<img
-							src="https://placehold.co/1000x800"
+							src="https://cdn.sanity.io/images/11915si6/production/3421300d1e27d1e10a40b5b8252a485413785f1c-1504x1204.jpg?fit=max&w=1200&h=1200&auto=format"
 							className="size-full rounded-lg object-cover"
 							alt=""
 							loading="lazy"

@@ -110,7 +110,7 @@ export const Navbar = (props: NavbarProps) => {
 					</motion.div>
 				</motion.div>
 				<div className="flex items-center justify-center gap-4">
-					<Button {...button} className="rounded-md border-primary bg-primary font-medium">
+					<Button {...button} className="rounded-md border-primary bg-primary font-semibold">
 						<Link href="/fa-et-tilbud">{button.title}</Link>
 					</Button>
 					<button

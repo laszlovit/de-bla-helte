@@ -232,10 +232,16 @@ export default async function SelectedServicePage({ params }: Props) {
 									pletfrie resultater hver gang.
 								</p>
 								<div className="mt-6 flex w-full flex-wrap items-center justify-start gap-4 md:w-auto">
-									<Button asChild className="rounded-md border-white bg-white text-gray-900">
+									<Button
+										asChild
+										className="rounded-md border-white bg-white font-semibold text-gray-900"
+									>
 										<Link href="/fa-et-tilbud">Få et tilbud</Link>
 									</Button>
-									<Button asChild className="rounded-md border-white bg-transparent">
+									<Button
+										asChild
+										className="rounded-md border-2 border-white bg-transparent font-semibold"
+									>
 										<a href="tel:+4570604615">Ring nu</a>
 									</Button>
 								</div>
