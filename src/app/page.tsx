@@ -106,6 +106,7 @@ function LogoCloudBento() {
 									className="mx-7 max-h-12 shrink-0 md:mx-10 md:max-h-14"
 									src={logo.src}
 									alt={logo.alt}
+									loading="lazy"
 								/>
 							))}
 						</div>

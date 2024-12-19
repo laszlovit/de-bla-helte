@@ -15,6 +15,7 @@ type Links = {
 type SocialMediaLinks = {
 	url: string;
 	icon: React.ReactNode;
+	ariaLabel: string;
 };
 
 type ColumnLinks = {
@@ -86,7 +87,7 @@ export const Footer = (props: FooterProps) => {
 						</div>
 						<div className="grid grid-flow-col grid-cols-[max-content] items-start justify-start gap-x-3">
 							{socialMediaLinks.map((link, index) => (
-								<a key={index} href={link.url}>
+								<a key={index} href={link.url} aria-label={link.ariaLabel}>
 									{link.icon}
 								</a>
 							))}
@@ -160,14 +161,17 @@ export const FooterDefaults: Props = {
 		{
 			url: "https://www.facebook.com/deblaahelte",
 			icon: <BiLogoFacebookCircle className="size-6 hover:text-primary" />,
+			ariaLabel: "Facebook",
 		},
 		{
 			url: "https://www.instagram.com/deblaahelte",
 			icon: <BiLogoInstagram className="size-6 hover:text-primary" />,
+			ariaLabel: "Instagram",
 		},
 		{
 			url: "https://www.linkedin.com/company/de-bl%C3%A5-helte-v-cbl-service-aps/",
 			icon: <BiLogoLinkedinSquare className="size-6 hover:text-primary" />,
+			ariaLabel: "LinkedIn",
 		},
 	],
 	footerText: "© 2025 De Blå Helte. All rights reserved.",
