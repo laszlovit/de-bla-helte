@@ -99,7 +99,7 @@ export default function QuoteForm() {
 			<div className="shadow-sm container max-w-lg rounded-lg bg-white p-8 ring-1 ring-black/5 xl:p-12">
 				<form onSubmit={handleSubmit} className="grid grid-cols-1 grid-rows-[auto_auto] gap-6">
 					<div className="grid grid-cols-2 gap-6">
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="firstName" className="mb-2">
 								Fornavn <span className="text-red-500">&#42;</span>
 							</Label>
@@ -113,7 +113,7 @@ export default function QuoteForm() {
 							/>
 						</div>
 
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="lastName" className="mb-2">
 								Efternavn <span className="text-red-500">&#42;</span>
 							</Label>
@@ -129,7 +129,7 @@ export default function QuoteForm() {
 					</div>
 
 					<div className="grid grid-cols-2 gap-6">
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="email" className="mb-2">
 								E-mailadresse <span className="text-red-500">&#42;</span>
 							</Label>
@@ -143,7 +143,7 @@ export default function QuoteForm() {
 							/>
 						</div>
 
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="phone" className="mb-2">
 								Telefonnummer <span className="text-red-500">&#42;</span>
 							</Label>
@@ -171,7 +171,7 @@ export default function QuoteForm() {
 							required
 						>
 							{radioItems.map((item, index) => (
-								<div key={index} className="flex items-center space-x-2">
+								<div key={index} className="col-span-2 flex items-center space-x-2 md:col-span-1">
 									<RadioGroupItem value={item.value} id={item.value} className="radio-item" />
 									<Label htmlFor={item.value}>{item.label}</Label>
 								</div>
@@ -180,7 +180,7 @@ export default function QuoteForm() {
 					</div>
 
 					<div className="grid grid-cols-2 gap-6">
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="street" className="mb-2">
 								Gade
 							</Label>
@@ -193,7 +193,7 @@ export default function QuoteForm() {
 							/>
 						</div>
 
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="apartment" className="mb-2">
 								Evt. etage/nummer
 							</Label>
@@ -208,7 +208,7 @@ export default function QuoteForm() {
 					</div>
 
 					<div className="grid grid-cols-2 gap-6">
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="city" className="mb-2">
 								By
 							</Label>
@@ -221,7 +221,7 @@ export default function QuoteForm() {
 							/>
 						</div>
 
-						<div className="grid w-full items-center">
+						<div className="col-span-2 grid w-full items-center md:col-span-1">
 							<Label htmlFor="postalCode" className="mb-2">
 								Postnummer
 							</Label>
