@@ -62,38 +62,25 @@ export default async function SelectedServicePage({ params }: Props) {
 							<h1 className="mb-5 mt-10 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
 								{service.title}
 							</h1>
-							<h2 className="mb-10 text-2xl/9 font-semibold tracking-tight text-slate-900">
-								Hvad er inkluderet
-							</h2>
 							<div className="prose md:prose-md lg:prose-lg">
 								{service.body && (
 									<PortableText
 										value={service.body}
 										components={{
 											block: {
-												normal: ({ children }) => (
-													<p className="my-10 text-base/8 first:mt-0 last:mb-0">{children}</p>
-												),
+												normal: ({ children }) => <p className="">{children}</p>,
 												h2: ({ value, children }) => (
-													<h2
-														id={toPlainText(value)}
-														className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0"
-													>
+													<h2 id={toPlainText(value)} className="">
 														{children}
 													</h2>
 												),
 												h3: ({ value, children }) => (
-													<h3
-														id={toPlainText(value)}
-														className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0"
-													>
+													<h3 id={toPlainText(value)} className="">
 														{children}
 													</h3>
 												),
 												blockquote: ({ children }) => (
-													<blockquote className="my-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
-														{children}
-													</blockquote>
+													<blockquote className="">{children}</blockquote>
 												),
 											},
 											types: {
@@ -136,9 +123,7 @@ export default async function SelectedServicePage({ params }: Props) {
 												},
 											},
 											marks: {
-												strong: ({ children }) => (
-													<strong className="font-semibold text-gray-950">{children}</strong>
-												),
+												strong: ({ children }) => <strong className="">{children}</strong>,
 												link: ({ value, children }) => {
 													return (
 														<Link

@@ -36,7 +36,7 @@ function Hero() {
 						<div className="shadow-sm order-first flex flex-col items-stretch rounded-lg bg-white ring-1 ring-black/5 lg:order-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
 							<div className="block flex-1 flex-col items-stretch justify-center p-6 md:flex md:p-8 lg:p-20">
 								<div>
-									<h1 className="mb-5 text-6xl font-bold leading-[1.2] md:mb-6 md:text-9xl lg:text-10xl">
+									<h1 className="mb-5 text-5xl font-bold leading-[1.2] md:mb-6 md:text-9xl lg:text-10xl">
 										Rengøringsservice løsninger til private og erhvervskunder
 									</h1>
 									<p className="md:text-md">
@@ -194,13 +194,13 @@ function WhyUs() {
 		},
 		{
 			icon: <UserGroupIcon className="size-12 text-primary" />,
-			heading: "Personlig Service",
+			heading: "Personlig service",
 			description:
 				"Derfor tilfører vi et fast team til hver enkelt opgave. Det giver vores team et personligt tilhørsforhold og garanterer ensartet rengøring.",
 		},
 		{
 			icon: <SparklesIcon className="size-12 text-primary" />,
-			heading: "Ren Komfort",
+			heading: "Grundig rengøring",
 			description:
 				"Vores mål er at levere en grundig rengøring af dine lokaler, så du kan nyde et rent og behageligt miljø.",
 		},

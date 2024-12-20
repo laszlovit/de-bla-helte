@@ -83,7 +83,7 @@ export default function HomeTestimonials({
 												<span>{testimonial.role}</span>
 											</p>
 										</div>
-										<div className="l flex items-end justify-end gap-2 md:gap-4">
+										<div className="flex items-end justify-end gap-2 md:gap-4">
 											<CarouselPrevious className="static right-0 top-0 size-12 -translate-y-0 rounded-md border-none bg-lightGray" />
 											<CarouselNext className="static right-0 top-0 size-12 -translate-y-0 rounded-md border-none bg-lightGray" />
 										</div>
