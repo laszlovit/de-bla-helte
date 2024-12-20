@@ -49,8 +49,8 @@ function Hero() {
 									<Button asChild className="rounded-md border-primary bg-primary font-semibold">
 										<Link href="/fa-et-tilbud">Få et tilbud</Link>
 									</Button>
-									<Button variant="secondary" className="rounded-md border-2 font-semibold">
-										Ring nu
+									<Button asChild variant="secondary" className="rounded-md border-2 font-semibold">
+										<a href="tel:+4570604615"> Ring nu</a>
 									</Button>
 								</div>
 								<div className="mt-12 xxl:mt-auto">
