@@ -53,7 +53,7 @@ function Hero() {
 										Ring nu
 									</Button>
 								</div>
-								<div className="mt-12 xl:mt-auto">
+								<div className="mt-12 xxl:mt-auto">
 									<div className="grid grid-cols-1 gap-x-6 gap-y-8 py-2 sm:grid-cols-2">
 										{features.map((feature, index) => (
 											<div key={index}>

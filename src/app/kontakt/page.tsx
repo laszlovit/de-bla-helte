@@ -40,7 +40,7 @@ function Intro() {
 				<div className="container">
 					<div className="rb-12 mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
 						<h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-							Ræk ud – vi er her for at lytte
+							Ræk ud. Vi er her for at lytte.
 						</h2>
 						<p className="md:text-md">
 							Har du spørgsmål eller forespørgsler? Vi vil meget gerne høre fra dig.
