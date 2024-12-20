@@ -57,6 +57,7 @@ export default async function SelectedServicePage({ params }: Props) {
 									src={image(service.mainImage).format("webp").url()}
 									alt={service.mainImage.alt}
 									className="w-full rounded-md object-cover lg:aspect-[4/2]"
+									fetchPriority="high"
 								/>
 							)}
 							<h1 className="mb-5 mt-10 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">

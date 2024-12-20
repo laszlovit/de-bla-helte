@@ -55,7 +55,7 @@ export const Footer = (props: FooterProps) => {
 		<footer className="px-[5%] py-6 md:py-9 lg:py-10">
 			<div className="shadow-sm mx-auto max-w-screen-2xl rounded-lg bg-white ring-1 ring-black/5">
 				<div className="grid grid-cols-1 gap-x-[4vw] gap-y-12 p-8 md:gap-y-16 md:p-12 lg:grid-cols-[1fr_0.5fr] lg:gap-y-4">
-					<div>
+					<div className="col-span-2 md:col-span-1">
 						<div className="rb-6 mb-6 md:mb-8">
 							<Link href={logo.url || "/"}>
 								<img src={logo.src} alt={logo.alt} className="inline-block h-6" />
@@ -142,8 +142,8 @@ export const FooterDefaults: Props = {
 				{ title: "Vinduespolering", url: "/services/vinduespolering" },
 				{ title: "Solcellevask", url: "/services/solcellevask" },
 				{ title: "Fliserens", url: "/services/fliserens" },
-				{ title: "Algebehandeling", url: "/services/algbehandling" },
-				{ title: "Rens of tagrender", url: "/services/rens-of-tagrender" },
+				{ title: "Algebehandeling", url: "/services/algebehandeling" },
+				{ title: "Rens of tagrender", url: "/services/rens-af-tagrender" },
 				{ title: "Erhvervsrengøring", url: "/services/erhvervsrengoring" },
 			],
 		},

@@ -27,7 +27,7 @@ async function Services() {
 								/>
 							)}
 							<div className="flex flex-1 flex-col p-7">
-								<h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">
+								<h3 className="mb-3 text-xl font-bold transition-all duration-300 ease-in-out group-hover:text-primary md:mb-4 md:text-2xl">
 									<Link href={`/services/${service.slug}`}>
 										{service.title}
 										<span className="absolute inset-0"></span>
@@ -49,7 +49,7 @@ export default function Page() {
 			<Navbar />
 			<SubPageHeader
 				title="Services"
-				description="Explore a wide range of cleaning services designed to fit your needs."
+				description="Vi tilbyder professionelle rengøringstjenester i Esbjerg og Syddanmark, tilpasset dine behov. Fra vinduespolering til erhvervsrengøring kan du stole på vores dygtige team for at levere høj kvalitet og pålidelig service."
 			/>
 			<Services />
 			<CallToAction />

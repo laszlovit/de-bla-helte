@@ -1,3 +1,4 @@
+import CallToAction from "@/components/call-to-action";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import SubPageHeader from "@/components/sub-page-header";
@@ -47,6 +48,7 @@ export default function Page() {
 			<Navbar />
 			<SubPageHeader title="Galleri" />
 			<Galleries />
+			<CallToAction />
 			<Footer />
 		</>
 	);

@@ -70,7 +70,7 @@ function Hero() {
 						<div className="lg:order-none">
 							<div className="shadow-xl flex size-full items-center justify-center rounded-lg outline-1 -outline-offset-1 outline-black/10">
 								<img
-									src="https://cdn.sanity.io/images/11915si6/production/f25bc368bb61056309441abc03383dc7ab553bc7-1505x1004.jpg?w=2000&fit=max&auto=format"
+									src="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=1200&h=1200&auto=format"
 									alt=""
 									loading="lazy"
 									className="size-full rounded-lg object-cover"

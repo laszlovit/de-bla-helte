@@ -1,3 +1,4 @@
+import CallToAction from "@/components/call-to-action";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
@@ -83,6 +84,7 @@ export default function Page() {
 		<>
 			<Navbar />
 			<Intro />
+			<CallToAction />
 			<Footer />
 		</>
 	);

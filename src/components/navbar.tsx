@@ -229,12 +229,12 @@ export const NavbarDefaults: Props = {
 					title: "Fliserens",
 				},
 				{
-					url: "/services/algbehandling",
+					url: "/services/algebehandeling",
 					title: "Algebehandeling",
 				},
 				{
-					url: "/services/rens-of-tagrender",
-					title: "Rens of tagrender",
+					url: "/services/rens-af-tagrender",
+					title: "Rens af tagrender",
 				},
 				{
 					url: "/services/erhvervsrengoring",
