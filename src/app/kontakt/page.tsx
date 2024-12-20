@@ -26,7 +26,7 @@ function Intro() {
 		{
 			icon: <MapPinIcon className="size-12" />,
 			title: "Adresse",
-			description: "Vi holder til i Esbjerg N. og dækker hele Syddanmark.",
+			description: "Vi holder til i Esbjerg og omegn.",
 			link: {
 				label: "Forumlundvej 15, 6715 Esbjerg N.",
 				url: "https://www.google.com/maps/dir//Forumlundvej+15,+6715+Esbjerg+Municipality,+Esbjerg+N/@55.5757943,8.3998048,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x464b1f7554c3e7bf:0x37056b6f03e2a474!2m2!1d8.4822045!2d55.5757249?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",

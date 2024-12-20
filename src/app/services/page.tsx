@@ -49,7 +49,7 @@ export default function Page() {
 			<Navbar />
 			<SubPageHeader
 				title="Services"
-				description="Vi tilbyder professionelle rengøringstjenester i Esbjerg og Syddanmark, tilpasset dine behov. Fra vinduespolering til erhvervsrengøring kan du stole på vores dygtige team for at levere høj kvalitet og pålidelig service."
+				description="Vi tilbyder professionelle rengøringstjenester i Esbjerg og omegn, tilpasset dine behov. Fra vinduespolering til erhvervsrengøring kan du stole på vores dygtige team for at levere høj kvalitet og pålidelig service."
 			/>
 			<Services />
 			<CallToAction />

@@ -34,15 +34,15 @@ function Hero() {
 				<div className="grid grid-cols-1 gap-6 md:gap-8">
 					<div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">
 						<div className="shadow-sm order-first flex flex-col items-stretch rounded-lg bg-white ring-1 ring-black/5 lg:order-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
-							<div className="block flex-1 flex-col items-stretch justify-center p-6 md:flex md:p-8 lg:p-20">
+							<div className="block flex-1 flex-col items-stretch justify-center p-6 md:flex md:p-8 lg:p-12 xl:p-20">
 								<div>
-									<h1 className="mb-5 text-5xl font-bold leading-[1.2] md:mb-6 md:text-9xl lg:text-10xl">
+									<h1 className="mb-5 text-5xl font-bold leading-[1.2] md:mb-6 md:text-6xl lg:text-7xl xl:text-10xl">
 										Rengøringsservice løsninger til private og erhvervskunder
 									</h1>
 									<p className="md:text-md">
-										Vi tilbyder pålidelig rengøring i Esbjerg og Syddanmark, herunder
-										vinduespolering, fliserensning, solcellerensning med mere. Vores erfarne team
-										sikrer høj kvalitet og tilfredshed.
+										Vi tilbyder pålidelig rengøring i Esbjerg og omegn, herunder vinduespolering,
+										fliserensning, solcellerensning med mere. Vores erfarne team sikrer høj kvalitet
+										og tilfredshed.
 									</p>
 								</div>
 								<div className="mt-6 flex items-center gap-4 md:mt-8">
@@ -137,9 +137,9 @@ async function Services() {
 						Oplev vores professionelle rengøringsservice
 					</h2>
 					<p className="md:text-md">
-						Vi tilbyder professionelle rengøringstjenester i Esbjerg og Syddanmark, tilpasset dine
-						behov. Fra vinduespolering til erhvervsrengøring kan du stole på vores dygtige team for
-						at levere høj kvalitet og pålidelig service.
+						Vi tilbyder professionelle rengøringstjenester i Esbjerg og omegn, tilpasset dine behov.
+						Fra vinduespolering til erhvervsrengøring kan du stole på vores dygtige team for at
+						levere høj kvalitet og pålidelig service.
 					</p>
 				</div>
 				<div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8">

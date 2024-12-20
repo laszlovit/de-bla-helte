@@ -10,7 +10,7 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: "#005EFA",
+				primary: "#0448ba",
 				secondary: "#121a1f",
 				grayish: "#e4ebf0",
 				blackPearl: "#20282c",

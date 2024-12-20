@@ -62,10 +62,10 @@ export const Navbar = (props: NavbarProps) => {
 	}, []);
 
 	return (
-		<nav className="relative z-[999] mx-auto mt-5 flex w-full items-start justify-center px-[5%] md:mt-6 xl:w-full xl:max-w-[1536px] xl:px-0">
-			<div className="mx-auto flex min-h-16 w-full items-center justify-between gap-4 rounded-lg bg-white px-5 ring-1 ring-black/5 md:min-h-18 md:px-8 lg:w-full">
+		<nav className="relative z-[999] mt-5 flex w-full items-start justify-center px-[5%] md:mt-6">
+			<div className="mx-auto flex min-h-16 w-full max-w-[1536px] items-center justify-between gap-4 rounded-lg bg-white px-5 ring-1 ring-black/5 md:min-h-18 lg:w-full">
 				<Link href={logo.url || "/"}>
-					<img src={logo.src} alt={logo.alt} className="h-6" />
+					<img src={logo.src} alt={logo.alt} className="h-12 md:h-14" />
 				</Link>
 				<motion.div
 					variants={{
@@ -208,7 +208,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
 export const NavbarDefaults: Props = {
 	logo: {
 		url: "/",
-		src: "/de-bla-helte-logo.svg",
+		src: "/de-bla-helte-logo.png",
 		alt: "Relume placeholder logo",
 	},
 	navLinks: [
