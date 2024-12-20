@@ -36,13 +36,14 @@ function Hero() {
 						<div className="shadow-sm order-first flex flex-col items-stretch rounded-lg bg-white ring-1 ring-black/5 lg:order-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
 							<div className="block flex-1 flex-col items-stretch justify-center p-6 md:flex md:p-8 lg:p-12 xl:p-20">
 								<div>
-									<h1 className="mb-5 text-5xl font-bold leading-[1.2] md:mb-6 md:text-6xl lg:text-7xl xl:text-10xl">
-										Rengøringsservice løsninger til private og erhvervskunder
+									<h1 className="mb-5 text-pretty text-5xl font-bold leading-[1.2] md:mb-6 md:text-6xl lg:text-7xl xl:text-10xl">
+										Serviceløsninger til private og erhvervskunder
 									</h1>
 									<p className="md:text-md">
-										Vi tilbyder pålidelig rengøring i Esbjerg og omegn, herunder vinduespolering,
-										fliserensning, solcellerensning med mere. Vores erfarne team sikrer høj kvalitet
-										og tilfredshed.
+										Vinduesvask | Rengøring | Fliserens | Solcellerens | Algebehandling |
+										Myrebekæmpelse | Trappevask m.m. <br /> <br />
+										Vi tilbyder pålidelig opgaveløsning. Vores erfarne team sikrer høj kvalitet og
+										tilfredshed.
 									</p>
 								</div>
 								<div className="mt-6 flex items-center gap-4 md:mt-8">
@@ -220,6 +221,11 @@ function WhyUs() {
 								pålidelighed er i fokus. Vores team arbejder altid med stor omhu og professionel
 								integritet for at sikre, at du får den bedste oplevelse hver gang.
 							</p>
+							<div className="mt-6 flex items-center gap-4 md:mt-8">
+								<Button asChild className="rounded-md border-primary bg-primary font-semibold">
+									<Link href="/om-os">Hvem er De Blå Helte?</Link>
+								</Button>
+							</div>
 						</div>
 					</div>
 					<div className="grid grid-cols-1 gap-x-6 gap-y-8 py-2">
