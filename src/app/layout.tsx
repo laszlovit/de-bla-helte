@@ -22,6 +22,13 @@ const outfit = Outfit({
 export const metadata: Metadata = {
 	title: "De Blå Helte",
 	description: "Serviceløsninger til privat- og erhvervskunder",
+	openGraph: {
+		images: [
+			{
+				url: "https://cdn.sanity.io/images/11915si6/production/0e018acc33a91657268060541badaf802e8c85f0-1200x630.jpg",
+			},
+		],
+	},
 };
 
 export default function RootLayout({

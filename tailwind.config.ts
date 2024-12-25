@@ -11,9 +11,6 @@ const config: Config = {
 		extend: {
 			colors: {
 				primary: "#0448ba",
-				secondary: "#121a1f",
-				grayish: "#e4ebf0",
-				blackPearl: "#20282c",
 				lightGray: "#f2f4f4",
 			},
 			animation: {

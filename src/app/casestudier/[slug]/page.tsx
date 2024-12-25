@@ -34,7 +34,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 				{
 					url:
 						pageMeta?.seo?.ogImage?.asset?.url ||
-						"https://cdn.sanity.io/images/11915si6/production/b9e1f219c5afe04e2545bf15fe66944dc991e304-1200x630.jpg",
+						"https://cdn.sanity.io/images/11915si6/production/0e018acc33a91657268060541badaf802e8c85f0-1200x630.jpg",
 				},
 			],
 		},
