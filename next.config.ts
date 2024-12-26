@@ -10,7 +10,12 @@ const nextConfig: NextConfig = {
 		],
 	},
 	experimental: {
-		optimizePackageImports: ["@relume_io/relume-ui", "@relume_io/relume-tailwind"],
+		optimizePackageImports: [
+			"@relume_io/relume-ui",
+			"@relume_io/relume-ui/dist",
+			"@relume_io/relume-tailwind",
+			"framer-motion",
+		],
 	},
 };
 
