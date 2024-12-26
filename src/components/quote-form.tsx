@@ -20,13 +20,15 @@ const quoteFormSchema = z.object({
 	message: z.string().optional(),
 });
 
+type QuoteFormData = z.infer<typeof quoteFormSchema>;
+
 export default function QuoteForm() {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm({
+	} = useForm<QuoteFormData>({
 		resolver: zodResolver(quoteFormSchema),
 	});
 	const [acceptTerms, setAcceptTerms] = useState(false);
@@ -57,7 +59,7 @@ export default function QuoteForm() {
 		};
 	}, [formSuccess, formError]);
 
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (data: QuoteFormData) => {
 		if (!acceptTerms) {
 			setFormError("You must accept the terms and conditions.");
 			return;
@@ -311,12 +313,6 @@ export default function QuoteForm() {
 							</a>{" "}
 							<span className="text-red-500">&#42;</span>
 						</label>
-						{errors.acceptTerms && (
-							<span className="text-red-500">{errors.acceptTerms.message as string}</span>
-						)}
-						{errors.acceptTerms && (
-							<span className="text-red-500">{errors.acceptTerms.message as string}</span>
-						)}
 					</div>
 
 					<div className="mt-6">
