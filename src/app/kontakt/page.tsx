@@ -1,6 +1,6 @@
 import CallToAction from "@/components/call-to-action";
 import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navigation-bar";
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 
 function Intro() {
@@ -37,16 +37,16 @@ function Intro() {
 	return (
 		<>
 			<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
-				<div className="container">
-					<div className="rb-12 mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-						<h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+				<div className="max-w-7xl mx-auto">
+					<div className="rb-12 max-w-2xl mx-auto mb-12 text-center md:mb-18 lg:mb-20">
+						<h1 className="rb-5 mb-5 text-4xl font-bold sm:text-5xl md:mb-6">
 							Ræk ud. Vi er her for at lytte.
-						</h2>
+						</h1>
 						<p className="md:text-md">
 							Har du spørgsmål eller forespørgsler? Vi vil meget gerne høre fra dig.
 						</p>
 					</div>
-					<div className="grid auto-cols-fr grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+					<div className="grid auto-cols-fr grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
 						{contacts.map((contact, index) => (
 							<div
 								key={index}
@@ -55,10 +55,9 @@ function Intro() {
 								<div className="shadow-sm mb-5 w-fit rounded-md bg-lightGray p-1 ring-1 ring-black/10 lg:mb-6">
 									<div className="text-primary">{contact.icon}</div>
 								</div>
-
-								<h3 className="mb-3 text-2xl font-bold leading-[1.4] md:text-3xl lg:mb-4 lg:text-4xl">
+								<h2 className="mb-3 text-xl font-bold leading-[1.4] md:text-3xl lg:mb-4 lg:text-3xl">
 									{contact.title}
-								</h3>
+								</h2>
 								<p className="mb-5 md:mb-6">{contact.description}</p>
 								<a className="text-primary underline" href={contact.link.url} target="_blank">
 									{contact.link.label}

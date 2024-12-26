@@ -1,9 +1,8 @@
 import { image } from "@/sanity/lib/image";
 import { getFeaturedServices } from "@/sanity/lib/services/get-featured-services";
-import dynamic from "next/dynamic";
-import Link from "next/link";
 
-const Button = dynamic(() => import("@relume_io/relume-ui").then((mod) => mod.Button));
+import { Button } from "@/components/button";
+import Link from "next/link";
 
 export default async function Services() {
 	const services = await getFeaturedServices(3);
@@ -11,9 +10,9 @@ export default async function Services() {
 	return (
 		<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
 			<div className="shadow-sm mx-auto max-w-screen-2xl rounded-lg bg-white p-6 px-6 py-8 ring-1 ring-black/5 md:p-8 lg:p-20">
-				<div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
+				<div className="max-w-2xl mx-auto mb-12 w-full text-center md:mb-18 lg:mb-20">
 					<p className="mb-3 font-semibold text-primary md:mb-4">Services</p>
-					<h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+					<h2 className="mb-5 text-4xl font-bold sm:text-5xl md:mb-6">
 						Oplev vores professionelle rengøringsservice
 					</h2>
 					<p className="md:text-md">
@@ -49,8 +48,8 @@ export default async function Services() {
 					))}
 				</div>
 				<div className="mt-10 flex items-center justify-center gap-4 md:mt-14 lg:mt-16">
-					<Button asChild className="rounded-md border-primary bg-primary font-semibold">
-						<Link href="/services">Se alle services</Link>
+					<Button variant="primary" href="/services">
+						Se alle services
 					</Button>
 				</div>
 			</div>

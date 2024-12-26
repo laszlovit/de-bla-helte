@@ -4,10 +4,7 @@ import {
 	SparklesIcon,
 	UserGroupIcon,
 } from "@heroicons/react/24/outline";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-
-const Button = dynamic(() => import("@relume_io/relume-ui").then((mod) => mod.Button));
+import { Button } from "../button";
 
 export default function WhyUs() {
 	const features = [
@@ -43,7 +40,7 @@ export default function WhyUs() {
 					<div className="">
 						<div className="lg:sticky lg:top-20">
 							<p className="mb-3 font-semibold text-primary md:mb-4">Om os</p>
-							<h2 className="rb-5 mb-5 text-pretty text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+							<h2 className="rb-5 mb-5 text-pretty text-4xl font-bold sm:text-5xl md:mb-6">
 								Hvordan sikrer vi din troværdighed og kvalitet?
 							</h2>
 							<p className="md:text-md">
@@ -52,8 +49,8 @@ export default function WhyUs() {
 								integritet for at sikre, at du får den bedste oplevelse hver gang.
 							</p>
 							<div className="mt-6 flex items-center gap-4 md:mt-8">
-								<Button asChild className="rounded-md border-primary bg-primary font-semibold">
-									<Link href="/om-os">Hvem er De Blå Helte?</Link>
+								<Button variant="primary" href="/om-os">
+									Hvem er De Blå Helte?
 								</Button>
 							</div>
 						</div>

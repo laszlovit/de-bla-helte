@@ -1,6 +1,6 @@
 import CallToAction from "@/components/call-to-action";
 import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navigation-bar";
 import SubPageHeader from "@/components/sub-page-header";
 import { getAllGalleries } from "@/sanity/lib/galleries/get-all-galleries";
 import { image } from "@/sanity/lib/image";
@@ -27,12 +27,12 @@ async function Galleries() {
 								/>
 							)}
 							<div className="flex flex-1 flex-col p-7">
-								<h3 className="text-xl font-bold md:text-2xl">
+								<h2 className="text-xl font-bold md:text-2xl">
 									<Link href={`/galleri/${gallery.slug}`}>
 										{gallery.title}
 										<span className="absolute inset-0"></span>
 									</Link>
-								</h3>
+								</h2>
 							</div>
 						</div>
 					))}

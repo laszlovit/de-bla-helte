@@ -31,7 +31,6 @@ const config: Config = {
 			},
 		},
 	},
-	plugins: [],
-	presets: [require("@relume_io/relume-tailwind")],
+	plugins: [require("@tailwindcss/typography")],
 };
 export default config;

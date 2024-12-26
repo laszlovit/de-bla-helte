@@ -1,5 +1,4 @@
-import { Button } from "@relume_io/relume-ui";
-import Link from "next/link";
+import { Button } from "@/components/button";
 
 export default function CallToAction() {
 	return (
@@ -7,11 +6,11 @@ export default function CallToAction() {
 			<div className="mx-auto max-w-screen-2xl rounded-lg bg-primary">
 				<div className="grid grid-cols-1 items-start justify-start gap-6 rounded-lg p-8 md:grid-cols-[1fr_max-content] md:items-center md:justify-between md:gap-x-12 md:gap-y-8 lg:gap-x-20 lg:p-12">
 					<div className="md:mr-12 lg:mr-0">
-						<div className="w-full max-w-lg">
-							<h3 className="mb-3 text-4xl font-bold leading-[1.2] text-white md:mb-4 md:text-5xl lg:text-6xl">
+						<div className="w-full">
+							<h2 className="mb-3 text-4xl font-bold leading-[1.2] text-white sm:text-5xl md:mb-4 md:text-5xl">
 								Klar til at få professionel rengøring?
-							</h3>
-							<p className="text-white md:text-md">
+							</h2>
+							<p className="max-w-2xl text-white md:text-md">
 								Kontakt os i dag for at få et tilbud på tilpasset rengøring til din virksomhed.
 								Vores team er klar til at hjælpe dig med dine behov. Ring nu eller få et
 								uforpligtende tilbud!
@@ -19,17 +18,15 @@ export default function CallToAction() {
 						</div>
 					</div>
 					<div className="flex w-full flex-wrap items-center justify-start gap-4 md:w-auto md:justify-end">
-						<Button
-							asChild
-							className="rounded-md border-white bg-white font-semibold text-gray-900"
-						>
-							<Link href="/fa-et-tilbud">Få et tilbud</Link>
+						<Button variant="secondary" href="/fa-et-tilbud" className="">
+							Få et tilbud
 						</Button>
 						<Button
-							asChild
-							className="rounded-md border-2 border-white bg-transparent font-semibold"
+							variant="outline"
+							href="tel:+4570604615"
+							className="border-2 border-white bg-transparent font-semibold text-white hover:text-gray-950"
 						>
-							<a href="tel:+4570604615">Ring nu</a>
+							Ring nu
 						</Button>
 					</div>
 				</div>

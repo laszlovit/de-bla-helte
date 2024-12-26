@@ -1,6 +1,6 @@
 import CallToAction from "@/components/call-to-action";
 import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navigation-bar";
 import SubPageHeader from "@/components/sub-page-header";
 import { image } from "@/sanity/lib/image";
 import { getAllServices } from "@/sanity/lib/services/get-all-services";

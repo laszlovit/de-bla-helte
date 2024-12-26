@@ -1,7 +1,7 @@
 import CallToAction from "@/components/call-to-action";
 import Fancybox from "@/components/fancybox-wrapper";
 import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navigation-bar";
 import SubPageHeader from "@/components/sub-page-header";
 import { getGallery } from "@/sanity/lib/galleries/get-gallery";
 import { getGallerySlugs } from "@/sanity/lib/galleries/get-gallery-slugs";

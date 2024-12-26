@@ -1,5 +1,5 @@
 import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navigation-bar";
 import QuoteForm from "@/components/quote-form";
 import SubPageHeader from "@/components/sub-page-header";
 

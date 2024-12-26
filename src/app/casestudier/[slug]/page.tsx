@@ -1,7 +1,8 @@
 import CallToAction from "@/components/call-to-action";
 import { Container } from "@/components/container";
 import { Link } from "@/components/link";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navigation-bar";
+
 import { Heading } from "@/components/text";
 import { getCaseStudy } from "@/sanity/lib/case-studies/get-case-study";
 import { getCaseStudyMeta } from "@/sanity/lib/case-studies/get-case-study-meta";

@@ -1,8 +1,6 @@
 import { BanknotesIcon, CheckBadgeIcon } from "@heroicons/react/24/outline";
-import dynamic from "next/dynamic";
-import Link from "next/link";
 
-const Button = dynamic(() => import("@relume_io/relume-ui").then((mod) => mod.Button));
+import { Button } from "@/components/button";
 
 function LogoCloudBento() {
 	const logos = [
@@ -16,7 +14,7 @@ function LogoCloudBento() {
 
 	return (
 		<section id="relume" className="overflow-hidden py-12 md:py-16 lg:py-20">
-			<div className="container mb-8 w-full max-w-lg px-[5%] md:mb-10 lg:mb-12">
+			<div className="mx-auto mb-8 w-full px-[5%] md:mb-10 lg:mb-12">
 				<h1 className="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">
 					Betroet af vores værdifulde kunder
 				</h1>
@@ -72,11 +70,11 @@ export default function Hero() {
 									</p>
 								</div>
 								<div className="mt-6 flex items-center gap-4 md:mt-8">
-									<Button asChild className="rounded-md border-primary bg-primary font-semibold">
-										<Link href="/fa-et-tilbud">Få et tilbud</Link>
+									<Button variant="primary" href="/fa-et-tilbud">
+										Få et tilbud
 									</Button>
-									<Button asChild variant="secondary" className="rounded-md border-2 font-semibold">
-										<a href="tel:+4570604615"> Ring nu</a>
+									<Button variant="outline" href="tel:+4570604615">
+										Ring nu
 									</Button>
 								</div>
 								<div className="mt-12 xxl:mt-auto">

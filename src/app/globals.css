@@ -28,3 +28,15 @@ h6 {
 		@apply !border-primary !bg-primary;
 	}
 }
+
+@keyframes loop-horizontally {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+.animate-loop-horizontally {
+	animation: loop-horizontally 20s linear infinite;
+}

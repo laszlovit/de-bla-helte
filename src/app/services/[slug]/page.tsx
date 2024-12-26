@@ -1,13 +1,12 @@
-import CallToAction from "@/components/call-to-action";
+import { Button } from "@/components/button";
 import Fancybox from "@/components/fancybox-wrapper";
 import { Footer } from "@/components/footer";
-
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navigation-bar";
 import { image } from "@/sanity/lib/image";
 import { getService } from "@/sanity/lib/services/get-service";
 import { getServiceMeta } from "@/sanity/lib/services/get-service-meta";
 import { getServiceSlugs } from "@/sanity/lib/services/get-service-slugs";
-import { Button } from "@relume_io/relume-ui";
+
 import { Metadata } from "next";
 import { PortableText, toPlainText } from "next-sanity";
 import Link from "next/link";
@@ -49,7 +48,7 @@ export default async function SelectedServicePage({ params }: Props) {
 		<>
 			<Navbar />
 			<section id="relume" className="px-[5%] pb-8 pt-6 md:pb-12 lg:pb-14 lg:pt-8">
-				<div className="container">
+				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_0.5fr] lg:gap-8">
 						<div className="shadow-sm rounded-lg bg-white p-8 ring-1 ring-black/5 xl:p-12">
 							{service.mainImage && (
@@ -60,9 +59,7 @@ export default async function SelectedServicePage({ params }: Props) {
 									fetchPriority="high"
 								/>
 							)}
-							<h1 className="mb-5 mt-10 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-								{service.title}
-							</h1>
+							<h1 className="mb-5 mt-10 text-4xl font-bold sm:text-5xl md:mb-6">{service.title}</h1>
 							<div className="prose md:prose-md lg:prose-lg">
 								{service.body && (
 									<PortableText
@@ -217,17 +214,15 @@ export default async function SelectedServicePage({ params }: Props) {
 									Ring nu eller få et uforpligtende tilbud!
 								</p>
 								<div className="mt-6 flex w-full flex-wrap items-center justify-start gap-4 md:w-auto">
-									<Button
-										asChild
-										className="rounded-md border-white bg-white font-semibold text-gray-900"
-									>
-										<Link href="/fa-et-tilbud">Få et tilbud</Link>
+									<Button href="/fa-et-tilbud" variant="secondary">
+										Få et tilbud
 									</Button>
 									<Button
-										asChild
-										className="rounded-md border-2 border-white bg-transparent font-semibold"
+										href="tel:+4570604615"
+										variant="outline"
+										className="border-2 border-white bg-transparent font-semibold text-white hover:text-gray-950"
 									>
-										<a href="tel:+4570604615">Ring nu</a>
+										Ring nu
 									</Button>
 								</div>
 							</div>
@@ -235,9 +230,6 @@ export default async function SelectedServicePage({ params }: Props) {
 					</div>
 				</div>
 			</section>
-			<div className="hidden lg:block">
-				<CallToAction />
-			</div>
 			<Footer />
 		</>
 	);
