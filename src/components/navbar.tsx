@@ -1,12 +1,15 @@
 "use client";
 
 import type { ButtonProps } from "@relume_io/relume-ui";
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
+
+const Button = dynamic(() => import("@relume_io/relume-ui").then((mod) => mod.Button));
 
 type ImageProps = {
 	url?: string;

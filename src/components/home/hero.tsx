@@ -1,6 +1,8 @@
 import { BanknotesIcon, CheckBadgeIcon } from "@heroicons/react/24/outline";
-import { Button } from "@relume_io/relume-ui";
+import dynamic from "next/dynamic";
 import Link from "next/link";
+
+const Button = dynamic(() => import("@relume_io/relume-ui").then((mod) => mod.Button));
 
 function LogoCloudBento() {
 	const logos = [

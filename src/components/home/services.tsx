@@ -1,7 +1,9 @@
 import { image } from "@/sanity/lib/image";
 import { getFeaturedServices } from "@/sanity/lib/services/get-featured-services";
-import { Button } from "@relume_io/relume-ui";
+import dynamic from "next/dynamic";
 import Link from "next/link";
+
+const Button = dynamic(() => import("@relume_io/relume-ui").then((mod) => mod.Button));
 
 export default async function Services() {
 	const services = await getFeaturedServices(3);
