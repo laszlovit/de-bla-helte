@@ -4,12 +4,12 @@ import { Button } from "@/components/button";
 
 function LogoCloudBento() {
 	const logos = [
-		{ src: "/home/rekom-group-logo.png", alt: "Webflow logo 1" },
-		{ src: "/home/place-to-logo.png", alt: "Relume logo 1" },
-		{ src: "/home/henne-molle-hotel-logo.png", alt: "Webflow logo 2" },
-		{ src: "/home/rustik-logo.webp", alt: "Relume logo 2" },
-		{ src: "/home/stennevad-logo.png", alt: "Webflow logo 3" },
-		{ src: "/home/dansk-bilglas-logo.png", alt: "Relume logo 3" },
+		{ src: "/home/rekom-group-logo.png", alt: "Rekom logo" },
+		{ src: "/home/place-to-logo.png", alt: "A Place To logo" },
+		{ src: "/home/henne-molle-hotel-logo.png", alt: "Henne Mølle Badehotel logo" },
+		{ src: "/home/rustik-logo.webp", alt: "Rustik logo" },
+		{ src: "/home/stennevad-logo.png", alt: "Stennevad logo" },
+		{ src: "/home/dansk-bilglas-logo.png", alt: "Dansk Bilglas logo" },
 	];
 
 	return (
@@ -59,7 +59,7 @@ export default function Hero() {
 						<div className="shadow-sm order-first flex flex-col items-stretch rounded-lg bg-white ring-1 ring-black/5 lg:order-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
 							<div className="block flex-1 flex-col items-stretch justify-center p-6 md:flex md:p-8 lg:p-12 xl:p-20">
 								<div>
-									<h1 className="mb-5 text-pretty text-5xl font-bold leading-[1.2] md:mb-6 md:text-6xl lg:text-7xl xl:text-10xl">
+									<h1 className="2xl:text-7xl mb-5 text-pretty text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl xl:text-6xl">
 										Serviceløsninger til private og erhvervskunder
 									</h1>
 									<p className="md:text-md">

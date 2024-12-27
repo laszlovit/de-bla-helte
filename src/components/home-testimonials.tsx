@@ -71,12 +71,14 @@ export default function HomeTestimonials({
 									</div>
 									<div className="flex items-end justify-end gap-2 md:gap-4">
 										<button
+											aria-label="Forrige"
 											onClick={scrollPrev}
 											className="embla__button embla__button--prev static left-0 right-0 top-0 flex size-12 -translate-y-0 items-center justify-center rounded-md border-none bg-lightGray"
 										>
 											<ArrowLeftIcon className="size-6" />
 										</button>
 										<button
+											aria-label="Næste"
 											onClick={scrollNext}
 											className="embla__button embla__button--next static left-0 right-0 top-0 flex size-12 items-center justify-center rounded-md border-none bg-lightGray"
 										>
