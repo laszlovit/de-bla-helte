@@ -8,7 +8,7 @@ export default async function Services() {
 	const services = await getFeaturedServices(3);
 
 	return (
-		<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+		<section className="px-[5%] py-8 md:py-12 lg:py-14">
 			<div className="shadow-sm mx-auto max-w-screen-2xl rounded-lg bg-white p-6 px-6 py-8 ring-1 ring-black/5 md:p-8 lg:p-20">
 				<div className="max-w-2xl mx-auto mb-12 w-full text-center md:mb-18 lg:mb-20">
 					<p className="mb-3 font-semibold text-primary md:mb-4">Services</p>

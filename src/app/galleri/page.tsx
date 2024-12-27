@@ -10,7 +10,7 @@ async function Galleries() {
 	const galleries = await getAllGalleries();
 
 	return (
-		<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+		<section className="px-[5%] py-8 md:py-12 lg:py-14">
 			<div className="mx-auto max-w-screen-2xl">
 				<div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8 md:gap-x-8">
 					{galleries.map((gallery) => (

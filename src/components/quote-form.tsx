@@ -103,7 +103,7 @@ export default function QuoteForm() {
 	];
 
 	return (
-		<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+		<section className="px-[5%] py-8 md:py-12 lg:py-14">
 			<div className="shadow-sm max-w-3xl mx-auto rounded-lg bg-white p-8 ring-1 ring-black/5 xl:p-12">
 				<form
 					onSubmit={handleSubmit(onSubmit)}

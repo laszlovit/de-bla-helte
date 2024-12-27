@@ -25,7 +25,7 @@ export default async function Page({ params }: Props) {
 		<>
 			<Navbar />
 			<SubPageHeader title={`${gallery.title} - Galleri`} />
-			<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+			<section className="px-[5%] py-8 md:py-12 lg:py-14">
 				<div className="mx-auto max-w-screen-2xl">
 					<div className="grid grid-cols-2 items-start justify-center gap-6 md:gap-8 lg:grid-cols-4">
 						<Fancybox

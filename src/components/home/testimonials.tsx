@@ -5,7 +5,7 @@ export default async function Testimonials() {
 	const testimonials = await getAllTestimonials();
 
 	return (
-		<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+		<section className="px-[5%] py-8 md:py-12 lg:py-14">
 			<div className="mx-auto max-w-screen-2xl">
 				<div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-center md:gap-8">
 					<div className="order-1 h-full rounded-lg outline-1 -outline-offset-1 outline-black/10">

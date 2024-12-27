@@ -2,7 +2,7 @@ import { Button } from "@/components/button";
 
 export default function CallToAction() {
 	return (
-		<section id="relume" className="px-[5%] pb-8 md:pb-12 lg:pb-14">
+		<section className="px-[5%] pb-8 md:pb-12 lg:pb-14">
 			<div className="mx-auto max-w-screen-2xl rounded-lg bg-primary">
 				<div className="grid grid-cols-1 items-start justify-start gap-6 rounded-lg p-8 md:grid-cols-[1fr_max-content] md:items-center md:justify-between md:gap-x-12 md:gap-y-8 lg:gap-x-20 lg:p-12">
 					<div className="md:mr-12 lg:mr-0">

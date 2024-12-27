@@ -13,7 +13,7 @@ function LogoCloudBento() {
 	];
 
 	return (
-		<section id="relume" className="overflow-hidden py-12 md:py-16 lg:py-20">
+		<section className="overflow-hidden py-12 md:py-16 lg:py-20">
 			<div className="mx-auto mb-8 w-full px-[5%] md:mb-10 lg:mb-12">
 				<h1 className="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">
 					Betroet af vores værdifulde kunder
@@ -52,7 +52,7 @@ export default function Hero() {
 		},
 	];
 	return (
-		<section id="relume" className="px-[5%] pb-8 pt-6 md:pb-12 lg:pb-14 lg:pt-8">
+		<section className="px-[5%] pb-8 pt-6 md:pb-12 lg:pb-14 lg:pt-8">
 			<div className="mx-auto max-w-screen-2xl">
 				<div className="grid grid-cols-1 gap-6 md:gap-8">
 					<div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">

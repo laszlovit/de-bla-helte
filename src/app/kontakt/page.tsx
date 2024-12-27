@@ -36,7 +36,7 @@ function Intro() {
 
 	return (
 		<>
-			<section id="relume" className="px-[5%] py-8 md:py-12 lg:py-14">
+			<section className="px-[5%] py-8 md:py-12 lg:py-14">
 				<div className="max-w-7xl mx-auto">
 					<div className="rb-12 max-w-2xl mx-auto mb-12 text-center md:mb-18 lg:mb-20">
 						<h1 className="rb-5 mb-5 text-4xl font-bold sm:text-5xl md:mb-6">

@@ -47,7 +47,7 @@ export default async function SelectedServicePage({ params }: Props) {
 	return (
 		<>
 			<Navbar />
-			<section id="relume" className="px-[5%] pb-8 pt-6 md:pb-12 lg:pb-14 lg:pt-8">
+			<section className="px-[5%] pb-8 pt-6 md:pb-12 lg:pb-14 lg:pt-8">
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_0.5fr] lg:gap-8">
 						<div className="shadow-sm rounded-lg bg-white p-8 ring-1 ring-black/5 xl:p-12">
