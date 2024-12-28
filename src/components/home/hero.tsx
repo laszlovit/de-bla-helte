@@ -4,12 +4,30 @@ import { Button } from "@/components/button";
 
 function LogoCloudBento() {
 	const logos = [
-		{ src: "/home/rekom-group-logo.png", alt: "Rekom logo" },
-		{ src: "/home/place-to-logo.png", alt: "A Place To logo" },
-		{ src: "/home/henne-molle-hotel-logo.png", alt: "Henne Mølle Badehotel logo" },
-		{ src: "/home/rustik-logo.webp", alt: "Rustik logo" },
-		{ src: "/home/stennevad-logo.png", alt: "Stennevad logo" },
-		{ src: "/home/dansk-bilglas-logo.png", alt: "Dansk Bilglas logo" },
+		{
+			src: "https://cdn.sanity.io/images/11915si6/production/ad1b218014755842016b6929a70db6a08b62a066-516x96.png?auto=format",
+			alt: "Rekom logo",
+		},
+		{
+			src: "https://cdn.sanity.io/images/11915si6/production/572155938d8d5300f5651fc878b0f1d857e86436-400x102.png?auto=format",
+			alt: "A Place To logo",
+		},
+		{
+			src: "https://cdn.sanity.io/images/11915si6/production/20bed9a645554c67bfc19e9891aa011ab8fa884e-716x162.png?auto=format",
+			alt: "Henne Mølle Badehotel logo",
+		},
+		{
+			src: "https://cdn.sanity.io/images/11915si6/production/59d73723ce5c620e7c499f2744fc9fa2d9e759a6-1200x628.webp?auto=format",
+			alt: "Rustik logo",
+		},
+		{
+			src: "https://cdn.sanity.io/images/11915si6/production/7324f1bae3087db4dbe46ac8e725f0b413116c9b-510x162.png?auto=format",
+			alt: "Stennevad logo",
+		},
+		{
+			src: "https://cdn.sanity.io/images/11915si6/production/c500677e3d37ca542da318f3a152731821510e0b-310x174.png?auto=format",
+			alt: "Dansk Bilglas logo",
+		},
 	];
 
 	return (
