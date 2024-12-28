@@ -1,7 +1,6 @@
+import { Button } from "@/components/button";
 import { image } from "@/sanity/lib/image";
 import { getFeaturedServices } from "@/sanity/lib/services/get-featured-services";
-
-import { Button } from "@/components/button";
 import Link from "next/link";
 
 export default async function Services() {
@@ -29,7 +28,7 @@ export default async function Services() {
 						>
 							{service.mainImage && (
 								<img
-									src={image(service.mainImage).format("webp").url()}
+									src={image(service.mainImage).width(612).height(408).auto("format").url()}
 									alt={service.mainImage.alt}
 									loading="lazy"
 									className="aspect-[3/2] w-full rounded-md object-cover"
