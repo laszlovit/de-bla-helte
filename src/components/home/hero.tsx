@@ -15,7 +15,7 @@ function LogoCloudBento() {
 	return (
 		<section className="overflow-hidden py-12 md:py-16 lg:py-20">
 			<div className="mx-auto mb-8 w-full px-[5%] md:mb-10 lg:mb-12">
-				<h1 className="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">
+				<h1 className="md:text-md text-center text-base font-bold leading-[1.2] md:leading-[1.2]">
 					Betroet af vores værdifulde kunder
 				</h1>
 			</div>
@@ -23,7 +23,7 @@ function LogoCloudBento() {
 				{Array(2)
 					.fill(0)
 					.map((_, index) => (
-						<div key={index} className="flex shrink-0 animate-loop-horizontally items-center">
+						<div key={index} className="animate-loop-horizontally flex shrink-0 items-center">
 							{logos.map((logo, index) => (
 								<img
 									key={index}
@@ -56,10 +56,10 @@ export default function Hero() {
 			<div className="mx-auto max-w-screen-2xl">
 				<div className="grid grid-cols-1 gap-6 md:gap-8">
 					<div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">
-						<div className="shadow-sm order-first flex flex-col items-stretch rounded-lg bg-white ring-1 ring-black/5 lg:order-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
+						<div className="order-first flex flex-col items-stretch rounded-lg bg-white shadow-sm ring-1 ring-black/5 lg:order-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
 							<div className="block flex-1 flex-col items-stretch justify-center p-6 md:flex md:p-8 lg:p-12 xl:p-20">
 								<div>
-									<h1 className="2xl:text-7xl mb-5 text-pretty text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl xl:text-6xl">
+									<h1 className="mb-5 text-pretty text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl xl:text-6xl 2xl:text-7xl">
 										Serviceløsninger til private og erhvervskunder
 									</h1>
 									<p className="md:text-md">
@@ -77,7 +77,7 @@ export default function Hero() {
 										Ring nu
 									</Button>
 								</div>
-								<div className="mt-12 xxl:mt-auto">
+								<div className="xxl:mt-auto mt-12">
 									<div className="grid grid-cols-1 gap-x-6 gap-y-8 py-2 sm:grid-cols-2">
 										{features.map((feature, index) => (
 											<div key={index}>
@@ -92,11 +92,11 @@ export default function Hero() {
 							</div>
 						</div>
 						<div className="lg:order-none">
-							<div className="shadow-xl flex size-full items-center justify-center rounded-lg outline-1 -outline-offset-1 outline-black/10">
+							<div className="flex size-full items-center justify-center rounded-lg shadow-xl outline-1 -outline-offset-1 outline-black/10">
 								<img
 									src="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=1200&h=1200&auto=format"
 									alt=""
-									loading="lazy"
+									fetchPriority="high"
 									className="size-full rounded-lg object-cover"
 								/>
 							</div>

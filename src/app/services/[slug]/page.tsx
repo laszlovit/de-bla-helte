@@ -6,7 +6,6 @@ import { image } from "@/sanity/lib/image";
 import { getService } from "@/sanity/lib/services/get-service";
 import { getServiceMeta } from "@/sanity/lib/services/get-service-meta";
 import { getServiceSlugs } from "@/sanity/lib/services/get-service-slugs";
-
 import { Metadata } from "next";
 import { PortableText, toPlainText } from "next-sanity";
 import Link from "next/link";
@@ -48,9 +47,9 @@ export default async function SelectedServicePage({ params }: Props) {
 		<>
 			<Navbar />
 			<section className="px-[5%] pb-8 pt-6 md:pb-12 lg:pb-14 lg:pt-8">
-				<div className="max-w-7xl mx-auto">
+				<div className="mx-auto max-w-7xl">
 					<div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_0.5fr] lg:gap-8">
-						<div className="shadow-sm rounded-lg bg-white p-8 ring-1 ring-black/5 xl:p-12">
+						<div className="rounded-lg bg-white p-8 shadow-sm ring-1 ring-black/5 xl:p-12">
 							{service.mainImage && (
 								<img
 									src={image(service.mainImage).format("webp").url()}
@@ -60,7 +59,7 @@ export default async function SelectedServicePage({ params }: Props) {
 								/>
 							)}
 							<h1 className="mb-5 mt-10 text-4xl font-bold sm:text-5xl md:mb-6">{service.title}</h1>
-							<div className="prose md:prose-md lg:prose-lg">
+							<div className="md:prose-md prose lg:prose-lg">
 								{service.body && (
 									<PortableText
 										value={service.body}
@@ -155,12 +154,12 @@ export default async function SelectedServicePage({ params }: Props) {
 												<Link
 													data-fancybox="gallery"
 													data-caption={imageItem.alt || ""}
-													href={image(imageItem).url()}
+													href={image(imageItem).auto("format").url()}
 													className="group relative overflow-hidden rounded-xl"
 												>
 													<img
 														alt={imageItem.alt || ""}
-														src={image(imageItem).url()}
+														src={image(imageItem).auto("format").url()}
 														loading="lazy"
 														className="w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
 													/>
@@ -179,7 +178,7 @@ export default async function SelectedServicePage({ params }: Props) {
 										{service.testimonials.map((testimonial) => (
 											<li
 												key={testimonial.slug}
-												className="shadow-sm relative col-span-1 flex flex-col space-y-4 rounded-md bg-white p-6 ring-1 ring-black/10"
+												className="relative col-span-1 flex flex-col space-y-4 rounded-md bg-white p-6 shadow-sm ring-1 ring-black/10"
 											>
 												{testimonial.logo && (
 													<div className="border-b border-slate-100 pb-4">
@@ -205,7 +204,7 @@ export default async function SelectedServicePage({ params }: Props) {
 							)}
 						</div>
 						<div>
-							<div className="shadow-sm rounded-lg border border-primary bg-primary p-8 lg:sticky lg:top-20">
+							<div className="rounded-lg border border-primary bg-primary p-8 shadow-sm lg:sticky lg:top-20">
 								<h2 className="mb-3 text-pretty text-xl font-bold leading-[1.4] text-white md:mb-4 md:text-2xl">
 									Klar til at få professionel rengøring?
 								</h2>

@@ -9,8 +9,8 @@ export default async function Services() {
 
 	return (
 		<section className="px-[5%] py-8 md:py-12 lg:py-14">
-			<div className="shadow-sm mx-auto max-w-screen-2xl rounded-lg bg-white p-6 px-6 py-8 ring-1 ring-black/5 md:p-8 lg:p-20">
-				<div className="max-w-2xl mx-auto mb-12 w-full text-center md:mb-18 lg:mb-20">
+			<div className="mx-auto max-w-screen-2xl rounded-lg bg-white p-6 px-6 py-8 shadow-sm ring-1 ring-black/5 md:p-8 lg:p-20">
+				<div className="md:mb-18 mx-auto mb-12 w-full max-w-2xl text-center lg:mb-20">
 					<p className="mb-3 font-semibold text-primary md:mb-4">Services</p>
 					<h2 className="mb-5 text-4xl font-bold sm:text-5xl md:mb-6">
 						Oplev vores professionelle rengøringsservice
@@ -21,7 +21,7 @@ export default async function Services() {
 						levere høj kvalitet og pålidelig service.
 					</p>
 				</div>
-				<div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8">
+				<div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-3">
 					{services.map((service) => (
 						<div
 							key={service.slug}

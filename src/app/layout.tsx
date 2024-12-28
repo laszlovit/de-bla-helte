@@ -37,7 +37,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="da">
 			<body className={`${inter.variable} ${outfit.variable} bg-lightGray antialiased`}>
 				{children}
 				<SanityLive />
