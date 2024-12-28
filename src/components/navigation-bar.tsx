@@ -38,7 +38,12 @@ export default function Navbar() {
 				<div className="flex lg:flex-1">
 					<Link href="/" className="-m-1.5 p-1.5">
 						<span className="sr-only">De Blå Helte</span>
-						<img alt="" src="/de-bla-helte-logo.png" className="h-12 w-auto md:h-14" />
+						<img
+							alt=""
+							src="/de-bla-helte-logo.png"
+							fetchPriority="high"
+							className="h-12 w-auto md:h-14"
+						/>
 					</Link>
 				</div>
 				<div className="flex lg:hidden">
@@ -53,20 +58,20 @@ export default function Navbar() {
 				</div>
 				<PopoverGroup className="hidden lg:flex lg:gap-x-12">
 					<Popover className="relative">
-						<PopoverButton className="flex items-center gap-x-1 text-md font-semibold hover:text-primary lg:text-base">
+						<PopoverButton className="text-md flex items-center gap-x-1 font-semibold hover:text-primary lg:text-base">
 							Services
 							<ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
 						</PopoverButton>
 
 						<PopoverPanel
 							transition
-							className="shadow-lg absolute -left-8 top-full z-10 mt-3 w-56 rounded-lg bg-white p-2 ring-1 ring-black/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+							className="absolute -left-8 top-full z-10 mt-3 w-56 rounded-lg bg-white p-2 shadow-lg ring-1 ring-black/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
 						>
 							{services.map((item) => (
 								<Link
 									key={item.name}
 									href={item.href}
-									className="block rounded-lg px-3 py-2 text-md font-semibold hover:text-primary lg:text-base"
+									className="text-md block rounded-lg px-3 py-2 font-semibold hover:text-primary lg:text-base"
 								>
 									{item.name}
 								</Link>
