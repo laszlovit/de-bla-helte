@@ -93,12 +93,29 @@ export default function Hero() {
 						</div>
 						<div className="lg:order-none">
 							<div className="flex size-full items-center justify-center rounded-lg shadow-xl outline-1 -outline-offset-1 outline-black/10">
-								<img
-									src="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=1200&h=1200&auto=format"
-									alt=""
-									fetchPriority="high"
-									className="size-full rounded-lg object-cover"
-								/>
+								<picture className="size-full rounded-lg object-cover">
+									<source
+										media="(max-width: 767px)"
+										srcSet="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=600&h=600&auto=format"
+									/>
+									<source
+										media="(min-width: 768px) and (max-width: 1023px)"
+										srcSet="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=900&h=900&auto=format"
+									/>
+									<source
+										media="(min-width: 1024px) and (max-width: 1439px)"
+										srcSet="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=1200&h=1200&auto=format"
+									/>
+									<source
+										media="(min-width: 1440px)"
+										srcSet="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=1500&h=1500&auto=format"
+									/>
+									<img
+										src="https://cdn.sanity.io/images/11915si6/production/b2effd8e613a3da3ee83aa5d47e5b50174ceff1b-1505x1004.jpg?fit=max&w=1200&h=1200&auto=format"
+										alt=""
+										className="size-full rounded-lg object-cover"
+									/>
+								</picture>
 							</div>
 						</div>
 						<div className="order-last flex w-full flex-col justify-between rounded-lg bg-white ring-1 ring-black/5 lg:order-none">
