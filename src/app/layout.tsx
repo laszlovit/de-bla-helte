@@ -14,7 +14,6 @@ const outfit = Outfit({
 	subsets: ["latin"],
 	variable: "--font-outfit",
 	display: "swap",
-	preload: true,
 });
 
 export const metadata: Metadata = {

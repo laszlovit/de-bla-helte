@@ -37,6 +37,7 @@ h6 {
 		transform: translateX(-100%);
 	}
 }
+
 .animate-loop-horizontally {
 	animation: loop-horizontally 20s linear infinite;
 	-webkit-transform: translateZ(0); /* Safari hack */
