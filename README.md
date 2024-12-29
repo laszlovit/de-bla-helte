@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# De Blå Helte Website - Technical Documentation
 
-## Getting Started
+This document provides technical details for developers working on the De Blå Helte website. It outlines the project structure, technologies used, and key development considerations.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Project Overview](#project-overview)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Development Workflow](#development-workflow)
+- [Coding Conventions](#coding-conventions)
+- [Deployment](#deployment)
+- [Environment Variables](#environment-variables)
+- [API Documentation](#api-documentation)
+- [Run Locally](#run-locally)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is the redesigned and developed website for De Blå Helte, a cleaning company in Esbjerg, Denmark. The website is built using a JAMstack approach, leveraging a headless CMS (Sanity), a React framework (Next.js), and a serverless deployment platform (Vercel).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technology Stack
 
-## Learn More
+- **Sanity:** Headless CMS for content management.
+- **Next.js:** React framework for building performant and scalable web applications.
+- **Vercel:** Hosting platform optimized for JAMstack deployments.
+- **GitHub:** Version control system for collaboration and code management.
+- **TypeScript:** Programming language for type safety and improved code maintainability.
+- **Tailwind CSS:** Utility-first CSS framework for rapid UI development.
+- **GROQ:** Sanity's query language for fetching and filtering content.
 
-To learn more about Next.js, take a look at the following resources:
+## Development Workflow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Branching:** Create a new branch for each feature or bug fix.
+2. **Development:** Develop and test your code on your branch.
+3. **Commits:** Commit your changes with clear and descriptive messages.
+4. **Pull Request:** Create a pull request to merge your branch into the main branch.
+5. **Review:** Code review and approval by other developers.
+6. **Merge:** Merging is done only by owner of the repo.
+7. **Deployment:** Vercel automatically deploys the updated code to production.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Coding Conventions
 
-## Deploy on Vercel
+- **Follow the Airbnb JavaScript Style Guide:** Use a linter (e.g., ESLint) to enforce consistent code style.
+- **Write clear and concise code:** Use meaningful variable and function names.
+- **Add comments to explain complex logic:** Document your code for future maintainability.
+- **Use TypeScript effectively:** Leverage type annotations for better code organization and error prevention.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The website is automatically deployed to Vercel upon merging changes to the `main` or `staging` branch. Vercel handles the build process and serves the website.
+
+## Environment Variables
+
+Sensitive information, such as API keys and database credentials, are stored as environment variables in the Vercel project settings.
+
+## API Documentation
+
+- **Sanity Content Delivery API:** Used to fetch content from the Sanity Content Lake. Refer to the [Sanity documentation](https://www.sanity.io/docs/content-delivery-api) for details on GROQ queries and API usage.
+- **Sanity Image API:** Used for image optimization and transformations. See the [Sanity Image API documentation](https://www.sanity.io/docs/image-api) for details.
+
+## Run Locally
+
+1. Add a `.env.local` file in the root directory with the following environment variables: `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_API_READ_TOKEN`, and `NEXT_PUBLIC_SANITY_PROJECT_ID`.
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
+4. Open [http://localhost:3000](http://localhost:3000) to view the website in your browser.
