@@ -28,6 +28,14 @@ This project is the redesigned and developed website for De Blå Helte, a cleani
 - **Tailwind CSS:** Utility-first CSS framework for rapid UI development.
 - **GROQ:** Sanity's query language for fetching and filtering content.
 
+## Project Structure
+
+The project follows a structured folder hierarchy to organize the codebase effectively:
+
+- **src/app/**: Contains the main application logic and entry points.
+- **src/components/**: Contains reusable UI components.
+- **src/sanity/**: Contains configurations and utilities for interacting with the Sanity CMS.
+
 ## Development Workflow
 
 1. **Branching:** Create a new branch for each feature or bug fix.
@@ -35,7 +43,7 @@ This project is the redesigned and developed website for De Blå Helte, a cleani
 3. **Commits:** Commit your changes with clear and descriptive messages.
 4. **Pull Request:** Create a pull request to merge your branch into the main branch.
 5. **Review:** Code review and approval by other developers.
-6. **Merge:** Merging is done only by owner of the repo.
+6. **Merge:** Merging is done only by the owner of the repo.
 7. **Deployment:** Vercel automatically deploys the updated code to production.
 
 ## Coding Conventions
@@ -44,6 +52,7 @@ This project is the redesigned and developed website for De Blå Helte, a cleani
 - **Write clear and concise code:** Use meaningful variable and function names.
 - **Add comments to explain complex logic:** Document your code for future maintainability.
 - **Use TypeScript effectively:** Leverage type annotations for better code organization and error prevention.
+- **File Naming:** Use kebab-case for file names to maintain consistency and readability.
 
 ## Deployment
 
@@ -57,6 +66,7 @@ Sensitive information, such as API keys and database credentials, are stored as 
 
 - **Sanity Content Delivery API:** Used to fetch content from the Sanity Content Lake. Refer to the [Sanity documentation](https://www.sanity.io/docs/content-delivery-api) for details on GROQ queries and API usage.
 - **Sanity Image API:** Used for image optimization and transformations. See the [Sanity Image API documentation](https://www.sanity.io/docs/image-api) for details.
+- **Sanity Live Content API:** Used for real-time content updates. Refer to the [Sanity Live Content API documentation](https://www.sanity.io/docs/live-content-api) for details.
 
 ## Run Locally
 
