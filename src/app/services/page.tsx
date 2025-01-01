@@ -34,6 +34,9 @@ async function Services() {
 									</Link>
 								</h3>
 								<p className="line-clamp-3">{service.excerpt}</p>
+								<p className="mt-6 text-sm/6 font-semibold text-primary">
+									Lære mere <span aria-hidden="true">→</span>
+								</p>
 							</div>
 						</div>
 					))}
